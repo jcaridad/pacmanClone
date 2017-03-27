@@ -16,6 +16,7 @@
 class Pacman : public Character{
     
 public:
+    Pacman(sf::Texture& texture);
     void die();
     bool isDead() const;
 private:

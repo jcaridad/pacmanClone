@@ -19,7 +19,9 @@ Game::Game()
     if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
         throw runtime_error("Unable to load the font file");
     }
-    
+    if(!m_gameLogo.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/PacManLogo.png")){
+        throw runtime_error("Unable to load the font file");
+    }
     
     m_gameStates[GameState::noCoin] = new NoCoinState(this);
     m_gameStates[GameState::getReady] = new GetReadyState(this);
@@ -37,6 +39,9 @@ Game::~Game(){
 }
 
 void Game::run(){
+    
+    sf::Clock frameClock;
+    
     while(m_window.isOpen()){
         sf::Event event;
         while(m_window.pollEvent(event)){
@@ -65,7 +70,7 @@ void Game::run(){
                 }
             }
         }
-        m_currentState->update(sf::seconds(1));
+        m_currentState->update(frameClock.restart());
         m_window.clear();
         m_currentState->draw(m_window);
         m_window.display();
@@ -78,3 +83,15 @@ void Game::changeGameState(GameState:: State gameState){
     m_currentState = m_gameStates[gameState];
 }
 
+
+sf::Font& Game::getFont(){
+    return m_gameFont;
+}
+
+sf::Texture& Game::getLogo(){
+    return m_gameLogo;
+}
+
+sf::Texture& Game::getTexture(){
+    return m_gameSprites;
+}

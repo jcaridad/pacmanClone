@@ -9,7 +9,7 @@
 #include "ghost.hpp"
 
 
-Ghost::Ghost(sf::Texture& texture)
+Ghost::Ghost(sf::Texture& texture, Pacman* pacman)
 :m_visual(texture)
 ,m_isWeak(false)
 ,m_weakStateTimer(sf::Time::Zero){
@@ -25,3 +25,10 @@ void Ghost::setWeak(sf::Time duration){
 bool Ghost::isWeak() const{
     return m_isWeak;
 }
+
+void Ghost::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+    states.transform *= getTransform();
+    target.draw(m_visual, states);
+}
+
+ 

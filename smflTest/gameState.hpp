@@ -50,6 +50,24 @@ public:
     void update(sf::Time delta);
     void draw(sf::RenderWindow& window);
 
+private:
+    sf::Text m_text;
+    sf::Sprite m_logoSprite;
+    
+    bool m_displayText;
+};
+
+class GetReadyState : public GameState{
+public:
+    GetReadyState(Game* game);
+    void insertCoin();
+    void pressButton();
+    void moveStick(sf::Vector2i direction);
+    void update(sf::Time delta);
+    void draw(sf::RenderWindow& window);
+    
+private:
+    sf::Text m_text;
 };
 
 class WonState : public GameState{
@@ -61,6 +79,9 @@ public:
     void update(sf::Time delta);
     void draw(sf::RenderWindow& window);
     
+private:
+    sf::Text m_text;
+    
 };
 
 class LostState : public GameState{
@@ -71,6 +92,11 @@ public:
     void moveStick(sf::Vector2i direction);
     void update(sf::Time delta);
     void draw(sf::RenderWindow& window);
+    
+private:
+    sf::Text m_text;
+    sf::Time m_countDown;
+    sf::Text m_countDownTxt;
     
 };
 
@@ -85,14 +111,5 @@ public:
     
 };
 
-class GetReadyState : public GameState{
-public:
-    GetReadyState(Game* game);
-    void insertCoin();
-    void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
-    
-};
+
 #endif /* gameState_hpp */

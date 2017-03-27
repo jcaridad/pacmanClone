@@ -30,6 +30,8 @@ private:
     bool m_isWeak;
     sf::Time m_weakStateTimer;
     sf::Sprite m_visual;
+    
+    
 };
 
 #endif /* ghost_hpp */

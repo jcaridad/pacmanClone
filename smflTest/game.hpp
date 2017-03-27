@@ -24,6 +24,10 @@ public:
     
     void run();
     
+    sf::Font& getFont();
+    sf::Texture& getLogo();
+    sf::Texture& getTexture();
+    
     void changeGameState(GameState::State gameState);
 
 
