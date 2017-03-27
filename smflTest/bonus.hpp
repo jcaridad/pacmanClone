@@ -11,4 +11,24 @@
 
 #include <stdio.h>
 
+#include <SFML/Graphics.hpp>
+
+class Bonus : public sf::Drawable, public sf::Transformable{
+    
+public:
+    
+    enum Fruit{
+        Cherry,
+        Apple,
+        Orange
+    };
+    
+    Bonus(sf::Texture& Texture);
+    void setFruit(Fruit fruit);
+    
+private:
+    sf::Sprite m_visual;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    
+};
 #endif /* bonus_hpp */

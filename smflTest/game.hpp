@@ -10,6 +10,8 @@
 #define game_hpp
 
 #include <iostream>
+#include <SFML/Graphics.hpp>
+#include <array>
 
 
 #include "gameState.hpp"
@@ -18,13 +20,21 @@ class Game{
 public:
 
     Game();
+    ~Game();
     
     void run();
     
     void changeGameState(GameState::State gameState);
+
+
 private:
     sf::RenderWindow m_window;
     GameState* m_currentState;
+    std::array<GameState*, GameState::Count> m_gameStates;
+    
+    sf::Font m_gameFont;
+    sf::Texture m_gameLogo;
+    sf::Texture m_gameSprites;
 };
 
 #endif /* game_hpp */

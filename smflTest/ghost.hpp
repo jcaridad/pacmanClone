@@ -11,4 +11,25 @@
 
 #include <stdio.h>
 
+#include "character.hpp"
+#include "pacman.hpp"
+
+class Ghost: public Character{
+public:
+    enum State{
+        Strong,
+        Weak
+    };
+    
+    Ghost(sf::Texture& texture, Pacman* pacman);
+    void setWeak(sf::Time duration);
+    bool isWeak() const;
+private:
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    
+    bool m_isWeak;
+    sf::Time m_weakStateTimer;
+    sf::Sprite m_visual;
+};
+
 #endif /* ghost_hpp */

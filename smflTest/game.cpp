@@ -9,15 +9,32 @@
 #include "game.hpp"
 #include <iostream>
 
-#include <SFML/Graphics.hpp>
+
 
 using namespace std;
 
 Game::Game()
-:m_window(sf::VideoMode(448,576), "Pac Man SFML")
-{
+:m_window(sf::VideoMode(448,576), "Pac Man SFML"){
+    
+    if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
+        throw runtime_error("Unable to load the font file");
+    }
+    
+    
+    m_gameStates[GameState::noCoin] = new NoCoinState(this);
+    m_gameStates[GameState::getReady] = new GetReadyState(this);
+    m_gameStates[GameState::Playing] = new PlayingState(this);
+    m_gameStates[GameState::Won] = new WonState(this);
+    m_gameStates[GameState::Lost] = new LostState(this);
+    
+    changeGameState(GameState::noCoin);
 }
 
+Game::~Game(){
+    for(GameState* gameState : m_gameStates){
+        delete gameState;
+    }
+}
 
 void Game::run(){
     while(m_window.isOpen()){
@@ -56,19 +73,8 @@ void Game::run(){
 
 }
 
-//void Game::insertCoin(){
-//    cout<<"Insert Coin!"<<endl;
-//}
-//
-//void Game::pressButton(){
-//    cout<<"Start Button!"<<endl;
-//}
-//
-//void Game::moveStick(sf::Vector2i direction){
-//    cout<<"Move!"<<endl;
-//}
-//
-//void Game::changeGameState(Game:: State gameState){
-//    
-//}
-//
+
+void Game::changeGameState(GameState:: State gameState){
+    m_currentState = m_gameStates[gameState];
+}
+

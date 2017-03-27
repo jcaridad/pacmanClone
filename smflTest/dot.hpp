@@ -9,6 +9,11 @@
 #ifndef dot_hpp
 #define dot_hpp
 
-#include <stdio.h>
+#include <SFML/Graphics.hpp>
+
+sf::CircleShape getDot();
+sf::CircleShape getSuperDot();
+
+
 
 #endif /* dot_hpp */
