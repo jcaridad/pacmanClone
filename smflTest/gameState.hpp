@@ -12,6 +12,9 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 
+#include "pacman.hpp"
+#include "ghost.hpp"
+
 class Game;
 
 class GameState{
@@ -109,6 +112,9 @@ public:
     void update(sf::Time delta);
     void draw(sf::RenderWindow& window);
     
+private:
+    Pacman m_pacMan;
+    Ghost m_ghost;
 };
 
 

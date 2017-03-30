@@ -74,8 +74,11 @@ LostState::LostState(Game* game)
     
 }
 PlayingState::PlayingState(Game* game)
-:GameState(game){
-    
+:GameState(game)
+,m_pacMan(game->getTexture())
+,m_ghost(game->getTexture()){
+    m_pacMan.move(100,200);
+    m_ghost.move(200,200);
 }
 
 Game * GameState::getGame() const{
@@ -182,18 +185,20 @@ void LostState::draw(sf::RenderWindow& window){
 
 //playing state
 void PlayingState::insertCoin(){
-    
+    m_pacMan.die();
 }
 void PlayingState::pressButton(){
-    
+    m_ghost.setWeak(sf::seconds(3));
 }
 void PlayingState::moveStick(sf::Vector2i direction){
     
 }
 void PlayingState::update(sf::Time delta){
-    
+    m_pacMan.update(delta);
+    m_ghost.update(delta);
 }
 void PlayingState::draw(sf::RenderWindow& window){
-    
+    window.draw(m_pacMan);
+    window.draw(m_ghost);
 }
 

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
+#include "animator.hpp"
 #include "character.hpp"
 #include "pacman.hpp"
 
@@ -21,15 +22,20 @@ public:
         Weak
     };
     
-    Ghost(sf::Texture& texture, Pacman* pacman);
+    Ghost(sf::Texture& texture/*, Pacman* pacman*/);
     void setWeak(sf::Time duration);
     bool isWeak() const;
+    
+    void update(sf::Time delta);
 private:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
     bool m_isWeak;
     sf::Time m_weakStateTimer;
     sf::Sprite m_visual;
+    
+    Animator m_strongAnimator;
+    Animator m_weakAnimator;
     
     
 };

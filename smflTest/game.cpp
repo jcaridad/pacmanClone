@@ -22,6 +22,9 @@ Game::Game()
     if(!m_gameLogo.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/PacManLogo.png")){
         throw runtime_error("Unable to load the font file");
     }
+    if(!m_gameSprites.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/texture2.png")){
+        throw runtime_error("Unable to load spritesheet");
+    }
     
     m_gameStates[GameState::noCoin] = new NoCoinState(this);
     m_gameStates[GameState::getReady] = new GetReadyState(this);
