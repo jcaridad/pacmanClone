@@ -83,6 +83,23 @@ PlayingState::PlayingState(Game* game)
     m_maze.loadLevel("original");
     m_pacMan = new Pacman(game->getTexture());
     m_pacMan->setMaze(&m_maze);
+    m_pacMan->setPosition(m_maze.mapCellToPixel(m_maze.getPacManPosition()));
+    
+    for(auto ghostPosition : m_maze.getGhostPositions()){
+        Ghost* ghost = new Ghost(game->getTexture());
+        ghost->setMaze(&m_maze);
+        ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
+        
+        m_ghosts.push_back(ghost);
+    }
+}
+
+PlayingState::~PlayingState(){
+    delete m_pacMan;
+    
+    for(Ghost* ghost : m_ghosts){
+        delete ghost;
+    }
 }
 
 Game * GameState::getGame() const{
@@ -189,21 +206,28 @@ void LostState::draw(sf::RenderWindow& window){
 
 //playing state
 void PlayingState::insertCoin(){
-    m_pacMan.die();
+    //m_pacMan.die();
 }
 void PlayingState::pressButton(){
-    m_ghost.setWeak(sf::seconds(3));
+    //m_ghost.setWeak(sf::seconds(3));
 }
 void PlayingState::moveStick(sf::Vector2i direction){
     
 }
 void PlayingState::update(sf::Time delta){
-    m_pacMan.update(delta);
-    m_ghost.update(delta);
+    m_pacMan->update(delta);
+    for(Ghost* ghost : m_ghosts){
+        ghost->update(delta);
+    }
 }
 void PlayingState::draw(sf::RenderWindow& window){
-    window.draw(m_pacMan);
-    window.draw(m_ghost);
     window.draw(m_maze);
+    
+    window.draw(*m_pacMan);
+    
+    for(Ghost* ghost : m_ghosts){
+        window.draw(*ghost);
+    }
+    
 }
 

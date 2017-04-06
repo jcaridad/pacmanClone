@@ -37,6 +37,7 @@
 		4E2EE8251E822FEF0091A1F7 /* bonus.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bonus.hpp; sourceTree = "<group>"; };
 		4E63D6061E6E1C13008132CB /* gameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameState.cpp; sourceTree = "<group>"; };
 		4E63D6071E6E1C13008132CB /* gameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = gameState.hpp; sourceTree = "<group>"; };
+		4E83F48B1E95F8A9008276F5 /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 		4EDA1D141E89700800323F19 /* animator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animator.cpp; sourceTree = "<group>"; };
 		4EDA1D151E89700800323F19 /* animator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animator.hpp; sourceTree = "<group>"; };
 		4EDA1D171E8B708400323F19 /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture2.png; path = assets/texture2.png; sourceTree = "<group>"; };
@@ -84,9 +85,10 @@
 				4E2EE81B1E822FC40091A1F7 /* pacman.cpp */,
 				4E2EE81C1E822FC40091A1F7 /* pacman.hpp */,
 				4E2EE81E1E822FD30091A1F7 /* ghost.cpp */,
-				4EDA1D191E8B750000323F19 /* maze.cpp */,
-				4EDA1D1A1E8B750000323F19 /* maze.hpp */,
 				4E2EE81F1E822FD30091A1F7 /* ghost.hpp */,
+				4EDA1D191E8B750000323F19 /* maze.cpp */,
+				4E83F48B1E95F8A9008276F5 /* define.h */,
+				4EDA1D1A1E8B750000323F19 /* maze.hpp */,
 				4E2EE8211E822FE20091A1F7 /* dot.cpp */,
 				4E2EE8221E822FE20091A1F7 /* dot.hpp */,
 				4E2EE8241E822FEF0091A1F7 /* bonus.cpp */,

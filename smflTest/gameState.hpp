@@ -107,6 +107,7 @@ private:
 class PlayingState : public GameState{
 public:
     PlayingState(Game* game);
+    ~PlayingState();
     void insertCoin();
     void pressButton();
     void moveStick(sf::Vector2i direction);

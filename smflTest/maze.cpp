@@ -8,7 +8,8 @@
 
 #include "maze.hpp"
 #include "dot.hpp"
-
+#include "define.h"
+#include <cmath>
 
 using namespace std;
 
@@ -57,7 +58,7 @@ void Maze::loadLevel(string fileName){
         }
     }
     
-    m_renderTexture.create(16 *m_mazeSize.x, 16*m_mazeSize.y);
+    m_renderTexture.create(CELLSIZE_W * m_mazeSize.x, CELLSIZE_H * m_mazeSize.y);
     m_renderTexture.clear(sf::Color::Black);
     
     m_renderTexture.display();
@@ -67,9 +68,9 @@ void Maze::loadLevel(string fileName){
     
         if(m_mazeData[i] == Wall){
             sf::RectangleShape wall;
-            wall.setSize(sf::Vector2f(16,16));
+            wall.setSize(sf::Vector2f(CELLSIZE_W,CELLSIZE_H));
             wall.setFillColor(sf::Color::Blue);
-            wall.setPosition(16*position.x, 16*position.y);
+            wall.setPosition(CELLSIZE_W*position.x, CELLSIZE_H*position.y);
             m_renderTexture.draw(wall);
         }
     }
@@ -84,11 +85,11 @@ void Maze::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     for(unsigned int i = 0; i < m_mazeData.size(); i++){
         sf::Vector2i position = indexToPosition(i);
         if(m_mazeData[i] == Dot){
-            dot.setPosition(16*position.x + 8, 16*position.y + 8);
+            dot.setPosition(CELLSIZE_W*position.x + 8, CELLSIZE_H*position.y + 8);
             target.draw(dot,states);
         }
         else if(m_mazeData[i] == SuperDot){
-            superDot.setPosition(16*position.x + 8, 16*position.y + 8);
+            superDot.setPosition(CELLSIZE_W*position.x + 8, CELLSIZE_H*position.y + 8);
             target.draw(superDot, states);
         }
     }
@@ -119,4 +120,19 @@ sf::Vector2i Maze::indexToPosition(size_t index) const{
     position.y = index / m_mazeSize.x;
     
     return position;
+}
+
+sf::Vector2i Maze::mapPixelToCell(sf::Vector2f pixel) const{
+    sf::Vector2i cell;
+    cell.x = floor(pixel.x / 32.f);
+    cell.y = floor(pixel.y / 32.f);
+    
+    return cell;
+}
+sf::Vector2f Maze::mapCellToPixel(sf::Vector2i cell) const{
+    sf::Vector2f pixel;
+    pixel.x = cell.x * CELLSIZE_W + 8;
+    pixel.y = cell.y * CELLSIZE_H + 8;
+    
+    return pixel;
 }

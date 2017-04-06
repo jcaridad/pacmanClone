@@ -14,17 +14,19 @@ Pacman::Pacman(sf::Texture& texture)
 ,m_isDying(false){
     //set origin depending on sprite size
     setOrigin(20, 20);
+    //scale sprites
+    setScale(0.50, 0.50);
     
-    m_runAnimator.addFrame(sf::IntRect(0, 32, 40, 40));
+    //m_runAnimator.addFrame(sf::IntRect(0, 32, 40, 40));
     m_runAnimator.addFrame(sf::IntRect(0, 72, 40, 40));
     
-    m_dieAnimator.addFrame(sf::IntRect(0, 32, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(0, 72, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(0, 112, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(40, 112, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(80, 112, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(120, 112, 40, 40));
-    m_dieAnimator.addFrame(sf::IntRect(160, 112, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(0, 32, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(0, 72, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(0, 112, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(40, 112, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(80, 112, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(120, 112, 40, 40));
+//    m_dieAnimator.addFrame(sf::IntRect(160, 112, 40, 40));
     
     m_runAnimator.play(sf::seconds(0.25), true);
 }
@@ -61,7 +63,7 @@ void Pacman::update(sf::Time delta){
     }
     else
     {
-        m_dieAnimator.update(delta);
+        //m_dieAnimator.update(delta);
         m_dieAnimator.animate(m_visual);
         
         if (!m_dieAnimator.isPlaying())
