@@ -19,7 +19,7 @@ Game::Game()
     if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
         throw runtime_error("Unable to load the font file");
     }
-    if(!m_gameLogo.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/PacManLogo.png")){
+    if(!m_gameLogo.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/quackman.png")){
         throw runtime_error("Unable to load the font file");
     }
     if(!m_gameSprites.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/texture2.png")){

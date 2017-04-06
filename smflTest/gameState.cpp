@@ -27,7 +27,7 @@ NoCoinState::NoCoinState(Game* game)
 :GameState(game){
     m_logoSprite.setTexture(game->getLogo());
     m_logoSprite.setScale(.50, .50);
-    m_logoSprite.setPosition(40, 50);
+    m_logoSprite.setPosition(50, 50);
     
     m_text.setFont(game->getFont());
     m_text.setCharacterSize(15);
@@ -75,10 +75,14 @@ LostState::LostState(Game* game)
 }
 PlayingState::PlayingState(Game* game)
 :GameState(game)
-,m_pacMan(game->getTexture())
-,m_ghost(game->getTexture()){
-    m_pacMan.move(100,200);
-    m_ghost.move(200,200);
+//,m_pacMan(game->getTexture())
+//,m_ghost(game->getTexture())
+,m_pacMan(nullptr){
+//    m_pacMan.move(100,200);
+//    m_ghost.move(200,200);
+    m_maze.loadLevel("original");
+    m_pacMan = new Pacman(game->getTexture());
+    m_pacMan->setMaze(&m_maze);
 }
 
 Game * GameState::getGame() const{
@@ -200,5 +204,6 @@ void PlayingState::update(sf::Time delta){
 void PlayingState::draw(sf::RenderWindow& window){
     window.draw(m_pacMan);
     window.draw(m_ghost);
+    window.draw(m_maze);
 }
 

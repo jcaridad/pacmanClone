@@ -14,6 +14,7 @@
 
 #include "pacman.hpp"
 #include "ghost.hpp"
+#include "maze.hpp"
 
 class Game;
 
@@ -113,8 +114,10 @@ public:
     void draw(sf::RenderWindow& window);
     
 private:
-    Pacman m_pacMan;
-    Ghost m_ghost;
+    Pacman* m_pacMan;
+    vector<Ghost*> m_ghosts;
+    //Ghost m_ghost;
+    Maze m_maze;
 };
 
 

@@ -12,9 +12,9 @@
 sf::CircleShape getDot(){
     sf::CircleShape dot;
     
-    dot.setRadius(4);
+    dot.setRadius(2);
     dot.setFillColor(sf::Color::White);
-    dot.setOrigin(2, 2);
+    dot.setOrigin(1, 1);
     
     return dot;
 }
@@ -22,9 +22,9 @@ sf::CircleShape getDot(){
 sf::CircleShape getSuperDot(){
     sf::CircleShape superDot;
     
-    superDot.setRadius(8);
+    superDot.setRadius(4);
     superDot.setFillColor(sf::Color::White);
-    superDot.setOrigin(4, 4);
+    superDot.setOrigin(2, 2);
     
     return superDot;
 }

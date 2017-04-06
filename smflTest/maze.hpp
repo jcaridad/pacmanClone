@@ -19,7 +19,12 @@ public:
     
     Maze();
     void loadLevel(string fileName);
+    sf::Vector2i getSize() const;
+    sf::Vector2i getPacManPosition() const;
+    vector<sf::Vector2i> getGhostPositions() const;
     
+    inline size_t positionToIndex(sf::Vector2i position) const;
+    inline sf::Vector2i indexToPosition(size_t index) const;
 private:
     
     enum cellData{
@@ -32,7 +37,9 @@ private:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
     sf::Vector2i m_mazeSize;
-    std::vector<cellData> m_mazeData;
+    vector<cellData> m_mazeData;
+    sf::Vector2i m_pacManPosition;
+    vector<sf::Vector2i> m_ghostPositions;
     
     sf::RenderTexture m_renderTexture;
 };
