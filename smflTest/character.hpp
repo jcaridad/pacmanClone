@@ -24,12 +24,18 @@ public:
     void setMaze(Maze* maze);
     void setSpeed(float speed);
     float getSpeed() const;
+    bool willMove() const;
     
+protected:
+    virtual void changeDirection(){};
 private:
     float m_speed;
     Maze* m_maze;
     sf::Vector2i m_currentDirection;
     sf::Vector2i m_nextDirection;
+    
+    sf::Vector2i m_prevIntersection;
+    array<bool, 4> m_availableDirections;
     
 };
 

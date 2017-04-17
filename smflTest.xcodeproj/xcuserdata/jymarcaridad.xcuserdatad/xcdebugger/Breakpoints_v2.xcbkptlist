@@ -104,7 +104,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/game.cpp"
-            timestampString = "512454714.667155"
+            timestampString = "513483298.376635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -120,12 +120,359 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/maze.cpp"
-            timestampString = "513146493.539074"
+            timestampString = "513482000.328079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "Maze::loadLevel(string fileName)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/maze.cpp"
+            timestampString = "513804222.863156"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "Maze::isWall(sf::Vector2i position)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/character.hpp"
+            timestampString = "513151954.312376"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ghost::Ghost(sf::Texture&amp;)"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.077947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "327">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ghost::~Ghost()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.081481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ghost::~Ghost()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.085005"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Ghost::~Ghost()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.088358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "78">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Ghost::~Ghost()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.091598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pacman::Pacman(sf::Texture&amp;)"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.094831"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "255">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pacman::~Pacman()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.098257"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pacman::~Pacman()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.101449"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Pacman::~Pacman()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.104748"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "78">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Pacman::~Pacman()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.107968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Character::~Character()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.111112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Character::~Character()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.114187"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "9">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Character::~Character()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.117202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Character::~Character()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.1202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Character::~Character()"
+                  moduleName = "smflTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jymarcaridad/ClassCodes/smflTest/smflTest/character.hpp"
+                  timestampString = "513185230.123198"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/character.hpp"
+            timestampString = "513185262.469048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/character.hpp"
+            timestampString = "513185265.136776"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/character.hpp"
+            timestampString = "513185266.636739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/game.cpp"
+            timestampString = "513529597.370434"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "Game::run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/maze.cpp"
+            timestampString = "513804222.863156"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "Maze::indexToPosition(size_t index)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/maze.cpp"
+            timestampString = "513804222.863156"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "Maze::indexToPosition(size_t index)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

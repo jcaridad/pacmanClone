@@ -61,17 +61,22 @@ void Game::run(){
                 }
                 if(event.key.code == sf::Keyboard::Left){
                     m_currentState->moveStick(sf::Vector2i(-1, 0));
+                    cout<<"L"<<endl;
                 }
                 if(event.key.code == sf::Keyboard::Right){
                     m_currentState->moveStick(sf::Vector2i(1, 0));
+                    cout<<"R"<<endl;
                 }
                 if(event.key.code == sf::Keyboard::Up){
                     m_currentState->moveStick(sf::Vector2i(0, -1));
+                    cout<<"U"<<endl;
                 }
                 if(event.key.code == sf::Keyboard::Down){
                     m_currentState->moveStick(sf::Vector2i(0, 1));
+                    cout<<"D"<<endl;
                 }
             }
+            
         }
         m_currentState->update(frameClock.restart());
         m_window.clear();

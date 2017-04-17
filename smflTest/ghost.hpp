@@ -10,6 +10,7 @@
 #define ghost_hpp
 
 #include <stdio.h>
+#include <cmath>
 
 #include "animator.hpp"
 #include "character.hpp"
@@ -22,16 +23,21 @@ public:
         Weak
     };
     
-    Ghost(sf::Texture& texture/*, Pacman* pacman*/);
+    Ghost(sf::Texture& texture, Pacman* pacman);
     void setWeak(sf::Time duration);
     bool isWeak() const;
     
     void update(sf::Time delta);
+    
+protected:
+    void changeDirection();
 private:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
     bool m_isWeak;
     sf::Time m_weakStateTimer;
+    
+    Pacman* m_pacMan;
     sf::Sprite m_visual;
     
     Animator m_strongAnimator;

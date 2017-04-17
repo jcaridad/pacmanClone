@@ -17,7 +17,7 @@ using namespace std;
 class Maze : public sf::Drawable{
 public:
     
-    Maze();
+    Maze(sf::Texture& texture);
     void loadLevel(string fileName);
     sf::Vector2i getSize() const;
     sf::Vector2i getPacManPosition() const;
@@ -29,6 +29,8 @@ public:
     sf::Vector2i mapPixelToCell(sf::Vector2f pixel) const;
     sf::Vector2f mapCellToPixel(sf::Vector2i cell) const;
     
+    bool isWall(sf::Vector2i position) const;
+    bool isTunnel(sf::Vector2i position) const;
 private:
     
     enum cellData{
@@ -36,6 +38,7 @@ private:
         Wall,
         Dot,
         SuperDot,
+        Tunnel,
         Bonus
     };
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -44,8 +47,9 @@ private:
     vector<cellData> m_mazeData;
     sf::Vector2i m_pacManPosition;
     vector<sf::Vector2i> m_ghostPositions;
-    
     sf::RenderTexture m_renderTexture;
+    
+    sf::Texture& m_texture;
 };
 
 #endif /* maze_hpp */

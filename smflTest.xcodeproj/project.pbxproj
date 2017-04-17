@@ -15,6 +15,8 @@
 		4E2EE8231E822FE20091A1F7 /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E2EE8211E822FE20091A1F7 /* dot.cpp */; };
 		4E2EE8261E822FEF0091A1F7 /* bonus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E2EE8241E822FEF0091A1F7 /* bonus.cpp */; };
 		4E63D6081E6E1C13008132CB /* gameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E63D6061E6E1C13008132CB /* gameState.cpp */; };
+		4E83F48D1E969C6E008276F5 /* original.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E83F48C1E969C6E008276F5 /* original.png */; };
+		4E83F48F1E969C7A008276F5 /* quackman.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E83F48E1E969C7A008276F5 /* quackman.png */; };
 		4EDA1D161E89700800323F19 /* animator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D141E89700800323F19 /* animator.cpp */; };
 		4EDA1D181E8B708400323F19 /* texture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA1D171E8B708400323F19 /* texture2.png */; };
 		4EDA1D1B1E8B750000323F19 /* maze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D191E8B750000323F19 /* maze.cpp */; };
@@ -38,6 +40,8 @@
 		4E63D6061E6E1C13008132CB /* gameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameState.cpp; sourceTree = "<group>"; };
 		4E63D6071E6E1C13008132CB /* gameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = gameState.hpp; sourceTree = "<group>"; };
 		4E83F48B1E95F8A9008276F5 /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		4E83F48C1E969C6E008276F5 /* original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = original.png; path = assets/levels/original.png; sourceTree = "<group>"; };
+		4E83F48E1E969C7A008276F5 /* quackman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quackman.png; path = assets/quackman.png; sourceTree = "<group>"; };
 		4EDA1D141E89700800323F19 /* animator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animator.cpp; sourceTree = "<group>"; };
 		4EDA1D151E89700800323F19 /* animator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animator.hpp; sourceTree = "<group>"; };
 		4EDA1D171E8B708400323F19 /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture2.png; path = assets/texture2.png; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		4EF1BED61E6D1DDA001053EE /* smflTest */ = {
 			isa = PBXGroup;
 			children = (
+				4E83F48B1E95F8A9008276F5 /* define.h */,
 				4EDA1D141E89700800323F19 /* animator.cpp */,
 				4EDA1D151E89700800323F19 /* animator.hpp */,
 				4E2EE8181E822FAE0091A1F7 /* character.cpp */,
@@ -87,7 +92,6 @@
 				4E2EE81E1E822FD30091A1F7 /* ghost.cpp */,
 				4E2EE81F1E822FD30091A1F7 /* ghost.hpp */,
 				4EDA1D191E8B750000323F19 /* maze.cpp */,
-				4E83F48B1E95F8A9008276F5 /* define.h */,
 				4EDA1D1A1E8B750000323F19 /* maze.hpp */,
 				4E2EE8211E822FE20091A1F7 /* dot.cpp */,
 				4E2EE8221E822FE20091A1F7 /* dot.hpp */,
@@ -115,6 +119,8 @@
 		4EF1BEDE1E6D1DDA001053EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E83F48C1E969C6E008276F5 /* original.png */,
+				4E83F48E1E969C7A008276F5 /* quackman.png */,
 				4EDA1D171E8B708400323F19 /* texture2.png */,
 				4E1D06801E806BB900725958 /* font.ttf */,
 			);
@@ -148,7 +154,7 @@
 		4EF1BECB1E6D1DDA001053EE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = jcaridad;
 				TargetAttributes = {
 					4EF1BED31E6D1DDA001053EE = {
@@ -179,7 +185,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E83F48F1E969C7A008276F5 /* quackman.png in Resources */,
 				4EDA1D181E8B708400323F19 /* texture2.png in Resources */,
+				4E83F48D1E969C6E008276F5 /* original.png in Resources */,
 				4E1D06811E806BB900725958 /* font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,14 +234,31 @@
 		4EF1BEE71E6D1DDA001053EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -243,6 +268,7 @@
 					"$(inherited)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"$(SFML_SYSTEM)",
@@ -270,14 +296,30 @@
 		4EF1BEE81E6D1DDA001053EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
@@ -316,6 +358,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smflTest/smflTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jcaridad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -325,6 +368,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = "smflTest/smflTest-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jcaridad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
