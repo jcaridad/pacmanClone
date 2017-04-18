@@ -10,6 +10,7 @@
 #include "dot.hpp"
 #include "define.h"
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -216,10 +217,39 @@ bool Maze::isWall(sf::Vector2i position) const{
     }
     return m_mazeData[positionToIndex(position)] == Wall;
 }
-
+/*
 bool Maze::isTunnel(sf::Vector2i position) const{
     if(position.x < 0 || position.y < 0 || position.x >= m_mazeSize.x || position.y >= m_mazeSize.y){
         return false;
     }
     return m_mazeData[positionToIndex(position)] == Tunnel;
+}
+*/
+
+bool Maze::isDot(sf::Vector2i position) const{
+    return m_mazeData[positionToIndex(position)] == Dot;
+}
+
+bool Maze::isSuperDot(sf::Vector2i position) const{
+    return m_mazeData[positionToIndex(position)] == SuperDot;
+}
+
+bool Maze::isBonus(sf::Vector2i position) const{
+    return m_mazeData[positionToIndex(position)] == Bonus;
+}
+
+void Maze::pickObject(sf::Vector2i position){
+    assert(!isWall(position));
+    m_mazeData[positionToIndex(position)] = Empty;
+}
+
+int Maze::getRemainingDots() const{
+    int remainingDots = 0;
+    
+    for(unsigned int i = 0; i < m_mazeData.size(); i++){
+        if(m_mazeData[i] == Dot || m_mazeData[i] == SuperDot){
+            remainingDots++;
+        }
+    }
+    return remainingDots;
 }

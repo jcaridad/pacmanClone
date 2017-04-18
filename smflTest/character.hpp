@@ -24,7 +24,10 @@ public:
     void setMaze(Maze* maze);
     void setSpeed(float speed);
     float getSpeed() const;
+    
     bool willMove() const;
+    
+    sf::FloatRect getCollision() const;
     
 protected:
     virtual void changeDirection(){};

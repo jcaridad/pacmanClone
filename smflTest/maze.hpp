@@ -30,7 +30,14 @@ public:
     sf::Vector2f mapCellToPixel(sf::Vector2i cell) const;
     
     bool isWall(sf::Vector2i position) const;
-    bool isTunnel(sf::Vector2i position) const;
+    //bool isTunnel(sf::Vector2i position) const;
+    bool isDot(sf::Vector2i position) const;
+    bool isSuperDot(sf::Vector2i position) const;
+    bool isBonus(sf::Vector2i position) const;
+    
+    void pickObject(sf::Vector2i position);
+    
+    int getRemainingDots() const; 
 private:
     
     enum cellData{

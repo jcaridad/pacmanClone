@@ -38,8 +38,9 @@ NoCoinState::NoCoinState(Game* game)
     m_displayText = true;
 }
 
-GetReadyState::GetReadyState(Game* game)
-:GameState(game){
+GetReadyState::GetReadyState(Game* game, GameState* playingState)
+:GameState(game)
+,m_playingState(playingState){
     m_text.setFont(game->getFont());
     m_text.setString("    Get Ready!\nPress S to Start!");
     m_text.setCharacterSize(14);
@@ -48,8 +49,9 @@ GetReadyState::GetReadyState(Game* game)
     m_text.setPosition(225, 240);
 }
 
-WonState::WonState(Game* game)
-:GameState(game){
+WonState::WonState(Game* game, GameState* playingState)
+:GameState(game)
+,m_playingState(static_cast<PlayingState*>(playingState)){
     m_text.setFont(game->getFont());
     m_text.setString("You Won!");
     m_text.setCharacterSize(42);
@@ -57,8 +59,9 @@ WonState::WonState(Game* game)
     m_text.setPosition(225, 240);
     
 }
-LostState::LostState(Game* game)
-:GameState(game){
+LostState::LostState(Game* game, GameState* playingState)
+:GameState(game)
+,m_playingState(static_cast<PlayingState*>(playingState)){
     m_text.setFont(game->getFont());
     m_text.setString("You Lost!");
     m_text.setCharacterSize(14);
@@ -78,7 +81,9 @@ PlayingState::PlayingState(Game* game)
 //,m_pacMan(game->getTexture())
 //,m_ghost(game->getTexture())
 ,m_maze(game->getTexture())
-,m_pacMan(nullptr){
+,m_pacMan(nullptr)
+,m_lives(3)
+,m_score(0){
 
     m_maze.loadLevel("original");
     m_pacMan = new Pacman(game->getTexture());
@@ -89,9 +94,34 @@ PlayingState::PlayingState(Game* game)
         Ghost* ghost = new Ghost(game->getTexture(), m_pacMan);
         ghost->setMaze(&m_maze);
         ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
-        ghost->setSpeed(50.f);
+        //ghost->setSpeed(50.f);
         m_ghosts.push_back(ghost);
     }
+    
+    gameOver();
+    
+    m_scoreText.setFont(game->getFont());
+    m_scoreText.setCharacterSize(10);
+    m_scoreText.setPosition(5, 512);
+    
+    m_levelText.setFont(game->getFont());
+    m_levelText.setCharacterSize(10);
+    m_levelText.setPosition(165, 512);
+    m_levelText.setString("level x-y");
+    
+    m_dotsLeft.setFont(game->getFont());
+    m_dotsLeft.setCharacterSize(10);
+    m_dotsLeft.setPosition(285, 512);
+    
+    for(auto& livesLeft : m_livesLeft){
+        livesLeft.setTexture(game->getTexture());
+        livesLeft.setTextureRect(sf::IntRect(122/2, 0, 10, 10));
+    }
+    
+    m_livesLeft[0].setPosition(sf::Vector2f(415, 512));
+    m_livesLeft[1].setPosition(sf::Vector2f(425, 512));
+    m_livesLeft[2].setPosition(sf::Vector2f(435, 512));
+
 }
 
 PlayingState::~PlayingState(){
@@ -133,7 +163,6 @@ void NoCoinState::draw(sf::RenderWindow& window){
     }
 }
 
-
 //get ready state
 void GetReadyState::insertCoin(){
     
@@ -150,9 +179,10 @@ void GetReadyState::moveStick(sf::Vector2i direction){
     }
 }
 void GetReadyState::update(sf::Time delta){
-    
+    m_playingState->update(delta);
 }
 void GetReadyState::draw(sf::RenderWindow& window){
+    m_playingState->draw(window);
     window.draw(m_text);
 }
 
@@ -173,6 +203,7 @@ void WonState::update(sf::Time delta){
     timeBuffer += delta;
     
     if(timeBuffer.asSeconds() > 5){
+        m_playingState->loadNextLvl();
         getGame()->changeGameState(GameState::getReady);
     }
 }
@@ -182,7 +213,10 @@ void WonState::draw(sf::RenderWindow& window){
 
 //lost state
 void LostState::insertCoin(){
+    m_playingState->resetLives();
+    m_playingState->resetLives();
     
+    getGame()->changeGameState(GameState::getReady);
 }
 void LostState::pressButton(){
     
@@ -194,6 +228,7 @@ void LostState::update(sf::Time delta){
     m_countDown += delta;
     
     if(m_countDown.asSeconds() >= 10){
+        m_playingState->gameOver();
         getGame()->changeGameState(GameState::noCoin);
     }
     
@@ -221,16 +256,138 @@ void PlayingState::update(sf::Time delta){
     for(Ghost* ghost : m_ghosts){
         ghost->update(delta);
     }
-
+    
+    sf::Vector2f pixelPosition = m_pacMan->getPosition();
+    sf::Vector2f offset(fmod(pixelPosition.x, 16), fmod(pixelPosition.y, 16));
+    
+    offset-= sf::Vector2f(8,8);
+    
+    if (offset.x <= 2 && offset.x >= -2 && offset.y <= 2 && offset.y >= -2){
+        sf::Vector2i cellPosition = m_maze.mapPixelToCell(pixelPosition);
+        
+        if (m_maze.isDot(cellPosition)){
+            m_score += 5;
+        }
+        else if (m_maze.isSuperDot(cellPosition)){
+            for (Ghost* ghost : m_ghosts){
+                ghost->setWeak(sf::seconds(5));
+            }
+            
+            m_score += 25;
+        }
+        else if (m_maze.isBonus(cellPosition)){
+            m_score += 500;
+        }
+        
+        m_maze.pickObject(cellPosition);
+    }
+    
+    for (Ghost* ghost : m_ghosts){
+        if (ghost->getCollision().intersects(m_pacMan->getCollision())){
+            if (ghost->isWeak()){
+                m_ghosts.erase(std::find(m_ghosts.begin(), m_ghosts.end(), ghost));
+                
+                m_score += 100;
+            }
+            else{
+                m_pacMan->die();
+            }
+        }
+    }
+    
+    if (m_pacMan->isDead()){
+        m_pacMan->reset();
+        
+        m_lives--;
+        
+        if (m_lives < 0)
+            getGame()->changeGameState(GameState::Lost);
+        else
+            resetCharacters();
+        
+    }
+    
+    if(m_maze.getRemainingDots() == 0){
+        getGame()->changeGameState(GameState::Won);
+    }
+    
+    m_scoreText.setString(to_string(m_score));
+    m_dotsLeft.setString(to_string(m_maze.getRemainingDots()) + "x dots");
+    
 }
 void PlayingState::draw(sf::RenderWindow& window){
+    window.clear();
     window.draw(m_maze);
-    
     window.draw(*m_pacMan);
     
     for(Ghost* ghost : m_ghosts){
         window.draw(*ghost);
     }
+
+    window.draw(m_scoreText);
+    window.draw(m_levelText);
+    window.draw(m_dotsLeft);
+    
+    for(unsigned int i = 0; i < m_lives; i++){
+        window.draw(m_livesLeft[i]);
+    }
     
 }
 
+void PlayingState::resetCharacters(){
+    m_pacMan->setPosition(m_maze.mapCellToPixel(m_maze.getPacManPosition()));
+    
+    auto ghostPositions = m_maze.getGhostPositions();
+    for (unsigned int i = 0; i < m_ghosts.size(); i++){
+        m_ghosts[i]->setPosition(m_maze.mapCellToPixel(ghostPositions[i]));
+    }
+    
+}
+
+void PlayingState::loadNextLvl(){
+    
+    // Destroy previous characters
+    for (Ghost* ghost : m_ghosts)
+        delete ghost;
+    
+    m_ghosts.clear();
+    
+    // Create new characters
+    for (auto ghostPosition : m_maze.getGhostPositions()){
+        Ghost* ghost = new Ghost(getGame()->getTexture(), m_pacMan);
+        ghost->setMaze(&m_maze);
+        //ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
+        
+        m_ghosts.push_back(ghost);
+    }
+    
+    // Change speed according to the new level
+    float speed = (1 * 50);
+    
+    m_pacMan->setSpeed(speed+25);
+    
+    for (auto& ghost : m_ghosts){
+        ghost->setSpeed(speed);
+    }
+    
+    resetCharacters();
+    
+    //Update level text
+    //m_levelText.setString("level " + std::to_string(speedLevel) + " - " + std::to_string(mapLevel+1));
+    
+}
+
+void PlayingState::gameOver(){
+    resetLives();
+    
+    resetCurrentLvl();
+    m_score = 0;
+}
+
+void PlayingState::resetLives(){
+    m_lives = 3;
+}
+
+void PlayingState::resetCurrentLvl(){
+    loadNextLvl();
+}

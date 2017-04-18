@@ -14,7 +14,7 @@
 using namespace std;
 
 Game::Game()
-:m_window(sf::VideoMode(448,576), "Pac Man SFML"){
+:m_window(sf::VideoMode(448,528), "Pac Man SFML"){
     
     if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
         throw runtime_error("Unable to load the font file");
@@ -27,10 +27,10 @@ Game::Game()
     }
     
     m_gameStates[GameState::noCoin] = new NoCoinState(this);
-    m_gameStates[GameState::getReady] = new GetReadyState(this);
     m_gameStates[GameState::Playing] = new PlayingState(this);
-    m_gameStates[GameState::Won] = new WonState(this);
-    m_gameStates[GameState::Lost] = new LostState(this);
+    m_gameStates[GameState::getReady] = new GetReadyState(this, m_gameStates[GameState::Playing]);
+    m_gameStates[GameState::Won] = new WonState(this, m_gameStates[GameState::Playing]);
+    m_gameStates[GameState::Lost] = new LostState(this, m_gameStates[GameState::Playing]);
     
     changeGameState(GameState::noCoin);
 }

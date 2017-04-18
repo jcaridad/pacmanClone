@@ -63,7 +63,7 @@ private:
 
 class GetReadyState : public GameState{
 public:
-    GetReadyState(Game* game);
+    GetReadyState(Game* game, GameState* playingState);
     void insertCoin();
     void pressButton();
     void moveStick(sf::Vector2i direction);
@@ -72,36 +72,7 @@ public:
     
 private:
     sf::Text m_text;
-};
-
-class WonState : public GameState{
-public:
-    WonState(Game* game);
-    void insertCoin();
-    void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
-    
-private:
-    sf::Text m_text;
-    
-};
-
-class LostState : public GameState{
-public:
-    LostState(Game* game);
-    void insertCoin();
-    void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
-    
-private:
-    sf::Text m_text;
-    sf::Time m_countDown;
-    sf::Text m_countDownTxt;
-    
+    GameState* m_playingState;
 };
 
 class PlayingState : public GameState{
@@ -114,12 +85,60 @@ public:
     void update(sf::Time delta);
     void draw(sf::RenderWindow& window);
     
+    void loadNextLvl();
+    void gameOver();
+    void resetLives();
+    void resetCurrentLvl();
+    
+    
+    void resetCharacters();
+    
 private:
     Pacman* m_pacMan;
     vector<Ghost*> m_ghosts;
-    //Ghost m_ghost;
     Maze m_maze;
+    
+    sf::RenderTexture m_gameScene;
+    
+    sf::Text m_scoreText;
+    sf::Text m_levelText;
+    sf::Text m_dotsLeft;
+    sf::Sprite m_livesLeft[3];
+    
+    int m_lives;
+    int m_score;
 };
 
+class WonState : public GameState{
+public:
+    WonState(Game* game, GameState* playingState);
+    void insertCoin();
+    void pressButton();
+    void moveStick(sf::Vector2i direction);
+    void update(sf::Time delta);
+    void draw(sf::RenderWindow& window);
+    
+private:
+    sf::Text m_text;
+    
+    PlayingState* m_playingState;
+    
+};
 
+class LostState : public GameState{
+public:
+    LostState(Game* game, GameState* playingState);
+    void insertCoin();
+    void pressButton();
+    void moveStick(sf::Vector2i direction);
+    void update(sf::Time delta);
+    void draw(sf::RenderWindow& window);
+    
+private:
+    sf::Text m_text;
+    sf::Time m_countDown;
+    sf::Text m_countDownTxt;
+    
+    PlayingState* m_playingState;
+};
 #endif /* gameState_hpp */

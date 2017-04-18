@@ -72,12 +72,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "512319391.781264"
+            timestampString = "514170700.010492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "LostState::LostState(Game* game)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "LostState::LostState(Game* game, GameState* playingState)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -88,12 +88,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "512319391.781264"
+            timestampString = "514170700.010492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "LostState::LostState(Game* game)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "LostState::LostState(Game* game, GameState* playingState)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/maze.cpp"
-            timestampString = "513482000.328079"
+            timestampString = "514164583.384703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "Maze::loadLevel(string fileName)"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/maze.cpp"
-            timestampString = "513804222.863156"
+            timestampString = "514164583.384703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "Maze::isWall(sf::Vector2i position)"
             landmarkType = "7">
          </BreakpointContent>
@@ -451,11 +451,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/maze.cpp"
-            timestampString = "513804222.863156"
+            timestampString = "514164583.384703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "Maze::indexToPosition(size_t index)"
             landmarkType = "7">
          </BreakpointContent>
@@ -467,12 +467,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/maze.cpp"
-            timestampString = "513804222.863156"
+            timestampString = "514164583.384703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "Maze::indexToPosition(size_t index)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "smflTest/gameState.cpp"
+            timestampString = "514170700.010492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "PlayingState::draw(sf::RenderWindow&amp; window)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
