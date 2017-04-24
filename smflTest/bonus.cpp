@@ -16,7 +16,7 @@ Bonus::Bonus(sf::Texture& texture)
 }
 
 void Bonus::setFruit(Fruit fruit){
-    if (fruit == Orange){
+    if (fruit == Banana){
         m_visual.setTextureRect(sf::IntRect(16, 0, 15, 15));
     }
     else if (fruit == Apple){

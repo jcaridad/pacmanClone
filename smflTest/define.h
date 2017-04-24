@@ -16,5 +16,4 @@ const int CELLSIZE_H = 16;
 
 
 
-
 #endif /* define_h */

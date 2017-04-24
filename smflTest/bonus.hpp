@@ -21,7 +21,7 @@ public:
     enum Fruit{
         Cherry,
         Apple,
-        Orange
+        Banana
     };
     
     Bonus(sf::Texture& Texture);

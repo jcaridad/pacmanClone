@@ -13,7 +13,6 @@
 #include <SFML/Graphics.hpp>
 #include <array>
 
-
 #include "gameState.hpp"
 
 class Game{

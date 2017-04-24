@@ -85,6 +85,7 @@ LostState::LostState(Game* game, GameState* playingState)
 PlayingState::PlayingState(Game* game)
 :GameState(game)
 ,m_maze(game->getTexture())
+,m_bonus(game->getTexture())
 ,m_pacMan(nullptr)
 ,m_lvl(0)
 ,m_lives(3)
@@ -100,9 +101,10 @@ PlayingState::PlayingState(Game* game)
         ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
         m_ghosts.push_back(ghost);
     }
-
     
     gameOver();
+    
+    m_bonus.setPosition(-16, -16);
     
     m_scoreText.setFont(game->getFont());
     m_scoreText.setCharacterSize(10);
@@ -279,9 +281,9 @@ void PlayingState::update(sf::Time delta){
             
             m_score += 25;
         }
-        else if (m_maze.isBonus(cellPosition)){
-            m_score += 500;
-        }
+//        else if (m_maze.isBonus(cellPosition)){
+//            m_score += 500;
+//        }
         
         m_maze.pickObject(cellPosition);
     }
@@ -307,16 +309,19 @@ void PlayingState::update(sf::Time delta){
             getGame()->changeGameState(GameState::Lost);
         else
             resetCharacters();
-        
     }
     
+    if(m_bonus.getCollision().intersects(m_pacMan->getCollision())){
+        m_bonus.setPosition(-16, -16);
+        m_score += 500;
+    }
     if(m_maze.getRemainingDots() == 0){
         getGame()->changeGameState(GameState::Won);
     }
-    
-    
-    
-    
+    if(m_maze.getRemainingDots() == 150){
+        m_bonus.setPosition(m_maze.mapCellToPixel(m_maze.getRespawnPosition()));
+
+    }
     m_scoreText.setString(to_string(m_score));
     m_dotsLeft.setString(to_string(m_maze.getRemainingDots()) + "x dots");
     
@@ -324,10 +329,12 @@ void PlayingState::update(sf::Time delta){
 void PlayingState::draw(sf::RenderWindow& window){
     window.clear();
     window.draw(m_maze);
+    window.draw(m_bonus);
     window.draw(*m_pacMan);
     for(Ghost* ghost : m_ghosts){
         window.draw(*ghost);
     }
+    
     
     window.draw(m_scoreText);
     window.draw(m_levelText);
@@ -356,12 +363,18 @@ void PlayingState::loadNextLvl(){
     int mapLevel = m_lvl % 3;
     int speedLevel = floor(m_lvl / 3);
     
-    if (mapLevel == 0)
+    if (mapLevel == 0){
         m_maze.loadLevel("original");
-    else if (mapLevel == 1)
+        m_bonus.setFruit(Bonus::Fruit::Cherry);
+    }
+    else if (mapLevel == 1){
         m_maze.loadLevel("msPacMan");
-    else if	(mapLevel == 2)
+        m_bonus.setFruit(Bonus::Fruit::Banana);
+    }
+    else if	(mapLevel == 2){
         m_maze.loadLevel("prototype");
+        m_bonus.setFruit(Bonus::Fruit::Apple);
+    }
     
     // Destroy previous characters
     for (Ghost* ghost : m_ghosts)

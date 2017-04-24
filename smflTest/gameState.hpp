@@ -99,6 +99,7 @@ private:
     Pacman* m_pacMan;
     vector<Ghost*> m_ghosts;
     Maze m_maze;
+    Bonus m_bonus;
     sf::RenderTexture m_gameScene;
     sf::Text m_scoreText;
     sf::Text m_levelText;

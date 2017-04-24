@@ -72,7 +72,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514170700.010492"
+            timestampString = "514766469.270379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -88,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514170700.010492"
+            timestampString = "514766469.270379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -483,11 +483,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514752969.12361"
+            timestampString = "514768587.655491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "PlayingState::draw(sf::RenderWindow&amp; window)"
             landmarkType = "7">
          </BreakpointContent>
@@ -515,11 +515,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514752969.12361"
+            timestampString = "514768587.655491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "GetReadyState::update(sf::Time delta)"
             landmarkType = "7">
          </BreakpointContent>
@@ -547,25 +547,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514752969.12361"
+            timestampString = "514768587.655491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413">
+            startingLineNumber = "426"
+            endingLineNumber = "426">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.hpp"
-            timestampString = "514752877.180416"
+            timestampString = "514764865.976275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "class PlayingState"
             landmarkType = "3">
          </BreakpointContent>
