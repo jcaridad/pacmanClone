@@ -8,7 +8,9 @@
 
 #include "maze.hpp"
 #include "dot.hpp"
+#include "bonus.hpp"
 #include "define.h"
+#include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -22,6 +24,15 @@ Maze::Maze(sf::Texture& texture )
 
 
 void Maze::loadLevel(string fileName){
+    
+    m_mazeSize = sf::Vector2i(0, 0);
+    m_mazeData.clear();
+    
+    cout<<m_mazeData.size()<<endl;
+    
+    m_pacManPosition = sf::Vector2i(0, 0);
+    m_ghostPositions.clear();
+    
     sf::Image levelData;
     
     if(!levelData.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/levels/" + fileName + ".png")){
@@ -54,17 +65,17 @@ void Maze::loadLevel(string fileName){
                 m_ghostPositions.push_back(sf::Vector2i(x,y));
                 m_mazeData.push_back(Empty);
             }
-            else if(cellData == sf::Color::Cyan){
-                m_mazeData.push_back(Tunnel);
-            }
             else if(cellData == sf::Color::Magenta){
-                m_mazeData.push_back(Tunnel);
+                m_respawnPosition = sf::Vector2i(x,y);
+                m_mazeData.push_back(Bonus);
             }
             else{
                 m_mazeData.push_back(Empty);
             }
         }
     }
+    
+    cout<<m_mazeData.size()<<endl;
     
     m_renderTexture.create(CELLSIZE_W * m_mazeSize.x, CELLSIZE_H * m_mazeSize.y);
     m_renderTexture.clear(sf::Color::Black);
@@ -74,16 +85,16 @@ void Maze::loadLevel(string fileName){
     wall.setFillColor(sf::Color::Blue);
     
     sf::Sprite border(m_texture);
-    border.setTextureRect(sf::IntRect(16/2, 0, 16/2, 32/2));
-    border.setOrigin(0, 16/2);
+    border.setTextureRect(sf::IntRect(8, 0, 8, 16));
+    border.setOrigin(0, 8);
     
     sf::Sprite innerCorner(m_texture);
-    innerCorner.setTextureRect(sf::IntRect(0, 0, 16/2, 16/2));
-    innerCorner.setOrigin(0, 16/2);
+    innerCorner.setTextureRect(sf::IntRect(0, 0, 8, 8));
+    innerCorner.setOrigin(0, 8);
     
     sf::Sprite outerCorner(m_texture);
-    outerCorner.setTextureRect(sf::IntRect(0, 16/2, 16/2, 16/2));
-    outerCorner.setOrigin(0, 16/2);
+    outerCorner.setTextureRect(sf::IntRect(0, 8, 8, 8));
+    outerCorner.setOrigin(0, 8);
     
     m_renderTexture.display();
     
@@ -167,6 +178,7 @@ void Maze::draw(sf::RenderTarget& target, sf::RenderStates states) const{
             superDot.setPosition(CELLSIZE_W*position.x + 8, CELLSIZE_H*position.y + 8);
             target.draw(superDot, states);
         }
+        
     }
 }
 
@@ -181,6 +193,10 @@ sf::Vector2i Maze::getPacManPosition() const{
 
 vector<sf::Vector2i> Maze::getGhostPositions()  const{
     return m_ghostPositions;
+}
+
+sf::Vector2i Maze::getRespawnPosition() const{
+    return m_respawnPosition;
 }
 
 size_t Maze::positionToIndex(sf::Vector2i position) const{
@@ -217,14 +233,6 @@ bool Maze::isWall(sf::Vector2i position) const{
     }
     return m_mazeData[positionToIndex(position)] == Wall;
 }
-/*
-bool Maze::isTunnel(sf::Vector2i position) const{
-    if(position.x < 0 || position.y < 0 || position.x >= m_mazeSize.x || position.y >= m_mazeSize.y){
-        return false;
-    }
-    return m_mazeData[positionToIndex(position)] == Tunnel;
-}
-*/
 
 bool Maze::isDot(sf::Vector2i position) const{
     return m_mazeData[positionToIndex(position)] == Dot;

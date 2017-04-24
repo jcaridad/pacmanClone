@@ -22,7 +22,7 @@ public:
     sf::Vector2i getSize() const;
     sf::Vector2i getPacManPosition() const;
     vector<sf::Vector2i> getGhostPositions() const;
-    
+    sf::Vector2i getRespawnPosition() const;
     inline size_t positionToIndex(sf::Vector2i position) const;
     inline sf::Vector2i indexToPosition(size_t index) const;
     
@@ -30,7 +30,6 @@ public:
     sf::Vector2f mapCellToPixel(sf::Vector2i cell) const;
     
     bool isWall(sf::Vector2i position) const;
-    //bool isTunnel(sf::Vector2i position) const;
     bool isDot(sf::Vector2i position) const;
     bool isSuperDot(sf::Vector2i position) const;
     bool isBonus(sf::Vector2i position) const;
@@ -45,7 +44,6 @@ private:
         Wall,
         Dot,
         SuperDot,
-        Tunnel,
         Bonus
     };
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -54,6 +52,7 @@ private:
     vector<cellData> m_mazeData;
     sf::Vector2i m_pacManPosition;
     vector<sf::Vector2i> m_ghostPositions;
+    sf::Vector2i m_respawnPosition;
     sf::RenderTexture m_renderTexture;
     
     sf::Texture& m_texture;

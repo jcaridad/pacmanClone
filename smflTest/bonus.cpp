@@ -11,20 +11,19 @@
 Bonus::Bonus(sf::Texture& texture)
 :m_visual(texture){
     //15x15 is origin from texture size
-    m_visual.setOrigin(15, 15);
+    m_visual.setOrigin(8, 8);
     setFruit(Apple);
 }
 
 void Bonus::setFruit(Fruit fruit){
-    if(fruit == Apple){
-        //check setTexture Params
-        //m_visual.setTexture(32, 0, 30, 30);
+    if (fruit == Orange){
+        m_visual.setTextureRect(sf::IntRect(16, 0, 15, 15));
     }
-    else if(fruit == Orange){
-        //m_visual.setTexture();
+    else if (fruit == Apple){
+        m_visual.setTextureRect(sf::IntRect(31, 0, 15, 15));
     }
     else if (fruit == Cherry){
-        //m_visual.setTexture();
+        m_visual.setTextureRect(sf::IntRect(46, 0, 15, 15));
     }
 }
 

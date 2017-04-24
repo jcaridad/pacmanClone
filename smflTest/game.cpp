@@ -7,6 +7,7 @@
 //
 
 #include "game.hpp"
+#include "define.h"
 #include <iostream>
 
 
@@ -14,7 +15,7 @@
 using namespace std;
 
 Game::Game()
-:m_window(sf::VideoMode(448,528), "Pac Man SFML"){
+:m_window(sf::VideoMode(SCREENSIZE_W,SCREENSIZE_H), "Pac Man SFML"){
     
     if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
         throw runtime_error("Unable to load the font file");

@@ -13,18 +13,19 @@ Pacman::Pacman(sf::Texture& texture)
 ,m_isDead(false)
 ,m_isDying(false){
     //set origin depending on sprite size
-    setOrigin(20/2, 20/2);
+    setOrigin(10, 10);
     
-    m_runAnimator.addFrame(sf::IntRect(0, 32/2, 40/2, 40/2));
-    m_runAnimator.addFrame(sf::IntRect(0, 72/2, 40/2, 40/2));
+    m_runAnimator.addFrame(sf::IntRect(0, 16, 20, 20));
+    m_runAnimator.addFrame(sf::IntRect(0, 36, 20, 20));
     
-    m_dieAnimator.addFrame(sf::IntRect(0, 32/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(0, 72/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(0, 112/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(40/2, 112/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(80/2, 112/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(120/2, 112/2, 40/2, 40/2));
-    m_dieAnimator.addFrame(sf::IntRect(160/2, 112/2, 40/2, 40/2));
+    m_dieAnimator.addFrame(sf::IntRect(0, 16, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(0, 36, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(0, 56, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(20, 56, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(40, 56, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(60, 56, 20, 20));
+    m_dieAnimator.addFrame(sf::IntRect(80, 156, 20, 20));
+   
     m_runAnimator.play(sf::seconds(0.5), true);
 }
 
@@ -46,7 +47,7 @@ void Pacman::reset(){
     m_isDying = false;
     m_isDead = false;
     
-    m_runAnimator.play(sf::seconds(0.50), true);
+    m_runAnimator.play(sf::seconds(0.75), true);
     m_runAnimator.animate(m_visual);
 }
 void Pacman::draw(sf::RenderTarget& target, sf::RenderStates states) const{

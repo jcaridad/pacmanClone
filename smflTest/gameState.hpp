@@ -14,6 +14,7 @@
 
 #include "pacman.hpp"
 #include "ghost.hpp"
+#include "bonus.hpp"
 #include "maze.hpp"
 
 class Game;
@@ -90,21 +91,21 @@ public:
     void resetLives();
     void resetCurrentLvl();
     
-    
     void resetCharacters();
+    
+    int getScore();
     
 private:
     Pacman* m_pacMan;
     vector<Ghost*> m_ghosts;
     Maze m_maze;
-    
     sf::RenderTexture m_gameScene;
-    
     sf::Text m_scoreText;
     sf::Text m_levelText;
     sf::Text m_dotsLeft;
     sf::Sprite m_livesLeft[3];
     
+    int m_lvl;
     int m_lives;
     int m_score;
 };
@@ -138,6 +139,7 @@ private:
     sf::Text m_text;
     sf::Time m_countDown;
     sf::Text m_countDownTxt;
+    sf::Text m_scoreDisplay;
     
     PlayingState* m_playingState;
 };

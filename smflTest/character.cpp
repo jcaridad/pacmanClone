@@ -23,6 +23,7 @@ Character::Character()
 void Character::setMaze(Maze *maze){
     m_maze = maze;
 }
+
 void Character::setDirection(sf::Vector2i direction){
     m_nextDirection = direction;
 }
@@ -62,6 +63,14 @@ void Character::update(sf::Time delta){
             setPosition(m_maze->mapCellToPixel(cellPosition));
         }
     }
+    
+    //tunnel check
+    if(pixelPosition.x < -16){
+        setPosition(454, pixelPosition.y);
+    }
+    else if(pixelPosition.x > 454){
+        setPosition(-16, pixelPosition.y);
+    }
 
     //When can position change
     if(!m_maze->isWall(cellPosition + m_nextDirection) && (m_currentDirection != m_nextDirection)){
@@ -99,7 +108,7 @@ void Character::update(sf::Time delta){
     if (cellPosition != m_prevIntersection){
         if ((!m_currentDirection.y  && (offset.x > -2 && offset.x < 2)) ||
             (!m_currentDirection.x  && (offset.y > -2 && offset.y < 2))){
-            std::array<bool, 4> availableDirections;
+            array<bool, 4> availableDirections;
             
             int i = 0;
             for (auto direction : directions){
@@ -108,7 +117,6 @@ void Character::update(sf::Time delta){
             }
             
             if (m_availableDirections != availableDirections){
-                
                 m_prevIntersection = cellPosition;
                 m_availableDirections = availableDirections;
                 

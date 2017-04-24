@@ -10,10 +10,11 @@
 #define bonus_hpp
 
 #include <stdio.h>
+#include "character.hpp"
 
 #include <SFML/Graphics.hpp>
 
-class Bonus : public sf::Drawable, public sf::Transformable{
+class Bonus : public Character{
     
 public:
     

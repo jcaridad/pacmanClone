@@ -15,15 +15,12 @@ Ghost::Ghost(sf::Texture& texture, Pacman* pacman)
 ,m_isWeak(false)
 ,m_weakStateTimer(sf::Time::Zero)
 ,m_pacMan(pacman){
-    setOrigin(20/2, 20/2);
+    setOrigin(10, 10);
     
-    //setScale(0.50, 0.50);
     
-    m_strongAnimator.addFrame(sf::IntRect(40/2, 32/2, 40/2, 40/2));
-    //m_strongAnimator.addFrame(sf::IntRect(80, 32, 40, 40));
+    m_strongAnimator.addFrame(sf::IntRect(20, 16, 20, 20));
     
-    m_weakAnimator.addFrame(sf::IntRect(40/2, 72/2, 40/2, 40/2));
-    // m_weakAnimator.addFrame(sf::IntRect(80, 72, 40, 40));
+    m_weakAnimator.addFrame(sf::IntRect(20, 36, 20, 20));
     
     m_strongAnimator.play(sf::seconds(0.25), true);
     m_weakAnimator.play(sf::seconds(1), true);
@@ -46,12 +43,10 @@ void Ghost::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 
 void Ghost::update(sf::Time delta){
     
-    if (m_isWeak)
-    {
+    if (m_isWeak){
         m_weakStateTimer -= delta;
         
-        if (m_weakStateTimer <= sf::Time::Zero)
-        {
+        if (m_weakStateTimer <= sf::Time::Zero){
             m_isWeak = false;
             m_strongAnimator.play(sf::seconds(0.25), true);
         }
@@ -82,12 +77,35 @@ void Ghost::changeDirection()
     
     float targetAngle;
     
+    if(isWeak()){
+        sf::Vector2f distance = getPosition() - m_pacMan->getPosition();
+        
+        targetAngle = atan2(distance.x, distance.y) * (180/3.14);
+        
+        for (auto direction : directions){
+            float directionAngle = atan2(direction.x, direction.y) * (180/3.14);
+            
+            //Normalize the angle difference
+            float diff = 180 - abs(abs(directionAngle - targetAngle) - 180);
+            
+            directionProb[diff] = direction;
+        }
+        setDirection(directionProb.begin()->second);
+        
+        auto it = directionProb.begin();
+        
+        do{
+            setDirection(it->second);
+            it++;
+        }
+        while(!willMove());
+    }
+    
     sf::Vector2f distance = m_pacMan->getPosition() - getPosition();
     
     targetAngle = atan2(distance.x, distance.y) * (180/3.14);
     
-    for (auto direction : directions)
-    {
+    for (auto direction : directions){
         float directionAngle = atan2(direction.x, direction.y) * (180/3.14);
         
         //Normalize the angle difference
@@ -99,11 +117,12 @@ void Ghost::changeDirection()
     
     auto it = directionProb.begin();
     
-    do
-    {
+    do{
         setDirection(it->second);
         it++;
     }
     while(!willMove());
+    
+    
 }
 

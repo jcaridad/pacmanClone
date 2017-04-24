@@ -75,17 +75,21 @@ LostState::LostState(Game* game, GameState* playingState)
     centerOrigin(m_countDownTxt);
     m_countDownTxt.setPosition(70, 250);
     
+    m_scoreDisplay.setFont(game->getFont());
+    m_scoreDisplay.setCharacterSize(12);
+    
+    centerOrigin(m_scoreDisplay);
+    m_scoreDisplay.setPosition(200, 300);
+    
 }
 PlayingState::PlayingState(Game* game)
 :GameState(game)
-//,m_pacMan(game->getTexture())
-//,m_ghost(game->getTexture())
 ,m_maze(game->getTexture())
 ,m_pacMan(nullptr)
+,m_lvl(0)
 ,m_lives(3)
 ,m_score(0){
 
-    m_maze.loadLevel("original");
     m_pacMan = new Pacman(game->getTexture());
     m_pacMan->setMaze(&m_maze);
     m_pacMan->setPosition(m_maze.mapCellToPixel(m_maze.getPacManPosition()));
@@ -94,9 +98,9 @@ PlayingState::PlayingState(Game* game)
         Ghost* ghost = new Ghost(game->getTexture(), m_pacMan);
         ghost->setMaze(&m_maze);
         ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
-        //ghost->setSpeed(50.f);
         m_ghosts.push_back(ghost);
     }
+
     
     gameOver();
     
@@ -107,7 +111,6 @@ PlayingState::PlayingState(Game* game)
     m_levelText.setFont(game->getFont());
     m_levelText.setCharacterSize(10);
     m_levelText.setPosition(165, 512);
-    m_levelText.setString("level x-y");
     
     m_dotsLeft.setFont(game->getFont());
     m_dotsLeft.setCharacterSize(10);
@@ -179,10 +182,8 @@ void GetReadyState::moveStick(sf::Vector2i direction){
     }
 }
 void GetReadyState::update(sf::Time delta){
-    m_playingState->update(delta);
 }
 void GetReadyState::draw(sf::RenderWindow& window){
-    m_playingState->draw(window);
     window.draw(m_text);
 }
 
@@ -204,6 +205,7 @@ void WonState::update(sf::Time delta){
     
     if(timeBuffer.asSeconds() > 5){
         m_playingState->loadNextLvl();
+        
         getGame()->changeGameState(GameState::getReady);
     }
 }
@@ -233,9 +235,11 @@ void LostState::update(sf::Time delta){
     }
     
     m_countDownTxt.setString("Insert Coin to Continue... "+ to_string(10 - static_cast<int>(m_countDown.asSeconds())));
+    m_scoreDisplay.setString("Score: " + to_string(m_playingState->getScore()));
 }
 void LostState::draw(sf::RenderWindow& window){
     window.draw(m_text);
+    window.draw(m_scoreDisplay);
     window.draw(m_countDownTxt);
 }
 
@@ -285,8 +289,7 @@ void PlayingState::update(sf::Time delta){
     for (Ghost* ghost : m_ghosts){
         if (ghost->getCollision().intersects(m_pacMan->getCollision())){
             if (ghost->isWeak()){
-                m_ghosts.erase(std::find(m_ghosts.begin(), m_ghosts.end(), ghost));
-                
+                ghost->setPosition(m_maze.mapCellToPixel(m_maze.getRespawnPosition()));
                 m_score += 100;
             }
             else{
@@ -311,6 +314,9 @@ void PlayingState::update(sf::Time delta){
         getGame()->changeGameState(GameState::Won);
     }
     
+    
+    
+    
     m_scoreText.setString(to_string(m_score));
     m_dotsLeft.setString(to_string(m_maze.getRemainingDots()) + "x dots");
     
@@ -319,11 +325,10 @@ void PlayingState::draw(sf::RenderWindow& window){
     window.clear();
     window.draw(m_maze);
     window.draw(*m_pacMan);
-    
     for(Ghost* ghost : m_ghosts){
         window.draw(*ghost);
     }
-
+    
     window.draw(m_scoreText);
     window.draw(m_levelText);
     window.draw(m_dotsLeft);
@@ -346,6 +351,18 @@ void PlayingState::resetCharacters(){
 
 void PlayingState::loadNextLvl(){
     
+    m_lvl++;
+    
+    int mapLevel = m_lvl % 3;
+    int speedLevel = floor(m_lvl / 3);
+    
+    if (mapLevel == 0)
+        m_maze.loadLevel("original");
+    else if (mapLevel == 1)
+        m_maze.loadLevel("msPacMan");
+    else if	(mapLevel == 2)
+        m_maze.loadLevel("prototype");
+    
     // Destroy previous characters
     for (Ghost* ghost : m_ghosts)
         delete ghost;
@@ -357,14 +374,13 @@ void PlayingState::loadNextLvl(){
         Ghost* ghost = new Ghost(getGame()->getTexture(), m_pacMan);
         ghost->setMaze(&m_maze);
         //ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
-        
         m_ghosts.push_back(ghost);
     }
     
     // Change speed according to the new level
-    float speed = (1 * 50);
+    float speed = 50 + (speedLevel * 50);
     
-    m_pacMan->setSpeed(speed+25);
+    m_pacMan->setSpeed(speed + 25);
     
     for (auto& ghost : m_ghosts){
         ghost->setSpeed(speed);
@@ -373,14 +389,16 @@ void PlayingState::loadNextLvl(){
     resetCharacters();
     
     //Update level text
-    //m_levelText.setString("level " + std::to_string(speedLevel) + " - " + std::to_string(mapLevel+1));
+    m_levelText.setString("level " + std::to_string(speedLevel) + " - " + std::to_string(mapLevel+1));
     
 }
 
 void PlayingState::gameOver(){
     resetLives();
     
+    m_lvl = 0;
     resetCurrentLvl();
+    
     m_score = 0;
 }
 
@@ -389,5 +407,10 @@ void PlayingState::resetLives(){
 }
 
 void PlayingState::resetCurrentLvl(){
+    m_lvl--;
     loadNextLvl();
+}
+
+int PlayingState::getScore(){
+    return m_score;
 }
