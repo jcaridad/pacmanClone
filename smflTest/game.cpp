@@ -16,7 +16,8 @@ using namespace std;
 
 Game::Game()
 :m_window(sf::VideoMode(SCREENSIZE_W,SCREENSIZE_H), "Pac Man SFML"){
-    
+
+    //load up game assests
     if(!m_gameFont.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/font.ttf")){
         throw runtime_error("Unable to load the font file");
     }

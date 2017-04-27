@@ -91,6 +91,7 @@ PlayingState::PlayingState(Game* game)
 ,m_lives(3)
 ,m_score(0){
 
+    //GAME
     m_pacMan = new Pacman(game->getTexture());
     m_pacMan->setMaze(&m_maze);
     m_pacMan->setPosition(m_maze.mapCellToPixel(m_maze.getPacManPosition()));
@@ -106,6 +107,8 @@ PlayingState::PlayingState(Game* game)
     
     m_bonus.setPosition(-16, -16);
     
+    
+    //HUD
     m_scoreText.setFont(game->getFont());
     m_scoreText.setCharacterSize(10);
     m_scoreText.setPosition(5, 512);
@@ -207,7 +210,7 @@ void WonState::update(sf::Time delta){
     
     if(timeBuffer.asSeconds() > 5){
         m_playingState->loadNextLvl();
-        
+
         getGame()->changeGameState(GameState::getReady);
     }
 }
@@ -256,12 +259,20 @@ void PlayingState::moveStick(sf::Vector2i direction){
     m_pacMan->setDirection(direction);
 }
 void PlayingState::update(sf::Time delta){
-    
+
+    sf::sleep(sf::seconds(10));
     m_pacMan->update(delta);
     
     for(Ghost* ghost : m_ghosts){
         ghost->update(delta);
     }
+    
+    //check collision player->dots, player-ghosts, player->weak ghosts
+    //scores
+    //  dot = 5
+    //  super dot = 25
+    //  weak ghost = 100
+    //  bonus = 500
     
     sf::Vector2f pixelPosition = m_pacMan->getPosition();
     sf::Vector2f offset(fmod(pixelPosition.x, 16), fmod(pixelPosition.y, 16));
@@ -281,16 +292,13 @@ void PlayingState::update(sf::Time delta){
             
             m_score += 25;
         }
-//        else if (m_maze.isBonus(cellPosition)){
-//            m_score += 500;
-//        }
-        
         m_maze.pickObject(cellPosition);
     }
     
     for (Ghost* ghost : m_ghosts){
         if (ghost->getCollision().intersects(m_pacMan->getCollision())){
             if (ghost->isWeak()){
+                ghost->setWeak(sf::Time::Zero);
                 ghost->setPosition(m_maze.mapCellToPixel(m_maze.getRespawnPosition()));
                 m_score += 100;
             }

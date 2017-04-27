@@ -75,9 +75,12 @@ void Ghost::changeDirection()
     
     map<float, sf::Vector2i> directionProb;
     
+    //targeting algorithm
     float targetAngle;
     
+    
     if(isWeak()){
+        //gets distance how close pacman with the ghosts
         sf::Vector2f distance = getPosition() - m_pacMan->getPosition();
         
         targetAngle = atan2(distance.x, distance.y) * (180/3.14);
@@ -100,29 +103,29 @@ void Ghost::changeDirection()
         }
         while(!willMove());
     }
-    
-    sf::Vector2f distance = m_pacMan->getPosition() - getPosition();
-    
-    targetAngle = atan2(distance.x, distance.y) * (180/3.14);
-    
-    for (auto direction : directions){
-        float directionAngle = atan2(direction.x, direction.y) * (180/3.14);
+    else{
+        sf::Vector2f distance = m_pacMan->getPosition() - getPosition();
         
-        //Normalize the angle difference
-        float diff = 180 - abs(abs(directionAngle - targetAngle) - 180);
+        targetAngle = atan2(distance.x, distance.y) * (180/3.14);
         
-        directionProb[diff] = direction;
+        for (auto direction : directions){
+            float directionAngle = atan2(direction.x, direction.y) * (180/3.14);
+            
+            //Normalize the angle difference
+            float diff = 180 - abs(abs(directionAngle - targetAngle) - 180);
+            
+            directionProb[diff] = direction;
+        }
+        setDirection(directionProb.begin()->second);
+        
+        auto it = directionProb.begin();
+        
+        do{
+            setDirection(it->second);
+            it++;
+        }
+        while(!willMove());
     }
-    setDirection(directionProb.begin()->second);
-    
-    auto it = directionProb.begin();
-    
-    do{
-        setDirection(it->second);
-        it++;
-    }
-    while(!willMove());
-    
     
 }
 

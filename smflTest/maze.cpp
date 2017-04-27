@@ -34,8 +34,8 @@ void Maze::loadLevel(string fileName){
     m_ghostPositions.clear();
     
     sf::Image levelData;
-    
-    if(!levelData.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/levels/" + fileName + ".png")){
+    //load up map images
+    if(!levelData.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/levels/"+ fileName +".png")){
         throw runtime_error("Failed to load (" + fileName + ")");
     }
     m_mazeSize = sf::Vector2i(levelData.getSize());
@@ -44,6 +44,8 @@ void Maze::loadLevel(string fileName){
         throw runtime_error("The loaded level is too small (min 15 cells large)");
     }
     
+    //Reads image data
+    //Translates image pixels into maze data according to color
     for(unsigned int y = 0; y < m_mazeSize.y; y++){
         for(unsigned int x = 0; x < m_mazeSize.x; x++){
             sf::Color cellData = levelData.getPixel(x, y);
@@ -80,6 +82,7 @@ void Maze::loadLevel(string fileName){
     m_renderTexture.create(CELLSIZE_W * m_mazeSize.x, CELLSIZE_H * m_mazeSize.y);
     m_renderTexture.clear(sf::Color::Black);
     
+    //load up map textures
     sf::RectangleShape wall;
     wall.setSize(sf::Vector2f(CELLSIZE_W, CELLSIZE_H));
     wall.setFillColor(sf::Color::Blue);
@@ -98,11 +101,12 @@ void Maze::loadLevel(string fileName){
     
     m_renderTexture.display();
     
+    //read all maze data to render the corresponding sprite
     for(unsigned int i = 0; i < m_mazeData.size(); i++){
         sf::Vector2i position = indexToPosition(i);
     
         if(isWall(position)){
-            wall.setPosition(CELLSIZE_W*position.x, CELLSIZE_H*position.y);
+            wall.setPosition(CELLSIZE_W * position.x, CELLSIZE_H * position.y);
             m_renderTexture.draw(wall);
             
             border.setPosition(mapCellToPixel(position));
@@ -171,11 +175,11 @@ void Maze::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     for(unsigned int i = 0; i < m_mazeData.size(); i++){
         sf::Vector2i position = indexToPosition(i);
         if(m_mazeData[i] == Dot){
-            dot.setPosition(CELLSIZE_W*position.x + 8, CELLSIZE_H*position.y + 8);
+            dot.setPosition(CELLSIZE_W * position.x + 8, CELLSIZE_H * position.y + 8);
             target.draw(dot,states);
         }
         else if(m_mazeData[i] == SuperDot){
-            superDot.setPosition(CELLSIZE_W*position.x + 8, CELLSIZE_H*position.y + 8);
+            superDot.setPosition(CELLSIZE_W * position.x + 8, CELLSIZE_H * position.y + 8);
             target.draw(superDot, states);
         }
         

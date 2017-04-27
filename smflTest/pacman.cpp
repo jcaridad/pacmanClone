@@ -15,9 +15,11 @@ Pacman::Pacman(sf::Texture& texture)
     //set origin depending on sprite size
     setOrigin(10, 10);
     
+    //Running Animation
     m_runAnimator.addFrame(sf::IntRect(0, 16, 20, 20));
     m_runAnimator.addFrame(sf::IntRect(0, 36, 20, 20));
     
+    //Dying animation
     m_dieAnimator.addFrame(sf::IntRect(0, 16, 20, 20));
     m_dieAnimator.addFrame(sf::IntRect(0, 36, 20, 20));
     m_dieAnimator.addFrame(sf::IntRect(0, 56, 20, 20));

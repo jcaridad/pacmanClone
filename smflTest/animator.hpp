@@ -15,6 +15,32 @@ using namespace std;
 
 class Animator{
 public:
+    
+    /**/
+    /*
+     
+     NAME
+     
+     Animator::Animator - Constructor for animator Class
+     
+     SYNOPSIS
+     
+     Animator::Animator();
+     
+     DESCRIPTION
+     
+     The Animator Class processes the texture frames for QuackMan and the Ghost
+     
+     RETURNS
+     
+     None.
+     
+     AUTHOR
+     
+     Jymar Caridad
+    
+     */
+    /**/
     Animator();
     
     void addFrame(sf::IntRect frame);

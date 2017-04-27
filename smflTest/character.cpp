@@ -54,7 +54,7 @@ void Character::update(sf::Time delta){
     offset.x = fmod(pixelPosition.x,CELLSIZE_W) - 8;
     offset.y = fmod(pixelPosition.y,CELLSIZE_H) - 8;
     
-    //wall collision
+    //Wall Collision Detection
     if(m_maze->isWall(cellPosition + m_currentDirection)){
         if((m_currentDirection.x == 1 && offset.x > 0) ||
            (m_currentDirection.x == -1 && offset.x < 0)||
@@ -64,7 +64,9 @@ void Character::update(sf::Time delta){
         }
     }
     
-    //tunnel check
+    //Tunnel Processing
+    // x = -16 is a whole cell outside the screen to the left
+    // x = 454 is a whole cell outside the right
     if(pixelPosition.x < -16){
         setPosition(454, pixelPosition.y);
     }
@@ -72,14 +74,15 @@ void Character::update(sf::Time delta){
         setPosition(-16, pixelPosition.y);
     }
 
-    //When can position change
+    //Intersection Check
+    //See if Player or Ghost can change direction
     if(!m_maze->isWall(cellPosition + m_nextDirection) && (m_currentDirection != m_nextDirection)){
         if((!m_currentDirection.y && (offset.x > -2 && offset.x < 2)) ||
            (!m_currentDirection.x && (offset.y > -2 && offset.y < 2))){
             setPosition(m_maze->mapCellToPixel(cellPosition));
             m_currentDirection = m_nextDirection;
         
-            //flip sprite depending on direction change
+            //Flip sprite depending on direction change
             if (m_currentDirection == sf::Vector2i(1, 0)){
                 setRotation(0);
                 setScale(-1, 1);
@@ -105,6 +108,7 @@ void Character::update(sf::Time delta){
         sf::Vector2i(0, -1)
     };
     
+    //Ghost Direction Change
     if (cellPosition != m_prevIntersection){
         if ((!m_currentDirection.y  && (offset.x > -2 && offset.x < 2)) ||
             (!m_currentDirection.x  && (offset.y > -2 && offset.y < 2))){

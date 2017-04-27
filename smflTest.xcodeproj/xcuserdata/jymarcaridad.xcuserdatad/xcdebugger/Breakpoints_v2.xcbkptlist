@@ -141,7 +141,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "232"
             endingLineNumber = "232"
-            landmarkName = "Maze::isWall(sf::Vector2i position)"
+            landmarkName = "Maze::mapCellToPixel(sf::Vector2i cell)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -483,11 +483,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514768587.655491"
+            timestampString = "514941946.831595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "PlayingState::draw(sf::RenderWindow&amp; window)"
             landmarkType = "7">
          </BreakpointContent>
@@ -515,12 +515,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514768587.655491"
+            timestampString = "514938719.365394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "186"
             endingLineNumber = "186"
-            landmarkName = "GetReadyState::update(sf::Time delta)"
+            landmarkName = "GetReadyState::moveStick(sf::Vector2i direction)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -547,11 +547,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smflTest/gameState.cpp"
-            timestampString = "514768587.655491"
+            timestampString = "514941946.831595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426">
+            startingLineNumber = "430"
+            endingLineNumber = "430"
+            landmarkName = "PlayingState::resetCurrentLvl()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
