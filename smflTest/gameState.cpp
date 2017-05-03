@@ -259,8 +259,6 @@ void PlayingState::moveStick(sf::Vector2i direction){
     m_pacMan->setDirection(direction);
 }
 void PlayingState::update(sf::Time delta){
-
-    sf::sleep(sf::seconds(10));
     m_pacMan->update(delta);
     
     for(Ghost* ghost : m_ghosts){

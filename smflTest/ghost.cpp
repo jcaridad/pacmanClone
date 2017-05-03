@@ -81,7 +81,7 @@ void Ghost::changeDirection()
     
     if(isWeak()){
         //gets distance how close pacman with the ghosts
-        sf::Vector2f distance = getPosition() - m_pacMan->getPosition();
+        sf::Vector2f distance =m_pacMan->getPosition() -  getPosition();
         
         targetAngle = atan2(distance.x, distance.y) * (180/3.14);
         
@@ -93,9 +93,10 @@ void Ghost::changeDirection()
             
             directionProb[diff] = direction;
         }
-        setDirection(directionProb.begin()->second);
+        //iterate through the directionProb map from worst to best
+        setDirection(directionProb.rbegin()->second);
         
-        auto it = directionProb.begin();
+        auto it = directionProb.rbegin();
         
         do{
             setDirection(it->second);
@@ -116,6 +117,7 @@ void Ghost::changeDirection()
             
             directionProb[diff] = direction;
         }
+        //iterate through the directionProb map from best to worst
         setDirection(directionProb.begin()->second);
         
         auto it = directionProb.begin();
