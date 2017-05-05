@@ -17,16 +17,16 @@
 class Pacman : public Character{
     
 public:
-    Pacman(sf::Texture& texture);
+    Pacman(sf::Texture& a_texture);
     void die();
     bool isDying() const;
     bool isDead() const;
     
-    void update(sf::Time delta);
+    void update(sf::Time a_delta);
     
     void reset();
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const;
     bool m_isDying;
     bool m_isDead;
     sf::Sprite m_visual;

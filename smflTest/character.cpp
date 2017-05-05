@@ -20,12 +20,12 @@ Character::Character()
 ,m_prevIntersection(0,0){
 
 }
-void Character::setMaze(Maze *maze){
-    m_maze = maze;
+void Character::setMaze(Maze *a_maze){
+    m_maze = a_maze;
 }
 
-void Character::setDirection(sf::Vector2i direction){
-    m_nextDirection = direction;
+void Character::setDirection(sf::Vector2i a_direction){
+    m_nextDirection = a_direction;
 }
 sf::Vector2i Character::getDirection() const{
     return m_currentDirection;
@@ -40,10 +40,10 @@ sf::FloatRect Character::getCollision() const{
     return getTransform().transformRect(bounds);
 }
 
-void Character::update(sf::Time delta){
+void Character::update(sf::Time a_delta){
     sf::Vector2f pixelPosition = getPosition();
     
-    float pixelTraveled = getSpeed() * delta.asSeconds();
+    float pixelTraveled = getSpeed() * a_delta.asSeconds();
     
     sf::Vector2f nextPixelPosition = pixelPosition + sf::Vector2f(m_currentDirection) * pixelTraveled;
     setPosition(nextPixelPosition);
@@ -131,8 +131,8 @@ void Character::update(sf::Time delta){
 }
 
 
-void Character::setSpeed(float speed){
-    m_speed = speed;
+void Character::setSpeed(float a_speed){
+    m_speed = a_speed;
 }
 
 float Character::getSpeed() const{

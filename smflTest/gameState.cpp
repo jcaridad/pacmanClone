@@ -19,17 +19,17 @@ void centerOrigin(T& drawable)
     drawable.setOrigin(bound.width/2, bound.height/2);
 }
 
-GameState::GameState(Game* game)
-:m_game(game){
+GameState::GameState(Game* a_game)
+:m_game(a_game){
 }
 
-NoCoinState::NoCoinState(Game* game)
-:GameState(game){
-    m_logoSprite.setTexture(game->getLogo());
+NoCoinState::NoCoinState(Game* a_game)
+:GameState(a_game){
+    m_logoSprite.setTexture(a_game->getLogo());
     m_logoSprite.setScale(.50, .50);
     m_logoSprite.setPosition(50, 50);
     
-    m_text.setFont(game->getFont());
+    m_text.setFont(a_game->getFont());
     m_text.setCharacterSize(15);
     m_text.setString("Press I to Insert Coin!");
     centerOrigin(m_text);
@@ -38,10 +38,10 @@ NoCoinState::NoCoinState(Game* game)
     m_displayText = true;
 }
 
-GetReadyState::GetReadyState(Game* game, GameState* playingState)
-:GameState(game)
-,m_playingState(playingState){
-    m_text.setFont(game->getFont());
+GetReadyState::GetReadyState(Game* a_game, GameState* a_playingState)
+:GameState(a_game)
+,m_playingState(a_playingState){
+    m_text.setFont(a_game->getFont());
     m_text.setString("    Get Ready!\nPress S to Start!");
     m_text.setCharacterSize(14);
     
@@ -49,55 +49,55 @@ GetReadyState::GetReadyState(Game* game, GameState* playingState)
     m_text.setPosition(225, 240);
 }
 
-WonState::WonState(Game* game, GameState* playingState)
-:GameState(game)
-,m_playingState(static_cast<PlayingState*>(playingState)){
-    m_text.setFont(game->getFont());
+WonState::WonState(Game* a_game, GameState* a_playingState)
+:GameState(a_game)
+,m_playingState(static_cast<PlayingState*>(a_playingState)){
+    m_text.setFont(a_game->getFont());
     m_text.setString("You Won!");
     m_text.setCharacterSize(42);
     centerOrigin(m_text);
     m_text.setPosition(225, 240);
     
 }
-LostState::LostState(Game* game, GameState* playingState)
-:GameState(game)
-,m_playingState(static_cast<PlayingState*>(playingState)){
-    m_text.setFont(game->getFont());
+LostState::LostState(Game* a_game, GameState* a_playingState)
+:GameState(a_game)
+,m_playingState(static_cast<PlayingState*>(a_playingState)){
+    m_text.setFont(a_game->getFont());
     m_text.setString("You Lost!");
     m_text.setCharacterSize(14);
     
     centerOrigin(m_text);
     m_text.setPosition(225, 220);
     
-    m_countDownTxt.setFont(game->getFont());
+    m_countDownTxt.setFont(a_game->getFont());
     m_countDownTxt.setCharacterSize(12);
     
     centerOrigin(m_countDownTxt);
     m_countDownTxt.setPosition(70, 250);
     
-    m_scoreDisplay.setFont(game->getFont());
+    m_scoreDisplay.setFont(a_game->getFont());
     m_scoreDisplay.setCharacterSize(12);
     
     centerOrigin(m_scoreDisplay);
     m_scoreDisplay.setPosition(200, 300);
     
 }
-PlayingState::PlayingState(Game* game)
-:GameState(game)
-,m_maze(game->getTexture())
-,m_bonus(game->getTexture())
+PlayingState::PlayingState(Game* a_game)
+:GameState(a_game)
+,m_maze(a_game->getTexture())
+,m_bonus(a_game->getTexture())
 ,m_pacMan(nullptr)
 ,m_lvl(0)
 ,m_lives(3)
 ,m_score(0){
 
     //GAME
-    m_pacMan = new Pacman(game->getTexture());
+    m_pacMan = new Pacman(a_game->getTexture());
     m_pacMan->setMaze(&m_maze);
     m_pacMan->setPosition(m_maze.mapCellToPixel(m_maze.getPacManPosition()));
     
     for (auto ghostPosition : m_maze.getGhostPositions()){
-        Ghost* ghost = new Ghost(game->getTexture(), m_pacMan);
+        Ghost* ghost = new Ghost(a_game->getTexture(), m_pacMan);
         ghost->setMaze(&m_maze);
         ghost->setPosition(m_maze.mapCellToPixel(ghostPosition));
         m_ghosts.push_back(ghost);
@@ -109,20 +109,20 @@ PlayingState::PlayingState(Game* game)
     
     
     //HUD
-    m_scoreText.setFont(game->getFont());
+    m_scoreText.setFont(a_game->getFont());
     m_scoreText.setCharacterSize(10);
     m_scoreText.setPosition(5, 512);
     
-    m_levelText.setFont(game->getFont());
+    m_levelText.setFont(a_game->getFont());
     m_levelText.setCharacterSize(10);
     m_levelText.setPosition(165, 512);
     
-    m_dotsLeft.setFont(game->getFont());
+    m_dotsLeft.setFont(a_game->getFont());
     m_dotsLeft.setCharacterSize(10);
     m_dotsLeft.setPosition(285, 512);
     
     for(auto& livesLeft : m_livesLeft){
-        livesLeft.setTexture(game->getTexture());
+        livesLeft.setTexture(a_game->getTexture());
         livesLeft.setTextureRect(sf::IntRect(122/2, 0, 10, 10));
     }
     
@@ -151,12 +151,12 @@ void NoCoinState::insertCoin(){
 void NoCoinState::pressButton(){
     
 }
-void NoCoinState::moveStick(sf::Vector2i direction){
+void NoCoinState::moveStick(sf::Vector2i a_direction){
     
 }
-void NoCoinState::update(sf::Time delta){
+void NoCoinState::update(sf::Time a_delta){
     static sf::Time timeBuffer = sf::Time::Zero;
-    timeBuffer += delta;
+    timeBuffer += a_delta;
     
     while(timeBuffer >= sf::seconds(0.5)){
         m_displayText = !m_displayText;
@@ -164,10 +164,10 @@ void NoCoinState::update(sf::Time delta){
     }
     
 }
-void NoCoinState::draw(sf::RenderWindow& window){
-    window.draw(m_logoSprite);
+void NoCoinState::draw(sf::RenderWindow& a_window){
+    a_window.draw(m_logoSprite);
     if(m_displayText){
-        window.draw(m_text);
+        a_window.draw(m_text);
     }
 }
 
@@ -178,18 +178,14 @@ void GetReadyState::insertCoin(){
 void GetReadyState::pressButton(){
     getGame()->changeGameState(GameState::Playing);
 }
-void GetReadyState::moveStick(sf::Vector2i direction){
-    if(direction.x == -1){
-        getGame()->changeGameState(GameState::Lost);
-    }
-    else if(direction.x == 1){
-        getGame()->changeGameState(GameState::Won);
-    }
+void GetReadyState::moveStick(sf::Vector2i a_direction){
+
 }
-void GetReadyState::update(sf::Time delta){
+void GetReadyState::update(sf::Time a_delta){
+    
 }
-void GetReadyState::draw(sf::RenderWindow& window){
-    window.draw(m_text);
+void GetReadyState::draw(sf::RenderWindow& a_window){
+    a_window.draw(m_text);
 }
 
 //won state
@@ -200,13 +196,13 @@ void WonState::insertCoin(){
 void WonState::pressButton(){
     
 }
-void WonState::moveStick(sf::Vector2i direction){
+void WonState::moveStick(sf::Vector2i a_direction){
     
 }
-void WonState::update(sf::Time delta){
+void WonState::update(sf::Time a_delta){
     static sf::Time timeBuffer = sf::Time::Zero;
     
-    timeBuffer += delta;
+    timeBuffer += a_delta;
     
     if(timeBuffer.asSeconds() > 5){
         m_playingState->loadNextLvl();
@@ -214,8 +210,8 @@ void WonState::update(sf::Time delta){
         getGame()->changeGameState(GameState::getReady);
     }
 }
-void WonState::draw(sf::RenderWindow& window){
-    window.draw(m_text);
+void WonState::draw(sf::RenderWindow& a_window){
+    a_window.draw(m_text);
 }
 
 //lost state
@@ -228,11 +224,11 @@ void LostState::insertCoin(){
 void LostState::pressButton(){
     
 }
-void LostState::moveStick(sf::Vector2i direction){
+void LostState::moveStick(sf::Vector2i a_direction){
     
 }
-void LostState::update(sf::Time delta){
-    m_countDown += delta;
+void LostState::update(sf::Time a_delta){
+    m_countDown += a_delta;
     
     if(m_countDown.asSeconds() >= 10){
         m_playingState->gameOver();
@@ -242,10 +238,10 @@ void LostState::update(sf::Time delta){
     m_countDownTxt.setString("Insert Coin to Continue... "+ to_string(10 - static_cast<int>(m_countDown.asSeconds())));
     m_scoreDisplay.setString("Score: " + to_string(m_playingState->getScore()));
 }
-void LostState::draw(sf::RenderWindow& window){
-    window.draw(m_text);
-    window.draw(m_scoreDisplay);
-    window.draw(m_countDownTxt);
+void LostState::draw(sf::RenderWindow& a_window){
+    a_window.draw(m_text);
+    a_window.draw(m_scoreDisplay);
+    a_window.draw(m_countDownTxt);
 }
 
 //playing state
@@ -255,14 +251,14 @@ void PlayingState::insertCoin(){
 void PlayingState::pressButton(){
     //m_ghost.setWeak(sf::seconds(3));
 }
-void PlayingState::moveStick(sf::Vector2i direction){
-    m_pacMan->setDirection(direction);
+void PlayingState::moveStick(sf::Vector2i a_direction){
+    m_pacMan->setDirection(a_direction);
 }
-void PlayingState::update(sf::Time delta){
-    m_pacMan->update(delta);
+void PlayingState::update(sf::Time a_delta){
+    m_pacMan->update(a_delta);
     
     for(Ghost* ghost : m_ghosts){
-        ghost->update(delta);
+        ghost->update(a_delta);
     }
     
     //check collision player->dots, player-ghosts, player->weak ghosts
@@ -332,22 +328,22 @@ void PlayingState::update(sf::Time delta){
     m_dotsLeft.setString(to_string(m_maze.getRemainingDots()) + "x dots");
     
 }
-void PlayingState::draw(sf::RenderWindow& window){
-    window.clear();
-    window.draw(m_maze);
-    window.draw(m_bonus);
-    window.draw(*m_pacMan);
+void PlayingState::draw(sf::RenderWindow& a_window){
+    a_window.clear();
+    a_window.draw(m_maze);
+    a_window.draw(m_bonus);
+    a_window.draw(*m_pacMan);
     for(Ghost* ghost : m_ghosts){
-        window.draw(*ghost);
+        a_window.draw(*ghost);
     }
     
     
-    window.draw(m_scoreText);
-    window.draw(m_levelText);
-    window.draw(m_dotsLeft);
+    a_window.draw(m_scoreText);
+    a_window.draw(m_levelText);
+    a_window.draw(m_dotsLeft);
     
     for(unsigned int i = 0; i < m_lives; i++){
-        window.draw(m_livesLeft[i]);
+        a_window.draw(m_livesLeft[i]);
     }
     
 }

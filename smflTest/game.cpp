@@ -89,8 +89,8 @@ void Game::run(){
 }
 
 
-void Game::changeGameState(GameState:: State gameState){
-    m_currentState = m_gameStates[gameState];
+void Game::changeGameState(GameState::State a_gameState){
+    m_currentState = m_gameStates[a_gameState];
 }
 
 

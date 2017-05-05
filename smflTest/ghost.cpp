@@ -10,11 +10,11 @@
 
 
 
-Ghost::Ghost(sf::Texture& texture, Pacman* pacman)
-:m_visual(texture)
+Ghost::Ghost(sf::Texture& a_texture, Pacman* a_pacman)
+:m_visual(a_texture)
 ,m_isWeak(false)
 ,m_weakStateTimer(sf::Time::Zero)
-,m_pacMan(pacman){
+,m_pacMan(a_pacman){
     setOrigin(10, 10);
     
     
@@ -27,24 +27,24 @@ Ghost::Ghost(sf::Texture& texture, Pacman* pacman)
 }
 
 
-void Ghost::setWeak(sf::Time duration){
+void Ghost::setWeak(sf::Time a_duration){
     m_isWeak = true;
-    m_weakStateTimer = duration;
+    m_weakStateTimer = a_duration;
 }
 
 bool Ghost::isWeak() const{
     return m_isWeak;
 }
 
-void Ghost::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    states.transform *= getTransform();
-    target.draw(m_visual, states);
+void Ghost::draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const{
+    a_states.transform *= getTransform();
+    a_target.draw(m_visual, a_states);
 }
 
-void Ghost::update(sf::Time delta){
+void Ghost::update(sf::Time a_delta){
     
     if (m_isWeak){
-        m_weakStateTimer -= delta;
+        m_weakStateTimer -= a_delta;
         
         if (m_weakStateTimer <= sf::Time::Zero){
             m_isWeak = false;
@@ -53,19 +53,18 @@ void Ghost::update(sf::Time delta){
     }
     
     if(!m_isWeak){
-        m_strongAnimator.update(delta);
+        m_strongAnimator.update(a_delta);
         m_strongAnimator.animate(m_visual);
     }
     else{
-        m_weakAnimator.update(delta);
+        m_weakAnimator.update(a_delta);
         m_weakAnimator.animate(m_visual);
     }
     
-    Character::update(delta);
+    Character::update(a_delta);
 }
 
-void Ghost::changeDirection()
-{
+void Ghost::changeDirection(){
     static sf::Vector2i directions[4] = {
         sf::Vector2i(1, 0),
         sf::Vector2i(0, 1),

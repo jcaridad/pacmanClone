@@ -8,26 +8,26 @@
 
 #include "bonus.hpp"
 
-Bonus::Bonus(sf::Texture& texture)
-:m_visual(texture){
+Bonus::Bonus(sf::Texture& a_texture)
+:m_visual(a_texture){
     //15x15 is origin from texture size
     m_visual.setOrigin(8, 8);
     setFruit(Apple);
 }
 
-void Bonus::setFruit(Fruit fruit){
-    if (fruit == Banana){
+void Bonus::setFruit(Fruit a_fruit){
+    if (a_fruit == Banana){
         m_visual.setTextureRect(sf::IntRect(16, 0, 15, 15));
     }
-    else if (fruit == Apple){
+    else if (a_fruit == Apple){
         m_visual.setTextureRect(sf::IntRect(31, 0, 15, 15));
     }
-    else if (fruit == Cherry){
+    else if (a_fruit == Cherry){
         m_visual.setTextureRect(sf::IntRect(46, 0, 15, 15));
     }
 }
 
-void Bonus::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    states.transform *= getTransform();
-    target.draw(m_visual, states);
+void Bonus::draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const{
+    a_states.transform *= getTransform();
+    a_target.draw(m_visual, a_states);
 }

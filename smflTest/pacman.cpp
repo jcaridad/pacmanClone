@@ -8,8 +8,8 @@
 
 #include "pacman.hpp"
 
-Pacman::Pacman(sf::Texture& texture)
-:m_visual(texture)
+Pacman::Pacman(sf::Texture& a_texture)
+:m_visual(a_texture)
 ,m_isDead(false)
 ,m_isDying(false){
     //set origin depending on sprite size
@@ -52,23 +52,23 @@ void Pacman::reset(){
     m_runAnimator.play(sf::seconds(0.75), true);
     m_runAnimator.animate(m_visual);
 }
-void Pacman::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    states.transform *= getTransform();
+void Pacman::draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const{
+    a_states.transform *= getTransform();
     if(!m_isDead){
-        target.draw(m_visual, states);
+        a_target.draw(m_visual, a_states);
     }
 }
 
-void Pacman::update(sf::Time delta){
+void Pacman::update(sf::Time a_delta){
     
     if (!m_isDead && !m_isDying)
     {
-        m_runAnimator.update(delta);
+        m_runAnimator.update(a_delta);
         m_runAnimator.animate(m_visual);
     }
     else
     {
-        m_dieAnimator.update(delta);
+        m_dieAnimator.update(a_delta);
         m_dieAnimator.animate(m_visual);
         
         if (!m_dieAnimator.isPlaying())
@@ -77,5 +77,5 @@ void Pacman::update(sf::Time delta){
             m_isDead = true;
         }
     }
-    Character::update(delta);
+    Character::update(a_delta);
 }

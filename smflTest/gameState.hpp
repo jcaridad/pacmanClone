@@ -30,16 +30,13 @@ public:
         Count
     };
 
-    GameState (Game* game);
+    GameState (Game* a_game);
     Game* getGame() const;
-    
-    
     virtual void insertCoin() = 0;
     virtual void pressButton() = 0;
-    virtual void moveStick(sf::Vector2i direction) = 0;
-    //virtual void handleInput() = 0;
+    virtual void moveStick(sf::Vector2i a_direction) = 0;
     virtual void update(sf::Time delta) = 0;
-    virtual void draw(sf::RenderWindow& window) = 0;
+    virtual void draw(sf::RenderWindow& a_window) = 0;
     
 private:
     Game* m_game;
@@ -48,12 +45,12 @@ private:
 
 class NoCoinState : public GameState{
 public:
-    NoCoinState(Game* game);
+    NoCoinState(Game* a_game);
     void insertCoin();
     void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
+    void moveStick(sf::Vector2i a_direction);
+    void update(sf::Time a_delta);
+    void draw(sf::RenderWindow& a_window);
 
 private:
     sf::Text m_text;
@@ -64,12 +61,12 @@ private:
 
 class GetReadyState : public GameState{
 public:
-    GetReadyState(Game* game, GameState* playingState);
+    GetReadyState(Game* a_game, GameState* a_playingState);
     void insertCoin();
     void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
+    void moveStick(sf::Vector2i a_direction);
+    void update(sf::Time a_delta);
+    void draw(sf::RenderWindow& a_window);
     
 private:
     sf::Text m_text;
@@ -78,13 +75,13 @@ private:
 
 class PlayingState : public GameState{
 public:
-    PlayingState(Game* game);
+    PlayingState(Game* a_game);
     ~PlayingState();
     void insertCoin();
     void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
+    void moveStick(sf::Vector2i a_direction);
+    void update(sf::Time a_delta);
+    void draw(sf::RenderWindow& a_window);
     
     void loadNextLvl();
     void gameOver();
@@ -113,12 +110,12 @@ private:
 
 class WonState : public GameState{
 public:
-    WonState(Game* game, GameState* playingState);
+    WonState(Game* a_game, GameState* a_playingState);
     void insertCoin();
     void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
+    void moveStick(sf::Vector2i a_direction);
+    void update(sf::Time a_delta);
+    void draw(sf::RenderWindow& a_window);
     
 private:
     sf::Text m_text;
@@ -129,12 +126,12 @@ private:
 
 class LostState : public GameState{
 public:
-    LostState(Game* game, GameState* playingState);
+    LostState(Game* a_game, GameState* a_playingState);
     void insertCoin();
     void pressButton();
-    void moveStick(sf::Vector2i direction);
-    void update(sf::Time delta);
-    void draw(sf::RenderWindow& window);
+    void moveStick(sf::Vector2i a_direction);
+    void update(sf::Time a_delta);
+    void draw(sf::RenderWindow& a_window);
     
 private:
     sf::Text m_text;

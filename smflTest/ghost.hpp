@@ -23,16 +23,16 @@ public:
         Weak
     };
     
-    Ghost(sf::Texture& texture, Pacman* pacman);
-    void setWeak(sf::Time duration);
+    Ghost(sf::Texture& a_texture, Pacman* a_pacman);
+    void setWeak(sf::Time a_duration);
     bool isWeak() const;
     
-    void update(sf::Time delta);
+    void update(sf::Time a_delta);
     
 protected:
     void changeDirection();
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const;
     
     bool m_isWeak;
     sf::Time m_weakStateTimer;

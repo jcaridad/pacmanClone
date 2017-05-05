@@ -24,12 +24,12 @@ public:
         Banana
     };
     
-    Bonus(sf::Texture& Texture);
-    void setFruit(Fruit fruit);
+    Bonus(sf::Texture& a_Texture);
+    void setFruit(Fruit a_fruit);
     
 private:
     sf::Sprite m_visual;
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const;
     
 };
 #endif /* bonus_hpp */

@@ -16,14 +16,14 @@
 
 using namespace std;
 
-Maze::Maze(sf::Texture& texture )
+Maze::Maze(sf::Texture& a_texture )
 :m_mazeSize(0,0)
-,m_texture(texture){
+,m_texture(a_texture){
     
 }
 
 
-void Maze::loadLevel(string fileName){
+void Maze::loadLevel(string a_fileName){
     
     m_mazeSize = sf::Vector2i(0, 0);
     m_mazeData.clear();
@@ -35,8 +35,8 @@ void Maze::loadLevel(string fileName){
     
     sf::Image levelData;
     //load up map images
-    if(!levelData.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/levels/"+ fileName +".png")){
-        throw runtime_error("Failed to load (" + fileName + ")");
+    if(!levelData.loadFromFile("/Users/jymarcaridad/ClassCodes/smflTest/smflTest/assets/levels/"+ a_fileName +".png")){
+        throw runtime_error("Failed to load (" + a_fileName + ")");
     }
     m_mazeSize = sf::Vector2i(levelData.getSize());
     
@@ -166,8 +166,8 @@ void Maze::loadLevel(string fileName){
     }
 }
 
-void Maze::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    target.draw(sf::Sprite(m_renderTexture.getTexture()), states);
+void Maze::draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const{
+    a_target.draw(sf::Sprite(m_renderTexture.getTexture()), a_states);
     
     static sf::CircleShape dot = getDot();
     static sf::CircleShape superDot = getSuperDot();
@@ -176,11 +176,11 @@ void Maze::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         sf::Vector2i position = indexToPosition(i);
         if(m_mazeData[i] == Dot){
             dot.setPosition(CELLSIZE_W * position.x + 8, CELLSIZE_H * position.y + 8);
-            target.draw(dot,states);
+            a_target.draw(dot,a_states);
         }
         else if(m_mazeData[i] == SuperDot){
             superDot.setPosition(CELLSIZE_W * position.x + 8, CELLSIZE_H * position.y + 8);
-            target.draw(superDot, states);
+            a_target.draw(superDot, a_states);
         }
         
     }
@@ -203,56 +203,56 @@ sf::Vector2i Maze::getRespawnPosition() const{
     return m_respawnPosition;
 }
 
-size_t Maze::positionToIndex(sf::Vector2i position) const{
-    return position.y * m_mazeSize.x + position.x;
+size_t Maze::positionToIndex(sf::Vector2i a_position) const{
+    return a_position.y * m_mazeSize.x + a_position.x;
 }
 
-sf::Vector2i Maze::indexToPosition(size_t index) const{
+sf::Vector2i Maze::indexToPosition(size_t a_index) const{
     sf::Vector2i position;
     
-    position.x = index % m_mazeSize.x;
-    position.y = index / m_mazeSize.x;
+    position.x = a_index % m_mazeSize.x;
+    position.y = a_index / m_mazeSize.x;
     
     return position;
 }
 
-sf::Vector2i Maze::mapPixelToCell(sf::Vector2f pixel) const{
+sf::Vector2i Maze::mapPixelToCell(sf::Vector2f a_pixel) const{
     sf::Vector2i cell;
-    cell.x = floor(pixel.x / 16.f);
-    cell.y = floor(pixel.y / 16.f);
+    cell.x = floor(a_pixel.x / 16.f);
+    cell.y = floor(a_pixel.y / 16.f);
     
     return cell;
 }
-sf::Vector2f Maze::mapCellToPixel(sf::Vector2i cell) const{
+sf::Vector2f Maze::mapCellToPixel(sf::Vector2i a_cell) const{
     sf::Vector2f pixel;
-    pixel.x = cell.x * CELLSIZE_W + 8;
-    pixel.y = cell.y * CELLSIZE_H + 8;
+    pixel.x = a_cell.x * CELLSIZE_W + 8;
+    pixel.y = a_cell.y * CELLSIZE_H + 8;
     
     return pixel;
 }
 
-bool Maze::isWall(sf::Vector2i position) const{
-    if(position.x < 0 || position.y < 0 || position.x >= m_mazeSize.x || position.y >= m_mazeSize.y){
+bool Maze::isWall(sf::Vector2i a_position) const{
+    if(a_position.x < 0 || a_position.y < 0 || a_position.x >= m_mazeSize.x || a_position.y >= m_mazeSize.y){
         return false;
     }
-    return m_mazeData[positionToIndex(position)] == Wall;
+    return m_mazeData[positionToIndex(a_position)] == Wall;
 }
 
-bool Maze::isDot(sf::Vector2i position) const{
-    return m_mazeData[positionToIndex(position)] == Dot;
+bool Maze::isDot(sf::Vector2i a_position) const{
+    return m_mazeData[positionToIndex(a_position)] == Dot;
 }
 
-bool Maze::isSuperDot(sf::Vector2i position) const{
-    return m_mazeData[positionToIndex(position)] == SuperDot;
+bool Maze::isSuperDot(sf::Vector2i a_position) const{
+    return m_mazeData[positionToIndex(a_position)] == SuperDot;
 }
 
-bool Maze::isBonus(sf::Vector2i position) const{
-    return m_mazeData[positionToIndex(position)] == Bonus;
+bool Maze::isBonus(sf::Vector2i a_position) const{
+    return m_mazeData[positionToIndex(a_position)] == Bonus;
 }
 
-void Maze::pickObject(sf::Vector2i position){
-    assert(!isWall(position));
-    m_mazeData[positionToIndex(position)] = Empty;
+void Maze::pickObject(sf::Vector2i a_position){
+    assert(!isWall(a_position));
+    m_mazeData[positionToIndex(a_position)] = Empty;
 }
 
 int Maze::getRemainingDots() const{
