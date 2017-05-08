@@ -31,6 +31,10 @@ void \hyperlink{class_lost_state_acfdefa77d7ed756a1052d39ed2de8786}{draw} (sf\+:
 \subsection{Detailed Description}
 \hyperlink{class_lost_state}{Lost\+State} Class This Class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This state announces that the player lost the game and is given an option to continue for 10 seconds. If the player chooses to continue, it will give the player another set of lives to play and continue where they left off. If the player chooses to let the timer go down to zero, the game will reset from scratch all the way back to the no coin state. 
 
+Definition at line 448 of file game\+State.\+hpp.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_lost_state_a92bfadd289d793b53b4395510d35f052}\label{class_lost_state_a92bfadd289d793b53b4395510d35f052}} 
 \index{Lost\+State@{Lost\+State}!Lost\+State@{Lost\+State}}
@@ -45,6 +49,10 @@ A \hyperlink{class_lost_state}{Lost\+State} Constructor Intiates the text to be 
 {\em a\+\_\+playing\+State} & the current playing\+State entity \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 61 of file game\+State.\+cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -65,6 +73,10 @@ This function renders the text to the screen
 
 Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
 
+
+
+Definition at line 239 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_lost_state_aa35179942033d9ab54fbcd7122f40497}\label{class_lost_state_aa35179942033d9ab54fbcd7122f40497}} 
 \index{Lost\+State@{Lost\+State}!insert\+Coin@{insert\+Coin}}
 \index{insert\+Coin@{insert\+Coin}!Lost\+State@{Lost\+State}}
@@ -74,6 +86,10 @@ Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+
 This function waits for the player to \char`\"{}insert a coin\char`\"{} and reset the number of lives and resume the current game being played 
 
 Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+
+
+Definition at line 217 of file game\+State.\+cpp.
 
 \mbox{\Hypertarget{class_lost_state_abc978a14604451eee5e0373b4ad374c8}\label{class_lost_state_abc978a14604451eee5e0373b4ad374c8}} 
 \index{Lost\+State@{Lost\+State}!move\+Stick@{move\+Stick}}
@@ -92,6 +108,10 @@ This function sets the direction where Pac-\/\+Man/\+Quack\+Man is going
 
 Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
 
+
+
+Definition at line 225 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_lost_state_ab0ec749961cfe909dc61289d14444a71}\label{class_lost_state_ab0ec749961cfe909dc61289d14444a71}} 
 \index{Lost\+State@{Lost\+State}!press\+Button@{press\+Button}}
 \index{press\+Button@{press\+Button}!Lost\+State@{Lost\+State}}
@@ -104,6 +124,10 @@ This is an empty function to override it\textquotesingle{}s virtual counter part
 
 
 Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+
+
+Definition at line 222 of file game\+State.\+cpp.
 
 \mbox{\Hypertarget{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}\label{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}} 
 \index{Lost\+State@{Lost\+State}!update@{update}}
@@ -124,7 +148,11 @@ Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+
 
 
 
+Definition at line 228 of file game\+State.\+cpp.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
-\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}
+smfl\+Test/\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+smfl\+Test/\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

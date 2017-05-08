@@ -15,6 +15,7 @@
  * This function renders the dot for the game
  *
  * @return returns the dot created
+ * @see sf::CircleShape: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1CircleShape.php
  */
 sf::CircleShape getDot();
 
@@ -23,6 +24,7 @@ sf::CircleShape getDot();
  * This function renders the super dot for the game
  *
  * @return returns the super dot created
+ * @see sf::CircleShape: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1CircleShape.php
  */
 sf::CircleShape getSuperDot();
 

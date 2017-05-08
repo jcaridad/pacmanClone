@@ -45,6 +45,10 @@ int \hyperlink{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}{get\+Score
 \subsection{Detailed Description}
 Playing State Class This class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This game state is where everything is implemented. The game is played in this state. It takes care of loading the levels, calculating scores, checking for Player VS \hyperlink{class_ghost}{Ghost} Collisions, picking up pellets, and rendering the H\+UD. 
 
+Definition at line 219 of file game\+State.\+hpp.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_playing_state_a09c8d3c87687ffa4e5f04c70265d67de}\label{class_playing_state_a09c8d3c87687ffa4e5f04c70265d67de}} 
 \index{Playing\+State@{Playing\+State}!Playing\+State@{Playing\+State}}
@@ -65,13 +69,21 @@ A \hyperlink{class_playing_state}{Playing\+State} Constructor Intiates the follo
 \hline
 \end{DoxyParams}
 
-\end{DoxyItemize}\mbox{\Hypertarget{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}\label{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}} 
+\end{DoxyItemize}
+
+Definition at line 84 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}\label{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}} 
 \index{Playing\+State@{Playing\+State}!````~Playing\+State@{$\sim$\+Playing\+State}}
 \index{````~Playing\+State@{$\sim$\+Playing\+State}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{$\sim$\+Playing\+State()}{~PlayingState()}}
 {\footnotesize\ttfamily Playing\+State\+::$\sim$\+Playing\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 A \hyperlink{class_playing_state}{Playing\+State} Destructor Deletes the current instances of Pac-\/\+Man/\+Quack\+Man and ghosts 
+
+Definition at line 134 of file game\+State.\+cpp.
+
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}\label{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}} 
@@ -91,13 +103,21 @@ This functions draws everything on the screen. The \hyperlink{class_maze}{Maze},
 
 Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
 
+
+
+Definition at line 329 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_playing_state_ac2093c243cc85bb767b27797060aab2c}\label{class_playing_state_ac2093c243cc85bb767b27797060aab2c}} 
 \index{Playing\+State@{Playing\+State}!game\+Over@{game\+Over}}
 \index{game\+Over@{game\+Over}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{game\+Over()}{gameOver()}}
 {\footnotesize\ttfamily void Playing\+State\+::game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This function resets all the in game variables. Set everything like a new game \mbox{\Hypertarget{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}\label{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}} 
+This function resets all the in game variables. Set everything like a new game 
+
+Definition at line 409 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}\label{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}} 
 \index{Playing\+State@{Playing\+State}!get\+Score@{get\+Score}}
 \index{get\+Score@{get\+Score}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{get\+Score()}{getScore()}}
@@ -108,6 +128,10 @@ This is a get function for m\+\_\+score;
 \begin{DoxyReturn}{Returns}
 returns the current game score 
 \end{DoxyReturn}
+
+
+Definition at line 427 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}\label{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}} 
 \index{Playing\+State@{Playing\+State}!insert\+Coin@{insert\+Coin}}
 \index{insert\+Coin@{insert\+Coin}!Playing\+State@{Playing\+State}}
@@ -121,13 +145,21 @@ This is an empty function to override it\textquotesingle{}s virtual counter part
 
 Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
 
+
+
+Definition at line 246 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_playing_state_a18ea22c1b551f6d81d030853f8ce9b73}\label{class_playing_state_a18ea22c1b551f6d81d030853f8ce9b73}} 
 \index{Playing\+State@{Playing\+State}!load\+Next\+Lvl@{load\+Next\+Lvl}}
 \index{load\+Next\+Lvl@{load\+Next\+Lvl}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{load\+Next\+Lvl()}{loadNextLvl()}}
 {\footnotesize\ttfamily void Playing\+State\+::load\+Next\+Lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This function the levels and changes the game difficulty. There are 3 different maps that can be played and the speeds increases everytime the 3 maps are completed. \mbox{\Hypertarget{class_playing_state_af205fbb130a2c83b260d80359de914e8}\label{class_playing_state_af205fbb130a2c83b260d80359de914e8}} 
+This function the levels and changes the game difficulty. There are 3 different maps that can be played and the speeds increases everytime the 3 maps are completed. 
+
+Definition at line 359 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_af205fbb130a2c83b260d80359de914e8}\label{class_playing_state_af205fbb130a2c83b260d80359de914e8}} 
 \index{Playing\+State@{Playing\+State}!move\+Stick@{move\+Stick}}
 \index{move\+Stick@{move\+Stick}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
@@ -144,6 +176,10 @@ This function sets the direction where Pac-\/\+Man/\+Quack\+Man is going
 
 Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
 
+
+
+Definition at line 252 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}\label{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}} 
 \index{Playing\+State@{Playing\+State}!press\+Button@{press\+Button}}
 \index{press\+Button@{press\+Button}!Playing\+State@{Playing\+State}}
@@ -157,25 +193,41 @@ This is an empty function to override it\textquotesingle{}s virtual counter part
 
 Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
 
+
+
+Definition at line 249 of file game\+State.\+cpp.
+
 \mbox{\Hypertarget{class_playing_state_ac1d69f92915e66c4335c6218c0837179}\label{class_playing_state_ac1d69f92915e66c4335c6218c0837179}} 
 \index{Playing\+State@{Playing\+State}!reset\+Characters@{reset\+Characters}}
 \index{reset\+Characters@{reset\+Characters}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{reset\+Characters()}{resetCharacters()}}
 {\footnotesize\ttfamily void Playing\+State\+::reset\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This function resets all the character entities back to its original spawn points \mbox{\Hypertarget{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}\label{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}} 
+This function resets all the character entities back to its original spawn points 
+
+Definition at line 349 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}\label{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}} 
 \index{Playing\+State@{Playing\+State}!reset\+Current\+Lvl@{reset\+Current\+Lvl}}
 \index{reset\+Current\+Lvl@{reset\+Current\+Lvl}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{reset\+Current\+Lvl()}{resetCurrentLvl()}}
 {\footnotesize\ttfamily void Playing\+State\+::reset\+Current\+Lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This function resets the current level back to its original status, meaning all dots, super\+Dots and \hyperlink{class_bonus}{Bonus} is there \mbox{\Hypertarget{class_playing_state_a464c879dc893195b041efa58b3b3e73f}\label{class_playing_state_a464c879dc893195b041efa58b3b3e73f}} 
+This function resets the current level back to its original status, meaning all dots, super\+Dots and \hyperlink{class_bonus}{Bonus} is there 
+
+Definition at line 422 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_a464c879dc893195b041efa58b3b3e73f}\label{class_playing_state_a464c879dc893195b041efa58b3b3e73f}} 
 \index{Playing\+State@{Playing\+State}!reset\+Lives@{reset\+Lives}}
 \index{reset\+Lives@{reset\+Lives}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{reset\+Lives()}{resetLives()}}
 {\footnotesize\ttfamily void Playing\+State\+::reset\+Lives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This function resets the just the number of lives back to 3. Used when a player decideds to continue after losing. \mbox{\Hypertarget{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}\label{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}} 
+This function resets the just the number of lives back to 3. Used when a player decideds to continue after losing. 
+
+Definition at line 418 of file game\+State.\+cpp.
+
+\mbox{\Hypertarget{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}\label{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}} 
 \index{Playing\+State@{Playing\+State}!update@{update}}
 \index{update@{update}!Playing\+State@{Playing\+State}}
 \subsubsection{\texorpdfstring{update()}{update()}}
@@ -194,7 +246,11 @@ Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+
 
 
 
+Definition at line 255 of file game\+State.\+cpp.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
-\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}
+smfl\+Test/\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+smfl\+Test/\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

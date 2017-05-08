@@ -140,12 +140,14 @@ private:
     /**
      * A private sf::Text variable
      * The "insert coin" text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_text;
     
     /**
      * A private sf::Sprite variable
      * The game logo
+     * @see sf::Sprite: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php
      */
     sf::Sprite m_logoSprite;
     
@@ -205,6 +207,7 @@ private:
     /**
      * A private sf::Text variable
      * The "press S to start" text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_text;
 };
@@ -331,24 +334,28 @@ private:
     /**
      * A private sf::Text variable
      * The score text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_scoreText;
     
     /**
      * A private sf::Text variable
      * The level text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_levelText;
     
     /**
      * A private sf::Text variable
      * The dots left text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_dotsLeft;
     
     /**
      * A private sf::Sprite variable
      * The number of lives left display
+     * @see sf::Sprite: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php
      */
     sf::Sprite m_livesLeft[3];
     
@@ -422,6 +429,7 @@ private:
     /**
      * A private sf::Text variable
      * The "You Won!" text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_text;
     
@@ -484,25 +492,30 @@ private:
     /**
      * A private sf::Text variable
      * The "You Lost" Text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_text;
     
     /**
      * A private sf::Time variable
      * The countdown clock
+     * @see sf::Time: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Time.php
      */
     sf::Time m_countDown;
     
     /**
      * A private sf::Text variable
      * The countdown text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
     sf::Text m_countDownTxt;
     
     /**
      * A private sf::Text variable
      * The current score text
+     * @see sf::Text: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php
      */
+    
     sf::Text m_scoreDisplay;
     
     /**

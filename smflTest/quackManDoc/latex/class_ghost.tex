@@ -41,6 +41,10 @@ void \hyperlink{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}{change\+Direction
 \end{DoxySeeAlso}
 
 
+Definition at line 24 of file ghost.\+hpp.
+
+
+
 \subsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{class_ghost_af712fc09f900832a0225928c4556234d}\label{class_ghost_af712fc09f900832a0225928c4556234d}} 
 \index{Ghost@{Ghost}!State@{State}}
@@ -60,6 +64,10 @@ Weak&Weak\+State\+: Can be killed by Player \\
 \end{DoxyEnumFields}
 
 
+Definition at line 30 of file ghost.\+hpp.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_ghost_a931627708b35e6f0b6f9d106adbaee1f}\label{class_ghost_a931627708b35e6f0b6f9d106adbaee1f}} 
 \index{Ghost@{Ghost}!Ghost@{Ghost}}
@@ -77,6 +85,10 @@ A \hyperlink{class_ghost}{Ghost} Constructor Initiates the following member vari
 \item m\+\_\+weak\+Animator 
 \end{DoxyItemize}
 
+Definition at line 13 of file ghost.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}\label{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}} 
 \index{Ghost@{Ghost}!change\+Direction@{change\+Direction}}
@@ -87,6 +99,10 @@ A \hyperlink{class_ghost}{Ghost} Constructor Initiates the following member vari
 This function holds the path finding AI for the ghosts. It has a static vector that holds 4 directions and stores it in a map container from best to worst. Gets the angle between pacman and ghost and uses that to decide and rank which direction to take from best to worst if it is in the Strong State. During the Weak State it uses the same ranking but reads it backwards(worst to best). 
 
 Reimplemented from \hyperlink{class_character_ab4c0dc6f72c78607b921cf312e10ed35}{Character}.
+
+
+
+Definition at line 66 of file ghost.\+cpp.
 
 \mbox{\Hypertarget{class_ghost_af0cf8b5a66a4a390746f43238b96fe55}\label{class_ghost_af0cf8b5a66a4a390746f43238b96fe55}} 
 \index{Ghost@{Ghost}!is\+Weak@{is\+Weak}}
@@ -99,6 +115,10 @@ This is a get function for m\+\_\+is\+Weak
 \begin{DoxyReturn}{Returns}
 returns true if the ghost is in the weak state 
 \end{DoxyReturn}
+
+
+Definition at line 34 of file ghost.\+cpp.
+
 \mbox{\Hypertarget{class_ghost_ad3af3a46b5c130515dffaae54824341a}\label{class_ghost_ad3af3a46b5c130515dffaae54824341a}} 
 \index{Ghost@{Ghost}!set\+Weak@{set\+Weak}}
 \index{set\+Weak@{set\+Weak}!Ghost@{Ghost}}
@@ -112,6 +132,10 @@ This function set the ghost into the weak state for a certain amount of time whi
 {\em a\+\_\+duration} & the length in sf\+::\+Seconds that the ghost is in wthe weak state \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 29 of file ghost.\+cpp.
+
 \mbox{\Hypertarget{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}\label{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}} 
 \index{Ghost@{Ghost}!update@{update}}
 \index{update@{update}!Ghost@{Ghost}}
@@ -131,7 +155,11 @@ Reimplemented from \hyperlink{class_character_a89b72b507971ba8648909980d045ed06}
 
 
 
+Definition at line 43 of file ghost.\+cpp.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{ghost_8hpp}{ghost.\+hpp}\item 
-\hyperlink{ghost_8cpp}{ghost.\+cpp}\end{DoxyCompactItemize}
+smfl\+Test/\hyperlink{ghost_8hpp}{ghost.\+hpp}\item 
+smfl\+Test/\hyperlink{ghost_8cpp}{ghost.\+cpp}\end{DoxyCompactItemize}

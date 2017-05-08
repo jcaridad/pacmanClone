@@ -23,7 +23,6 @@
   <td id="projectlogo"><img alt="Logo" src="2000px-Pacman.svg.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">QuackMan
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">A Pac-Man Clone</div>
   </td>
@@ -113,6 +112,8 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="class_character.html">Character</a> Class Parent Class to <a class="el" href="class_pacman.html">Pacman</a> and <a class="el" href="class_ghost.html">Ghost</a>. Inherits from sf::Drawable and sf::Transformable. sf::Transformable can be used as a base class. It is often combined with sf::Drawable – that's what SFML's sprites, texts and shapes do. This is where most of the <a class="el" href="class_character.html">Character</a> to <a class="el" href="class_maze.html">Maze</a> interaction is happening. Wall Collision, Tunnels, <a class="el" href="class_character.html">Character</a> Speed, and Movement Direction are handled in this Class </p><dl class="section see"><dt>See also</dt><dd>sf::Transformable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Transformable.php">https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Transformable.php</a> </dd>
 <dd>
 sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Drawable.php">https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Drawable.php</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="character_8hpp_source.html#l00022">22</a> of file <a class="el" href="character_8hpp_source.html">character.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adc27bdd255876169bad2ed0bae0cffb5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc27bdd255876169bad2ed0bae0cffb5">&#9670;&nbsp;</a></span>Character()</h2>
@@ -135,6 +136,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 <li>m_nextDirection</li>
 <li>m_prevIntersecion </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00015">15</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,6 +169,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 
 <p>Reimplemented in <a class="el" href="class_ghost.html#a08831fa01afa61f91365ce82cf33bf1b">Ghost</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="character_8hpp_source.html#l00101">101</a> of file <a class="el" href="character_8hpp_source.html">character.hpp</a>.</p>
+
 </div>
 </div>
 <a id="ab267ab6083ac0b311fc86754ceaed269"></a>
@@ -184,6 +189,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 </div><div class="memdoc">
 <p>This function creates a rectangle bound around the character sprite which helps detect collision</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the position/rotation/scale/origin of the collision box </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00038">38</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
 
 </div>
 </div>
@@ -204,6 +211,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 <p>This function is a get function for the m_currentDirection which is a private variable</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the direction that the character is taking in the map </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00030">30</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
 </div>
 </div>
 <a id="afb7791a8c122e8b88244f0a1a54506c0"></a>
@@ -222,6 +231,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 </div><div class="memdoc">
 <p>This function is a get function for the m_speed which is a private variable</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the character's movement speed </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00138">138</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
 
 </div>
 </div>
@@ -248,6 +259,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00027">27</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a4a925db15b8f68d2c8d3201ce41f5863"></a>
@@ -273,6 +286,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00023">23</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a37068c523c733698c7f7ad587ccc66a0"></a>
@@ -297,6 +312,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00134">134</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,6 +353,8 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 
 <p>Reimplemented in <a class="el" href="class_ghost.html#a164e0607f7ea0d72d756bdf964e66b90">Ghost</a>, and <a class="el" href="class_pacman.html#a6badb47a28223991a1eb540f9d970e77">Pacman</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00043">43</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a53d02c2b1c914990e51e0fb84913d151"></a>
@@ -355,11 +374,13 @@ sf::Drawable: <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1D
 <p>This function checks wheter the next direction is a valid position that the character can go to</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if the next direction not a wall </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00034">34</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="character_8hpp_source.html">character.hpp</a></li>
-<li><a class="el" href="character_8cpp.html">character.cpp</a></li>
+<li>smflTest/<a class="el" href="character_8hpp_source.html">character.hpp</a></li>
+<li>smflTest/<a class="el" href="character_8cpp_source.html">character.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
