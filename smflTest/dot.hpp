@@ -11,9 +11,20 @@
 
 #include <SFML/Graphics.hpp>
 
+/**
+ * This function renders the dot for the game
+ *
+ * @return returns the dot created
+ */
 sf::CircleShape getDot();
-sf::CircleShape getSuperDot();
 
+
+/**
+ * This function renders the super dot for the game
+ *
+ * @return returns the super dot created
+ */
+sf::CircleShape getSuperDot();
 
 
 #endif /* dot_hpp */

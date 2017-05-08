@@ -1,0 +1,113 @@
+\hypertarget{class_animator}{}\section{Animator Class Reference}
+\label{class_animator}\index{Animator@{Animator}}
+
+
+{\ttfamily \#include $<$animator.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_animator_a701eeb9283612be2027425efb06bbff7}{Animator} ()
+\item 
+void \hyperlink{class_animator_a69e57eedcfb49c3b6d7802ff906486b7}{add\+Frame} (sf\+::\+Int\+Rect a\+\_\+frame)
+\item 
+void \hyperlink{class_animator_a8220e9ec75ce8e3425e8ca44c309f700}{play} (sf\+::\+Time a\+\_\+duration, bool a\+\_\+loop)
+\item 
+bool \hyperlink{class_animator_af652cfa1671a9a8155f85b2b33f65a17}{is\+Playing} () const
+\item 
+void \hyperlink{class_animator_a79c476575fc1e1c50e8f119be6806cf0}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_animator_acb1e3abc21b1ea2133baa4bd089062a0}{animate} (sf\+::\+Sprite \&a\+\_\+sprite)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_animator}{Animator} Class This Class handles all the animation that is rendered in the game. Mainly used show Player and \hyperlink{class_ghost}{Ghost} Animation 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_animator_a701eeb9283612be2027425efb06bbff7}\label{class_animator_a701eeb9283612be2027425efb06bbff7}} 
+\index{Animator@{Animator}!Animator@{Animator}}
+\index{Animator@{Animator}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{Animator()}{Animator()}}
+{\footnotesize\ttfamily Animator\+::\+Animator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hyperlink{class_animator}{Animator} Constructor. Intiates the following member variables
+\begin{DoxyItemize}
+\item m\+\_\+current\+Frame
+\item m\+\_\+is\+Playing
+\item m\+\_\+duration
+\item m\+\_\+loop 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_animator_a69e57eedcfb49c3b6d7802ff906486b7}\label{class_animator_a69e57eedcfb49c3b6d7802ff906486b7}} 
+\index{Animator@{Animator}!add\+Frame@{add\+Frame}}
+\index{add\+Frame@{add\+Frame}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{add\+Frame()}{addFrame()}}
+{\footnotesize\ttfamily void Animator\+::add\+Frame (\begin{DoxyParamCaption}\item[{sf\+::\+Int\+Rect}]{a\+\_\+frame }\end{DoxyParamCaption})}
+
+This function stores animation frames clipped from the spritesheet
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+frame} & an animation frame \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animator_acb1e3abc21b1ea2133baa4bd089062a0}\label{class_animator_acb1e3abc21b1ea2133baa4bd089062a0}} 
+\index{Animator@{Animator}!animate@{animate}}
+\index{animate@{animate}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{animate()}{animate()}}
+{\footnotesize\ttfamily void Animator\+::animate (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{a\+\_\+sprite }\end{DoxyParamCaption})}
+
+This function specify which sprite to animate and set all the corresponding animation frames to the sprite passed into the function
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+sprite} & the sprite that have to be animated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animator_af652cfa1671a9a8155f85b2b33f65a17}\label{class_animator_af652cfa1671a9a8155f85b2b33f65a17}} 
+\index{Animator@{Animator}!is\+Playing@{is\+Playing}}
+\index{is\+Playing@{is\+Playing}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{is\+Playing()}{isPlaying()}}
+{\footnotesize\ttfamily bool Animator\+::is\+Playing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This functions checks if the animation is playing
+
+\begin{DoxyReturn}{Returns}
+Returns true if the animation is playing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animator_a8220e9ec75ce8e3425e8ca44c309f700}\label{class_animator_a8220e9ec75ce8e3425e8ca44c309f700}} 
+\index{Animator@{Animator}!play@{play}}
+\index{play@{play}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void Animator\+::play (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+duration,  }\item[{bool}]{a\+\_\+loop }\end{DoxyParamCaption})}
+
+This functions acts as a switch to play the sprite animation
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+duration} & length of animation time \\
+\hline
+{\em a\+\_\+loop} & whether the animation should loop or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animator_a79c476575fc1e1c50e8f119be6806cf0}\label{class_animator_a79c476575fc1e1c50e8f119be6806cf0}} 
+\index{Animator@{Animator}!update@{update}}
+\index{update@{update}!Animator@{Animator}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Animator\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})}
+
+This functions checks how long have the current animation frame have been playing and updates it to the new frame if the frame duration have elaposed
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & current time \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{animator_8hpp}{animator.\+hpp}\item 
+\hyperlink{animator_8cpp}{animator.\+cpp}\end{DoxyCompactItemize}

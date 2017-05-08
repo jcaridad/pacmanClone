@@ -15,16 +15,15 @@ using namespace std;
 
 /**
  * Animator Class
- * This Class handles all the animation that is rendered in the game. Mainly used show P{layer and Ghost Animation
+ * This Class handles all the animation that is rendered in the game. Mainly used show Player and Ghost Animation
  */
 
 class Animator{
 public:
     
     /**
-     *
      * Animator Constructor.
-     * Intiates the following member functions
+     * Intiates the following member variables
      * - m_currentFrame
      * - m_isPlaying
      * - m_duration
@@ -81,25 +80,26 @@ private:
     vector<sf::IntRect> m_frames;
     
     /**
-     * A private variable
+     * A private boolean variable
      * Indicates if the animation is playing or not
      */
     bool m_isPlaying;
     
     /**
-     * A private variable.
+     * A private sf::Time variable.
      * Duration of the Animation
+     * @see sf::Time: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Time.php
      */
     sf::Time m_duration;
     
     /**
-     * A private variable.
+     * A private boolean variable.
      * Indicates if the animation should loop or not
      */
     bool m_loop;
     
     /**
-     * A private variable.
+     * A private integer variable.
      * Index of the current frame
      */
     unsigned int m_currentFrame;

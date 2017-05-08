@@ -22,7 +22,6 @@ Maze::Maze(sf::Texture& a_texture )
     
 }
 
-
 void Maze::loadLevel(string a_fileName){
     
     m_mazeSize = sf::Vector2i(0, 0);

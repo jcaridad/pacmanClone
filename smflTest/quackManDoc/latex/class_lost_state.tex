@@ -1,0 +1,130 @@
+\hypertarget{class_lost_state}{}\section{Lost\+State Class Reference}
+\label{class_lost_state}\index{Lost\+State@{Lost\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for Lost\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_lost_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_lost_state_a92bfadd289d793b53b4395510d35f052}{Lost\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game, \hyperlink{class_game_state}{Game\+State} $\ast$a\+\_\+playing\+State)
+\item 
+void \hyperlink{class_lost_state_aa35179942033d9ab54fbcd7122f40497}{insert\+Coin} ()
+\item 
+void \hyperlink{class_lost_state_ab0ec749961cfe909dc61289d14444a71}{press\+Button} ()
+\item 
+void \hyperlink{class_lost_state_abc978a14604451eee5e0373b4ad374c8}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+void \hyperlink{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_lost_state_acfdefa77d7ed756a1052d39ed2de8786}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_lost_state}{Lost\+State} Class This Class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This state announces that the player lost the game and is given an option to continue for 10 seconds. If the player chooses to continue, it will give the player another set of lives to play and continue where they left off. If the player chooses to let the timer go down to zero, the game will reset from scratch all the way back to the no coin state. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lost_state_a92bfadd289d793b53b4395510d35f052}\label{class_lost_state_a92bfadd289d793b53b4395510d35f052}} 
+\index{Lost\+State@{Lost\+State}!Lost\+State@{Lost\+State}}
+\index{Lost\+State@{Lost\+State}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{Lost\+State()}{LostState()}}
+{\footnotesize\ttfamily Lost\+State\+::\+Lost\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game,  }\item[{\hyperlink{class_game_state}{Game\+State} $\ast$}]{a\+\_\+playing\+State }\end{DoxyParamCaption})}
+
+A \hyperlink{class_lost_state}{Lost\+State} Constructor Intiates the text to be rendered on the screen and make sures that the score and the maze is kept just incase the player decides to continue 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+game} & the current game instance \\
+\hline
+{\em a\+\_\+playing\+State} & the current playing\+State entity \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lost_state_acfdefa77d7ed756a1052d39ed2de8786}\label{class_lost_state_acfdefa77d7ed756a1052d39ed2de8786}} 
+\index{Lost\+State@{Lost\+State}!draw@{draw}}
+\index{draw@{draw}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Lost\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function renders the text to the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
+
+\mbox{\Hypertarget{class_lost_state_aa35179942033d9ab54fbcd7122f40497}\label{class_lost_state_aa35179942033d9ab54fbcd7122f40497}} 
+\index{Lost\+State@{Lost\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily void Lost\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function waits for the player to \char`\"{}insert a coin\char`\"{} and reset the number of lives and resume the current game being played 
+
+Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+\mbox{\Hypertarget{class_lost_state_abc978a14604451eee5e0373b4ad374c8}\label{class_lost_state_abc978a14604451eee5e0373b4ad374c8}} 
+\index{Lost\+State@{Lost\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily void Lost\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function sets the direction where Pac-\/\+Man/\+Quack\+Man is going
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
+
+\mbox{\Hypertarget{class_lost_state_ab0ec749961cfe909dc61289d14444a71}\label{class_lost_state_ab0ec749961cfe909dc61289d14444a71}} 
+\index{Lost\+State@{Lost\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily void Lost\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+\mbox{\Hypertarget{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}\label{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}} 
+\index{Lost\+State@{Lost\+State}!update@{update}}
+\index{update@{update}!Lost\+State@{Lost\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Lost\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This funciton sets a countdown of 10 seconds the shows it to the screen and if the player does not insert a coin within the countdown then it declares \hyperlink{class_game}{Game} Over and the game will reset from scratch and go back to the No Coin State
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

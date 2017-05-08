@@ -29,6 +29,7 @@ Pacman::Pacman(sf::Texture& a_texture)
     m_dieAnimator.addFrame(sf::IntRect(80, 156, 20, 20));
    
     m_runAnimator.play(sf::seconds(0.5), true);
+    m_dieAnimator.play(sf::seconds(1), false);
 }
 
 void Pacman::die(){
@@ -49,7 +50,7 @@ void Pacman::reset(){
     m_isDying = false;
     m_isDead = false;
     
-    m_runAnimator.play(sf::seconds(0.75), true);
+    m_runAnimator.play(sf::seconds(0.5), true);
     m_runAnimator.animate(m_visual);
 }
 void Pacman::draw(sf::RenderTarget& a_target, sf::RenderStates a_states) const{

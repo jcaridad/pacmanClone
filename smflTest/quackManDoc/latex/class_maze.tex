@@ -1,0 +1,275 @@
+\hypertarget{class_maze}{}\section{Maze Class Reference}
+\label{class_maze}\index{Maze@{Maze}}
+
+
+{\ttfamily \#include $<$maze.\+hpp$>$}
+
+Inheritance diagram for Maze\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_maze}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_maze_a7d8ebd5ec031891fcb2d76d5b8502e44}{Maze} (sf\+::\+Texture \&a\+\_\+texture)
+\item 
+void \hyperlink{class_maze_a130c9d8858022b05b083a3f0c630fbaf}{load\+Level} (string a\+\_\+file\+Name)
+\item 
+sf\+::\+Vector2i \hyperlink{class_maze_a664b89e39391a1551babb93556cb36f8}{get\+Size} () const
+\item 
+sf\+::\+Vector2i \hyperlink{class_maze_a663cb5481d68d68b8d0483d949a125d8}{get\+Pac\+Man\+Position} () const
+\item 
+vector$<$ sf\+::\+Vector2i $>$ \hyperlink{class_maze_aaf1dc338270b2674df3f5477a512b0a3}{get\+Ghost\+Positions} () const
+\item 
+sf\+::\+Vector2i \hyperlink{class_maze_a245890f620b8d7ac3445fd4ca0d090e1}{get\+Respawn\+Position} () const
+\item 
+size\+\_\+t \hyperlink{class_maze_abae2881894d0dcc53d179f74cc7aa3bd}{position\+To\+Index} (sf\+::\+Vector2i a\+\_\+position) const
+\item 
+sf\+::\+Vector2i \hyperlink{class_maze_ac256166dfc46cc089de0c998295dbc66}{index\+To\+Position} (size\+\_\+t a\+\_\+index) const
+\item 
+sf\+::\+Vector2i \hyperlink{class_maze_a6e9ed602dba392b5aaf8b694f5aa6197}{map\+Pixel\+To\+Cell} (sf\+::\+Vector2f a\+\_\+pixel) const
+\item 
+sf\+::\+Vector2f \hyperlink{class_maze_ad1ed938797ff928c0b90cf176d298429}{map\+Cell\+To\+Pixel} (sf\+::\+Vector2i a\+\_\+cell) const
+\item 
+bool \hyperlink{class_maze_a51a92b406d8376082d6c4f8c67b1490b}{is\+Wall} (sf\+::\+Vector2i a\+\_\+position) const
+\item 
+bool \hyperlink{class_maze_a26a1d805927e965b54ffa261a87600b9}{is\+Dot} (sf\+::\+Vector2i a\+\_\+position) const
+\item 
+bool \hyperlink{class_maze_a52450a5ef93f1d11802969587b5ee00d}{is\+Super\+Dot} (sf\+::\+Vector2i a\+\_\+position) const
+\item 
+bool \hyperlink{class_maze_a63fd7d817f664bb7b157db12479d89be}{is\+Bonus} (sf\+::\+Vector2i a\+\_\+position) const
+\item 
+void \hyperlink{class_maze_aff24b90af3ab6bd16c94b6831052d3db}{pick\+Object} (sf\+::\+Vector2i a\+\_\+position)
+\item 
+int \hyperlink{class_maze_afe0905b13aaefd6135346b3cda931556}{get\+Remaining\+Dots} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_maze}{Maze} Class This Inherits from sf\+::\+Drawable. It has all the maze methods are handled in this class. The way that the map data are uploaded and stored can be seen here. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_maze_a7d8ebd5ec031891fcb2d76d5b8502e44}\label{class_maze_a7d8ebd5ec031891fcb2d76d5b8502e44}} 
+\index{Maze@{Maze}!Maze@{Maze}}
+\index{Maze@{Maze}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{Maze()}{Maze()}}
+{\footnotesize\ttfamily Maze\+::\+Maze (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{a\+\_\+texture }\end{DoxyParamCaption})}
+
+A \hyperlink{class_maze}{Maze} Consturctor Initiates the following member variables -\/m\+\_\+maze\+Size -\/m\+\_\+texture 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_maze_aaf1dc338270b2674df3f5477a512b0a3}\label{class_maze_aaf1dc338270b2674df3f5477a512b0a3}} 
+\index{Maze@{Maze}!get\+Ghost\+Positions@{get\+Ghost\+Positions}}
+\index{get\+Ghost\+Positions@{get\+Ghost\+Positions}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{get\+Ghost\+Positions()}{getGhostPositions()}}
+{\footnotesize\ttfamily vector$<$ sf\+::\+Vector2i $>$ Maze\+::get\+Ghost\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This funciton is a get function for m\+\_\+ghost\+Positions
+
+\begin{DoxyReturn}{Returns}
+returns the vector of the positions of ghost in the maze 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a663cb5481d68d68b8d0483d949a125d8}\label{class_maze_a663cb5481d68d68b8d0483d949a125d8}} 
+\index{Maze@{Maze}!get\+Pac\+Man\+Position@{get\+Pac\+Man\+Position}}
+\index{get\+Pac\+Man\+Position@{get\+Pac\+Man\+Position}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{get\+Pac\+Man\+Position()}{getPacManPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Maze\+::get\+Pac\+Man\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get funciton for m\+\_\+pacman\+Position
+
+\begin{DoxyReturn}{Returns}
+returns the position of Pac-\/\+Man/\+Quack\+Man in the maze 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_afe0905b13aaefd6135346b3cda931556}\label{class_maze_afe0905b13aaefd6135346b3cda931556}} 
+\index{Maze@{Maze}!get\+Remaining\+Dots@{get\+Remaining\+Dots}}
+\index{get\+Remaining\+Dots@{get\+Remaining\+Dots}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{get\+Remaining\+Dots()}{getRemainingDots()}}
+{\footnotesize\ttfamily int Maze\+::get\+Remaining\+Dots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a checks how many dots are left inside the maze
+
+\begin{DoxyReturn}{Returns}
+returns the number of dots left in the maze 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a245890f620b8d7ac3445fd4ca0d090e1}\label{class_maze_a245890f620b8d7ac3445fd4ca0d090e1}} 
+\index{Maze@{Maze}!get\+Respawn\+Position@{get\+Respawn\+Position}}
+\index{get\+Respawn\+Position@{get\+Respawn\+Position}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{get\+Respawn\+Position()}{getRespawnPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Maze\+::get\+Respawn\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for m\+\_\+respawn\+Position
+
+\begin{DoxyReturn}{Returns}
+returns the respawn position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a664b89e39391a1551babb93556cb36f8}\label{class_maze_a664b89e39391a1551babb93556cb36f8}} 
+\index{Maze@{Maze}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Maze\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for m\+\_\+maze\+Size
+
+\begin{DoxyReturn}{Returns}
+returns the size of the map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_ac256166dfc46cc089de0c998295dbc66}\label{class_maze_ac256166dfc46cc089de0c998295dbc66}} 
+\index{Maze@{Maze}!index\+To\+Position@{index\+To\+Position}}
+\index{index\+To\+Position@{index\+To\+Position}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{index\+To\+Position()}{indexToPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Maze\+::index\+To\+Position (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{a\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function converts the maze data into the corresponding pixel position in the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+index} & The maze data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the pixel position where the maze data is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a63fd7d817f664bb7b157db12479d89be}\label{class_maze_a63fd7d817f664bb7b157db12479d89be}} 
+\index{Maze@{Maze}!is\+Bonus@{is\+Bonus}}
+\index{is\+Bonus@{is\+Bonus}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{is\+Bonus()}{isBonus()}}
+{\footnotesize\ttfamily bool Maze\+::is\+Bonus (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption}) const}
+
+This function checks if a bonus is on the certain position
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & the position to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if a bonus is on that position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a26a1d805927e965b54ffa261a87600b9}\label{class_maze_a26a1d805927e965b54ffa261a87600b9}} 
+\index{Maze@{Maze}!is\+Dot@{is\+Dot}}
+\index{is\+Dot@{is\+Dot}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{is\+Dot()}{isDot()}}
+{\footnotesize\ttfamily bool Maze\+::is\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption}) const}
+
+This function checks if a dot/pellet is on the certain position
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & the position to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if a dot/pellet is on that position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a52450a5ef93f1d11802969587b5ee00d}\label{class_maze_a52450a5ef93f1d11802969587b5ee00d}} 
+\index{Maze@{Maze}!is\+Super\+Dot@{is\+Super\+Dot}}
+\index{is\+Super\+Dot@{is\+Super\+Dot}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{is\+Super\+Dot()}{isSuperDot()}}
+{\footnotesize\ttfamily bool Maze\+::is\+Super\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption}) const}
+
+This function checks if a super dot/pellet is on the certain position
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & the position to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if a super dot/pellet is on that position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a51a92b406d8376082d6c4f8c67b1490b}\label{class_maze_a51a92b406d8376082d6c4f8c67b1490b}} 
+\index{Maze@{Maze}!is\+Wall@{is\+Wall}}
+\index{is\+Wall@{is\+Wall}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{is\+Wall()}{isWall()}}
+{\footnotesize\ttfamily bool Maze\+::is\+Wall (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption}) const}
+
+This function checks if a wall is on the certain position
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & the position to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if a wall is on that position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a130c9d8858022b05b083a3f0c630fbaf}\label{class_maze_a130c9d8858022b05b083a3f0c630fbaf}} 
+\index{Maze@{Maze}!load\+Level@{load\+Level}}
+\index{load\+Level@{load\+Level}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{load\+Level()}{loadLevel()}}
+{\footnotesize\ttfamily void Maze\+::load\+Level (\begin{DoxyParamCaption}\item[{string}]{a\+\_\+file\+Name }\end{DoxyParamCaption})}
+
+This function reads a 28 x 31 image(\+P\+N\+G) which represent the map, then read the pixel data and translate into a vector of sf\+::\+Vector2i. Each color in the image represent certain maze entity. Black are Walls, White are the pellets, Green are the super pellets, Red are the ghost spawn point, Blue is Pac-\/\+Man/\+Quack\+Man\textquotesingle{}s spawn point, and Magenta is the ghost respawn point. This function also takes the maze data and renders wall sprites according to its position (Outer Corner, Inner Corner, Border). 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+file\+Name} & the map image file name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_maze_ad1ed938797ff928c0b90cf176d298429}\label{class_maze_ad1ed938797ff928c0b90cf176d298429}} 
+\index{Maze@{Maze}!map\+Cell\+To\+Pixel@{map\+Cell\+To\+Pixel}}
+\index{map\+Cell\+To\+Pixel@{map\+Cell\+To\+Pixel}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{map\+Cell\+To\+Pixel()}{mapCellToPixel()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Maze\+::map\+Cell\+To\+Pixel (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+cell }\end{DoxyParamCaption}) const}
+
+This function converts a cell value into a pixel value
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+cell} & the cell value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the pixel value that equates to the cell value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_a6e9ed602dba392b5aaf8b694f5aa6197}\label{class_maze_a6e9ed602dba392b5aaf8b694f5aa6197}} 
+\index{Maze@{Maze}!map\+Pixel\+To\+Cell@{map\+Pixel\+To\+Cell}}
+\index{map\+Pixel\+To\+Cell@{map\+Pixel\+To\+Cell}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{map\+Pixel\+To\+Cell()}{mapPixelToCell()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Maze\+::map\+Pixel\+To\+Cell (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{a\+\_\+pixel }\end{DoxyParamCaption}) const}
+
+This function converts a pixel value into a cell value
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+pixel} & the pixel value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the cell value that equates to the pixel value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_maze_aff24b90af3ab6bd16c94b6831052d3db}\label{class_maze_aff24b90af3ab6bd16c94b6831052d3db}} 
+\index{Maze@{Maze}!pick\+Object@{pick\+Object}}
+\index{pick\+Object@{pick\+Object}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{pick\+Object()}{pickObject()}}
+{\footnotesize\ttfamily void Maze\+::pick\+Object (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption})}
+
+This function sets the dot, super dot, and bonus as Empty in the maze data after collision, and also make sures that it does not set the walls to empty after collition
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & the position where the player is \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_maze_abae2881894d0dcc53d179f74cc7aa3bd}\label{class_maze_abae2881894d0dcc53d179f74cc7aa3bd}} 
+\index{Maze@{Maze}!position\+To\+Index@{position\+To\+Index}}
+\index{position\+To\+Index@{position\+To\+Index}!Maze@{Maze}}
+\subsubsection{\texorpdfstring{position\+To\+Index()}{positionToIndex()}}
+{\footnotesize\ttfamily size\+\_\+t Maze\+::position\+To\+Index (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+position }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function converts the pixel position into the corresponding maze data
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+position} & The pixel position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the maze data that matches the position 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{maze_8hpp}{maze.\+hpp}\item 
+\hyperlink{maze_8cpp}{maze.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,200 @@
+\hypertarget{class_playing_state}{}\section{Playing\+State Class Reference}
+\label{class_playing_state}\index{Playing\+State@{Playing\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for Playing\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_playing_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_playing_state_a09c8d3c87687ffa4e5f04c70265d67de}{Playing\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game)
+\item 
+\hyperlink{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}{$\sim$\+Playing\+State} ()
+\item 
+void \hyperlink{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}{insert\+Coin} ()
+\item 
+void \hyperlink{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}{press\+Button} ()
+\item 
+void \hyperlink{class_playing_state_af205fbb130a2c83b260d80359de914e8}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+void \hyperlink{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)
+\item 
+void \hyperlink{class_playing_state_a18ea22c1b551f6d81d030853f8ce9b73}{load\+Next\+Lvl} ()
+\item 
+void \hyperlink{class_playing_state_ac2093c243cc85bb767b27797060aab2c}{game\+Over} ()
+\item 
+void \hyperlink{class_playing_state_a464c879dc893195b041efa58b3b3e73f}{reset\+Lives} ()
+\item 
+void \hyperlink{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}{reset\+Current\+Lvl} ()
+\item 
+void \hyperlink{class_playing_state_ac1d69f92915e66c4335c6218c0837179}{reset\+Characters} ()
+\item 
+int \hyperlink{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}{get\+Score} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Playing State Class This class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This game state is where everything is implemented. The game is played in this state. It takes care of loading the levels, calculating scores, checking for Player VS \hyperlink{class_ghost}{Ghost} Collisions, picking up pellets, and rendering the H\+UD. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_playing_state_a09c8d3c87687ffa4e5f04c70265d67de}\label{class_playing_state_a09c8d3c87687ffa4e5f04c70265d67de}} 
+\index{Playing\+State@{Playing\+State}!Playing\+State@{Playing\+State}}
+\index{Playing\+State@{Playing\+State}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{Playing\+State()}{PlayingState()}}
+{\footnotesize\ttfamily Playing\+State\+::\+Playing\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game }\end{DoxyParamCaption})}
+
+A \hyperlink{class_playing_state}{Playing\+State} Constructor Intiates the following member variables
+\begin{DoxyItemize}
+\item m\+\_\+maze
+\item m\+\_\+bonus
+\item m\+\_\+pac\+Man
+\item m\+\_\+lvl
+\item m\+\_\+lives
+\item m\+\_\+score Also sets up everything on the maze and prepares all the H\+UD elements to be rendered to the screen 
+\begin{DoxyParams}{Parameters}
+{\em the} & current game instance \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}\label{class_playing_state_afd96eb2be532e40c9db2f9607e4ea284}} 
+\index{Playing\+State@{Playing\+State}!````~Playing\+State@{$\sim$\+Playing\+State}}
+\index{````~Playing\+State@{$\sim$\+Playing\+State}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{$\sim$\+Playing\+State()}{~PlayingState()}}
+{\footnotesize\ttfamily Playing\+State\+::$\sim$\+Playing\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A \hyperlink{class_playing_state}{Playing\+State} Destructor Deletes the current instances of Pac-\/\+Man/\+Quack\+Man and ghosts 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}\label{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}} 
+\index{Playing\+State@{Playing\+State}!draw@{draw}}
+\index{draw@{draw}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Playing\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This functions draws everything on the screen. The \hyperlink{class_maze}{Maze}, Pac-\/\+Man/\+Quack\+Man, The ghosts, and the H\+UD
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
+
+\mbox{\Hypertarget{class_playing_state_ac2093c243cc85bb767b27797060aab2c}\label{class_playing_state_ac2093c243cc85bb767b27797060aab2c}} 
+\index{Playing\+State@{Playing\+State}!game\+Over@{game\+Over}}
+\index{game\+Over@{game\+Over}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{game\+Over()}{gameOver()}}
+{\footnotesize\ttfamily void Playing\+State\+::game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function resets all the in game variables. Set everything like a new game \mbox{\Hypertarget{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}\label{class_playing_state_ab07b1a4993541b38e81f756ac0f4e46b}} 
+\index{Playing\+State@{Playing\+State}!get\+Score@{get\+Score}}
+\index{get\+Score@{get\+Score}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{get\+Score()}{getScore()}}
+{\footnotesize\ttfamily int Playing\+State\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This is a get function for m\+\_\+score;
+
+\begin{DoxyReturn}{Returns}
+returns the current game score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}\label{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}} 
+\index{Playing\+State@{Playing\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily void Playing\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+\mbox{\Hypertarget{class_playing_state_a18ea22c1b551f6d81d030853f8ce9b73}\label{class_playing_state_a18ea22c1b551f6d81d030853f8ce9b73}} 
+\index{Playing\+State@{Playing\+State}!load\+Next\+Lvl@{load\+Next\+Lvl}}
+\index{load\+Next\+Lvl@{load\+Next\+Lvl}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{load\+Next\+Lvl()}{loadNextLvl()}}
+{\footnotesize\ttfamily void Playing\+State\+::load\+Next\+Lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function the levels and changes the game difficulty. There are 3 different maps that can be played and the speeds increases everytime the 3 maps are completed. \mbox{\Hypertarget{class_playing_state_af205fbb130a2c83b260d80359de914e8}\label{class_playing_state_af205fbb130a2c83b260d80359de914e8}} 
+\index{Playing\+State@{Playing\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily void Playing\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function sets the direction where Pac-\/\+Man/\+Quack\+Man is going
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
+
+\mbox{\Hypertarget{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}\label{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}} 
+\index{Playing\+State@{Playing\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily void Playing\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+\mbox{\Hypertarget{class_playing_state_ac1d69f92915e66c4335c6218c0837179}\label{class_playing_state_ac1d69f92915e66c4335c6218c0837179}} 
+\index{Playing\+State@{Playing\+State}!reset\+Characters@{reset\+Characters}}
+\index{reset\+Characters@{reset\+Characters}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{reset\+Characters()}{resetCharacters()}}
+{\footnotesize\ttfamily void Playing\+State\+::reset\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function resets all the character entities back to its original spawn points \mbox{\Hypertarget{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}\label{class_playing_state_a11a3e0a2d479e659c442deb9c87fdeed}} 
+\index{Playing\+State@{Playing\+State}!reset\+Current\+Lvl@{reset\+Current\+Lvl}}
+\index{reset\+Current\+Lvl@{reset\+Current\+Lvl}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{reset\+Current\+Lvl()}{resetCurrentLvl()}}
+{\footnotesize\ttfamily void Playing\+State\+::reset\+Current\+Lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function resets the current level back to its original status, meaning all dots, super\+Dots and \hyperlink{class_bonus}{Bonus} is there \mbox{\Hypertarget{class_playing_state_a464c879dc893195b041efa58b3b3e73f}\label{class_playing_state_a464c879dc893195b041efa58b3b3e73f}} 
+\index{Playing\+State@{Playing\+State}!reset\+Lives@{reset\+Lives}}
+\index{reset\+Lives@{reset\+Lives}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{reset\+Lives()}{resetLives()}}
+{\footnotesize\ttfamily void Playing\+State\+::reset\+Lives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function resets the just the number of lives back to 3. Used when a player decideds to continue after losing. \mbox{\Hypertarget{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}\label{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}} 
+\index{Playing\+State@{Playing\+State}!update@{update}}
+\index{update@{update}!Playing\+State@{Playing\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Playing\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function does two major things\+: Score Counting and Collision Checking Collision Checking\+: It checks if the player collided with \char`\"{}strong\char`\"{} ghosts, \char`\"{}weak\char`\"{} ghosts, dots, super dots, or a bonus. If the player collided with a \char`\"{}strong\char`\"{} ghost then the player loses a life and all the character entities resets to its original position. If the player collides with anything else it earns scores Score Counting\+: The player earns score depending on what it collides with or \char`\"{}eats\char`\"{}. Dots are 5 pts, Super\+Dots are 25 pts, \char`\"{}\+Weak\char`\"{} Ghosts are 100 pts, and the bonus, which shows up when there are only 150 dots left in the maze, is 500 pts
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

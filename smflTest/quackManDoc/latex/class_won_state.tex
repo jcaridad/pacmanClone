@@ -1,0 +1,134 @@
+\hypertarget{class_won_state}{}\section{Won\+State Class Reference}
+\label{class_won_state}\index{Won\+State@{Won\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for Won\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_won_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_won_state_ac6d2bf732076e157c50066c8c0331f73}{Won\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game, \hyperlink{class_game_state}{Game\+State} $\ast$a\+\_\+playing\+State)
+\item 
+void \hyperlink{class_won_state_aeaab03fa1a39188c19107047417c65b6}{insert\+Coin} ()
+\item 
+void \hyperlink{class_won_state_ab17f101d9ab90e60259e28b8775a76ec}{press\+Button} ()
+\item 
+void \hyperlink{class_won_state_a56b272d25511e6a302136d308648464b}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+void \hyperlink{class_won_state_a0ea91513e3df2eafbe8ef7b9810eaff1}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_won_state_a88bcef07ae234fe7ba672d1c6628d2c0}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_won_state}{Won\+State} Class This Class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This game state announces that the play have complete the map. After 5 seconds the next game will start. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_won_state_ac6d2bf732076e157c50066c8c0331f73}\label{class_won_state_ac6d2bf732076e157c50066c8c0331f73}} 
+\index{Won\+State@{Won\+State}!Won\+State@{Won\+State}}
+\index{Won\+State@{Won\+State}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{Won\+State()}{WonState()}}
+{\footnotesize\ttfamily Won\+State\+::\+Won\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game,  }\item[{\hyperlink{class_game_state}{Game\+State} $\ast$}]{a\+\_\+playing\+State }\end{DoxyParamCaption})}
+
+A \hyperlink{class_won_state}{Won\+State} Constructor Intiates the text to be rendered on the screen and make sures that the scores and the number of lives are passed to the next level properly 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+game} & the current game instance \\
+\hline
+{\em a\+\_\+playing\+State} & the current playing\+State entity \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_won_state_a88bcef07ae234fe7ba672d1c6628d2c0}\label{class_won_state_a88bcef07ae234fe7ba672d1c6628d2c0}} 
+\index{Won\+State@{Won\+State}!draw@{draw}}
+\index{draw@{draw}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Won\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function renders the text to the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
+
+\mbox{\Hypertarget{class_won_state_aeaab03fa1a39188c19107047417c65b6}\label{class_won_state_aeaab03fa1a39188c19107047417c65b6}} 
+\index{Won\+State@{Won\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily void Won\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+\mbox{\Hypertarget{class_won_state_a56b272d25511e6a302136d308648464b}\label{class_won_state_a56b272d25511e6a302136d308648464b}} 
+\index{Won\+State@{Won\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily void Won\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em the} & desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
+
+\mbox{\Hypertarget{class_won_state_ab17f101d9ab90e60259e28b8775a76ec}\label{class_won_state_ab17f101d9ab90e60259e28b8775a76ec}} 
+\index{Won\+State@{Won\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily void Won\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+\mbox{\Hypertarget{class_won_state_a0ea91513e3df2eafbe8ef7b9810eaff1}\label{class_won_state_a0ea91513e3df2eafbe8ef7b9810eaff1}} 
+\index{Won\+State@{Won\+State}!update@{update}}
+\index{update@{update}!Won\+State@{Won\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Won\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function switches the current game state to the get ready state to play the next level after 5 seconds. Also loads the next level before switching to the next game state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

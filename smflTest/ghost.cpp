@@ -16,10 +16,9 @@ Ghost::Ghost(sf::Texture& a_texture, Pacman* a_pacman)
 ,m_weakStateTimer(sf::Time::Zero)
 ,m_pacMan(a_pacman){
     setOrigin(10, 10);
-    
-    
+    //strong animation
     m_strongAnimator.addFrame(sf::IntRect(20, 16, 20, 20));
-    
+    //weakAnimation
     m_weakAnimator.addFrame(sf::IntRect(20, 36, 20, 20));
     
     m_strongAnimator.play(sf::seconds(0.25), true);
@@ -80,7 +79,7 @@ void Ghost::changeDirection(){
     
     if(isWeak()){
         //gets distance how close pacman with the ghosts
-        sf::Vector2f distance =m_pacMan->getPosition() -  getPosition();
+        sf::Vector2f distance = m_pacMan->getPosition() -  getPosition();
         
         targetAngle = atan2(distance.x, distance.y) * (180/3.14);
         

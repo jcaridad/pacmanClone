@@ -15,13 +15,16 @@
 /**
  * Character Class
  * Parent Class to Pacman and Ghost. Inherits from sf::Drawable and sf::Transformable. sf::Transformable can be used as a base class. It is often combined with sf::Drawable – that's what SFML's sprites, texts and shapes do.
+ * This is where most of the Character to Maze interaction is happening. Wall Collision, Tunnels, Character Speed, and Movement Direction are handled in this Class
+ * @see sf::Transformable: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Transformable.php
+ * @see sf::Drawable: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Drawable.php
  */
 class Character: public sf::Drawable, public sf::Transformable{
   
 public:
     /**
      * A Character Constructor
-     * Initiates the following member classes
+     * Initiates the following member variables
      * - m_maze
      * - m_speed
      * - m_currentDirection
@@ -34,11 +37,13 @@ public:
      * A virtual function
      *
      * @param a_delta the current time
+     * @see Pacman Class
+     * @see Ghost Class
      */
     virtual void update(sf::Time a_delta);
     
     /**
-     * This function takes a sfml integer vector as a position and sets which direction the character needs to go
+     * This function takes a sfml integer vector as a position and sets which direction the character needs to go. This function also processes all interaction that the character has with the map such ass Wall Collision, and the Tunnel. It also controls the Ghost's movements
      *
      * @param a_direction the direction the character is heading
      */
@@ -81,20 +86,59 @@ public:
     
     /**
      * This function creates a rectangle bound around the character sprite which helps detect collision
-     @return Returns the position/rotation/scale/origin of the collision box
+     *
+     * @return Returns the position/rotation/scale/origin of the collision box
      */
     sf::FloatRect getCollision() const;
     
 protected:
+    
+    /**
+     * This is a virtual function that the ghost class uses for it's pathfinding AI
+     *
+     * @see Ghost Class
+     */
     virtual void changeDirection(){};
     
 private:
+    /**
+     * A private float variable
+     * Represents the character's movement speed
+     */
     float m_speed;
+    
+    /**
+     * A private Maze instance
+     * Pointer for the current Maze instance
+     */
     Maze* m_maze;
+    
+    /**
+     * A private sf::Vector2i variable
+     * The current direction that the character is moving towards
+     * @see sf::Vector2i: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php
+     */
     sf::Vector2i m_currentDirection;
+    
+    /**
+     * A private sf::Vector2i variable
+     * The next direction that the character is taking
+     * @see sf::Vector2i: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php
+     */
     sf::Vector2i m_nextDirection;
     
+    /**
+     * A private sf::Vector2i variable
+     * Holds the position of the last intersection in the map that the character crossed
+     * @see sf::Vector2i: https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php
+     */
     sf::Vector2i m_prevIntersection;
+    
+    /**
+     * A private std::array container
+     * holds all the possible direction that the Ghost can take from best to worst
+     * @see Character::update()
+     */
     array<bool, 4> m_availableDirections;
     
 };

@@ -1,0 +1,137 @@
+\hypertarget{class_ghost}{}\section{Ghost Class Reference}
+\label{class_ghost}\index{Ghost@{Ghost}}
+
+
+{\ttfamily \#include $<$ghost.\+hpp$>$}
+
+Inheritance diagram for Ghost\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_ghost}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_ghost_af712fc09f900832a0225928c4556234d}{State} \{ \hyperlink{class_ghost_af712fc09f900832a0225928c4556234dacfaab1cebc10dc849b5e740dad4eb7f0}{Strong}, 
+\hyperlink{class_ghost_af712fc09f900832a0225928c4556234da2728b733f9f5d557a05e6fa1aaaf174a}{Weak}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_ghost_a931627708b35e6f0b6f9d106adbaee1f}{Ghost} (sf\+::\+Texture \&a\+\_\+texture, \hyperlink{class_pacman}{Pacman} $\ast$a\+\_\+pacman)
+\item 
+void \hyperlink{class_ghost_ad3af3a46b5c130515dffaae54824341a}{set\+Weak} (sf\+::\+Time a\+\_\+duration)
+\item 
+bool \hyperlink{class_ghost_af0cf8b5a66a4a390746f43238b96fe55}{is\+Weak} () const
+\item 
+void \hyperlink{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}{update} (sf\+::\+Time a\+\_\+delta)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}{change\+Direction} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_ghost}{Ghost} Class This Class Inherits from the \hyperlink{class_character}{Character} Class. It focuses on the two important ghost attributes\+: the Strong and Weak Animation, and the Pathfinding Algorithm \begin{DoxySeeAlso}{See also}
+\hyperlink{class_character}{Character} Claas 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_ghost_af712fc09f900832a0225928c4556234d}\label{class_ghost_af712fc09f900832a0225928c4556234d}} 
+\index{Ghost@{Ghost}!State@{State}}
+\index{State@{State}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \hyperlink{class_ghost_af712fc09f900832a0225928c4556234d}{Ghost\+::\+State}}
+
+An enum Type Indicates what state the ghost is in \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Strong@{Strong}!Ghost@{Ghost}}\index{Ghost@{Ghost}!Strong@{Strong}}}\mbox{\Hypertarget{class_ghost_af712fc09f900832a0225928c4556234dacfaab1cebc10dc849b5e740dad4eb7f0}\label{class_ghost_af712fc09f900832a0225928c4556234dacfaab1cebc10dc849b5e740dad4eb7f0}} 
+Strong&Strong State\+: Can Kill Player \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Weak@{Weak}!Ghost@{Ghost}}\index{Ghost@{Ghost}!Weak@{Weak}}}\mbox{\Hypertarget{class_ghost_af712fc09f900832a0225928c4556234da2728b733f9f5d557a05e6fa1aaaf174a}\label{class_ghost_af712fc09f900832a0225928c4556234da2728b733f9f5d557a05e6fa1aaaf174a}} 
+Weak&Weak\+State\+: Can be killed by Player \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ghost_a931627708b35e6f0b6f9d106adbaee1f}\label{class_ghost_a931627708b35e6f0b6f9d106adbaee1f}} 
+\index{Ghost@{Ghost}!Ghost@{Ghost}}
+\index{Ghost@{Ghost}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{Ghost()}{Ghost()}}
+{\footnotesize\ttfamily Ghost\+::\+Ghost (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{a\+\_\+texture,  }\item[{\hyperlink{class_pacman}{Pacman} $\ast$}]{a\+\_\+pacman }\end{DoxyParamCaption})}
+
+A \hyperlink{class_ghost}{Ghost} Constructor Initiates the following member variables
+\begin{DoxyItemize}
+\item m\+\_\+visual
+\item m\+\_\+is\+Weak
+\item m\+\_\+weak\+State\+Timer
+\item m\+\_\+pac\+Man Also uploads animation frames data into the animation sprites
+\item m\+\_\+strong\+Animator
+\item m\+\_\+weak\+Animator 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}\label{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}} 
+\index{Ghost@{Ghost}!change\+Direction@{change\+Direction}}
+\index{change\+Direction@{change\+Direction}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{change\+Direction()}{changeDirection()}}
+{\footnotesize\ttfamily void Ghost\+::change\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+This function holds the path finding AI for the ghosts. It has a static vector that holds 4 directions and stores it in a map container from best to worst. Gets the angle between pacman and ghost and uses that to decide and rank which direction to take from best to worst if it is in the Strong State. During the Weak State it uses the same ranking but reads it backwards(worst to best). 
+
+Reimplemented from \hyperlink{class_character_ab4c0dc6f72c78607b921cf312e10ed35}{Character}.
+
+\mbox{\Hypertarget{class_ghost_af0cf8b5a66a4a390746f43238b96fe55}\label{class_ghost_af0cf8b5a66a4a390746f43238b96fe55}} 
+\index{Ghost@{Ghost}!is\+Weak@{is\+Weak}}
+\index{is\+Weak@{is\+Weak}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{is\+Weak()}{isWeak()}}
+{\footnotesize\ttfamily bool Ghost\+::is\+Weak (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This is a get function for m\+\_\+is\+Weak
+
+\begin{DoxyReturn}{Returns}
+returns true if the ghost is in the weak state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ghost_ad3af3a46b5c130515dffaae54824341a}\label{class_ghost_ad3af3a46b5c130515dffaae54824341a}} 
+\index{Ghost@{Ghost}!set\+Weak@{set\+Weak}}
+\index{set\+Weak@{set\+Weak}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{set\+Weak()}{setWeak()}}
+{\footnotesize\ttfamily void Ghost\+::set\+Weak (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+duration }\end{DoxyParamCaption})}
+
+This function set the ghost into the weak state for a certain amount of time which makes it vulnerable to Pac-\/\+Man/\+Quack\+Man Collision
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+duration} & the length in sf\+::\+Seconds that the ghost is in wthe weak state \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}\label{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}} 
+\index{Ghost@{Ghost}!update@{update}}
+\index{update@{update}!Ghost@{Ghost}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Ghost\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function checks the \hyperlink{class_ghost}{Ghost}\textquotesingle{}s current status in game (Dead or Alive) and plays the animation according to it\textquotesingle{}s current state
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_character_a89b72b507971ba8648909980d045ed06}{Character}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ghost_8hpp}{ghost.\+hpp}\item 
+\hyperlink{ghost_8cpp}{ghost.\+cpp}\end{DoxyCompactItemize}

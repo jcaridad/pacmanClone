@@ -1,0 +1,191 @@
+\hypertarget{class_character}{}\section{Character Class Reference}
+\label{class_character}\index{Character@{Character}}
+
+
+{\ttfamily \#include $<$character.\+hpp$>$}
+
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_character}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_character_adc27bdd255876169bad2ed0bae0cffb5}{Character} ()
+\item 
+virtual void \hyperlink{class_character_a89b72b507971ba8648909980d045ed06}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_character_a4af2fa47e778a3d8d6be65d728bed4e8}{set\+Direction} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+sf\+::\+Vector2i \hyperlink{class_character_ae8147e847ec305534ef4f2652f3541de}{get\+Direction} () const
+\item 
+void \hyperlink{class_character_a4a925db15b8f68d2c8d3201ce41f5863}{set\+Maze} (\hyperlink{class_maze}{Maze} $\ast$a\+\_\+maze)
+\item 
+void \hyperlink{class_character_a37068c523c733698c7f7ad587ccc66a0}{set\+Speed} (float a\+\_\+speed)
+\item 
+float \hyperlink{class_character_afb7791a8c122e8b88244f0a1a54506c0}{get\+Speed} () const
+\item 
+bool \hyperlink{class_character_a53d02c2b1c914990e51e0fb84913d151}{will\+Move} () const
+\item 
+sf\+::\+Float\+Rect \hyperlink{class_character_ab267ab6083ac0b311fc86754ceaed269}{get\+Collision} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_character_ab4c0dc6f72c78607b921cf312e10ed35}{change\+Direction} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_character}{Character} Class Parent Class to \hyperlink{class_pacman}{Pacman} and \hyperlink{class_ghost}{Ghost}. Inherits from sf\+::\+Drawable and sf\+::\+Transformable. sf\+::\+Transformable can be used as a base class. It is often combined with sf\+::\+Drawable – that\textquotesingle{}s what S\+F\+ML\textquotesingle{}s sprites, texts and shapes do. This is where most of the \hyperlink{class_character}{Character} to \hyperlink{class_maze}{Maze} interaction is happening. Wall Collision, Tunnels, \hyperlink{class_character}{Character} Speed, and Movement Direction are handled in this Class \begin{DoxySeeAlso}{See also}
+sf\+::\+Transformable\+: \href{https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Transformable.php}{\tt https\+://www.\+sfml-\/dev.\+org/documentation/2.\+4.\+2/classsf\+\_\+1\+\_\+1\+Transformable.\+php} 
+
+sf\+::\+Drawable\+: \href{https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Drawable.php}{\tt https\+://www.\+sfml-\/dev.\+org/documentation/2.\+4.\+2/classsf\+\_\+1\+\_\+1\+Drawable.\+php} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_character_adc27bdd255876169bad2ed0bae0cffb5}\label{class_character_adc27bdd255876169bad2ed0bae0cffb5}} 
+\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\subsubsection{\texorpdfstring{Character()}{Character()}}
+{\footnotesize\ttfamily Character\+::\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A \hyperlink{class_character}{Character} Constructor Initiates the following member variables
+\begin{DoxyItemize}
+\item m\+\_\+maze
+\item m\+\_\+speed
+\item m\+\_\+current\+Direction
+\item m\+\_\+next\+Direction
+\item m\+\_\+prev\+Intersecion 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_character_ab4c0dc6f72c78607b921cf312e10ed35}\label{class_character_ab4c0dc6f72c78607b921cf312e10ed35}} 
+\index{Character@{Character}!change\+Direction@{change\+Direction}}
+\index{change\+Direction@{change\+Direction}!Character@{Character}}
+\subsubsection{\texorpdfstring{change\+Direction()}{changeDirection()}}
+{\footnotesize\ttfamily virtual void Character\+::change\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+This is a virtual function that the ghost class uses for it\textquotesingle{}s pathfinding AI
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_ghost}{Ghost} Class 
+\end{DoxySeeAlso}
+
+
+Reimplemented in \hyperlink{class_ghost_a08831fa01afa61f91365ce82cf33bf1b}{Ghost}.
+
+\mbox{\Hypertarget{class_character_ab267ab6083ac0b311fc86754ceaed269}\label{class_character_ab267ab6083ac0b311fc86754ceaed269}} 
+\index{Character@{Character}!get\+Collision@{get\+Collision}}
+\index{get\+Collision@{get\+Collision}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Collision()}{getCollision()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Character\+::get\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function creates a rectangle bound around the character sprite which helps detect collision
+
+\begin{DoxyReturn}{Returns}
+Returns the position/rotation/scale/origin of the collision box 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_character_ae8147e847ec305534ef4f2652f3541de}\label{class_character_ae8147e847ec305534ef4f2652f3541de}} 
+\index{Character@{Character}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Direction()}{getDirection()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Character\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for the m\+\_\+current\+Direction which is a private variable
+
+\begin{DoxyReturn}{Returns}
+Returns the direction that the character is taking in the map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_character_afb7791a8c122e8b88244f0a1a54506c0}\label{class_character_afb7791a8c122e8b88244f0a1a54506c0}} 
+\index{Character@{Character}!get\+Speed@{get\+Speed}}
+\index{get\+Speed@{get\+Speed}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Speed()}{getSpeed()}}
+{\footnotesize\ttfamily float Character\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for the m\+\_\+speed which is a private variable
+
+\begin{DoxyReturn}{Returns}
+Returns the character\textquotesingle{}s movement speed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_character_a4af2fa47e778a3d8d6be65d728bed4e8}\label{class_character_a4af2fa47e778a3d8d6be65d728bed4e8}} 
+\index{Character@{Character}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Direction()}{setDirection()}}
+{\footnotesize\ttfamily void Character\+::set\+Direction (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})}
+
+This function takes a sfml integer vector as a position and sets which direction the character needs to go. This function also processes all interaction that the character has with the map such ass Wall Collision, and the Tunnel. It also controls the \hyperlink{class_ghost}{Ghost}\textquotesingle{}s movements
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the direction the character is heading \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_character_a4a925db15b8f68d2c8d3201ce41f5863}\label{class_character_a4a925db15b8f68d2c8d3201ce41f5863}} 
+\index{Character@{Character}!set\+Maze@{set\+Maze}}
+\index{set\+Maze@{set\+Maze}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Maze()}{setMaze()}}
+{\footnotesize\ttfamily void Character\+::set\+Maze (\begin{DoxyParamCaption}\item[{\hyperlink{class_maze}{Maze} $\ast$}]{a\+\_\+maze }\end{DoxyParamCaption})}
+
+This function assigns the current game instance to the character class
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+maze} & the maze instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_character_a37068c523c733698c7f7ad587ccc66a0}\label{class_character_a37068c523c733698c7f7ad587ccc66a0}} 
+\index{Character@{Character}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Speed()}{setSpeed()}}
+{\footnotesize\ttfamily void Character\+::set\+Speed (\begin{DoxyParamCaption}\item[{float}]{a\+\_\+speed }\end{DoxyParamCaption})}
+
+This function registers how fast the character moves around the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+speed} & the character\textquotesingle{}s movement speed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_character_a89b72b507971ba8648909980d045ed06}\label{class_character_a89b72b507971ba8648909980d045ed06}} 
+\index{Character@{Character}!update@{update}}
+\index{update@{update}!Character@{Character}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Character\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+A virtual function
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_pacman}{Pacman} Class 
+
+\hyperlink{class_ghost}{Ghost} Class 
+\end{DoxySeeAlso}
+
+
+Reimplemented in \hyperlink{class_ghost_a164e0607f7ea0d72d756bdf964e66b90}{Ghost}, and \hyperlink{class_pacman_a6badb47a28223991a1eb540f9d970e77}{Pacman}.
+
+\mbox{\Hypertarget{class_character_a53d02c2b1c914990e51e0fb84913d151}\label{class_character_a53d02c2b1c914990e51e0fb84913d151}} 
+\index{Character@{Character}!will\+Move@{will\+Move}}
+\index{will\+Move@{will\+Move}!Character@{Character}}
+\subsubsection{\texorpdfstring{will\+Move()}{willMove()}}
+{\footnotesize\ttfamily bool Character\+::will\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function checks wheter the next direction is a valid position that the character can go to
+
+\begin{DoxyReturn}{Returns}
+Returns true if the next direction not a wall 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{character_8hpp}{character.\+hpp}\item 
+\hyperlink{character_8cpp}{character.\+cpp}\end{DoxyCompactItemize}

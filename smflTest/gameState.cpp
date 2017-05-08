@@ -38,9 +38,8 @@ NoCoinState::NoCoinState(Game* a_game)
     m_displayText = true;
 }
 
-GetReadyState::GetReadyState(Game* a_game, GameState* a_playingState)
-:GameState(a_game)
-,m_playingState(a_playingState){
+GetReadyState::GetReadyState(Game* a_game)
+:GameState(a_game){
     m_text.setFont(a_game->getFont());
     m_text.setString("    Get Ready!\nPress S to Start!");
     m_text.setCharacterSize(14);
@@ -217,7 +216,6 @@ void WonState::draw(sf::RenderWindow& a_window){
 //lost state
 void LostState::insertCoin(){
     m_playingState->resetLives();
-    m_playingState->resetLives();
     
     getGame()->changeGameState(GameState::getReady);
 }
@@ -246,10 +244,10 @@ void LostState::draw(sf::RenderWindow& a_window){
 
 //playing state
 void PlayingState::insertCoin(){
-    //m_pacMan.die();
+
 }
 void PlayingState::pressButton(){
-    //m_ghost.setWeak(sf::seconds(3));
+
 }
 void PlayingState::moveStick(sf::Vector2i a_direction){
     m_pacMan->setDirection(a_direction);

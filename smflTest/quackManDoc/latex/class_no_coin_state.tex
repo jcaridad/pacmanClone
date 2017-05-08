@@ -1,0 +1,132 @@
+\hypertarget{class_no_coin_state}{}\section{No\+Coin\+State Class Reference}
+\label{class_no_coin_state}\index{No\+Coin\+State@{No\+Coin\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for No\+Coin\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_no_coin_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_no_coin_state_a3c0129051f00eb142a2055e181264549}{No\+Coin\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game)
+\item 
+void \hyperlink{class_no_coin_state_a417209eadad2f71284cf09d369bc389e}{insert\+Coin} ()
+\item 
+void \hyperlink{class_no_coin_state_a47dd2924ce9601b45ee11e0d9b8452f7}{press\+Button} ()
+\item 
+void \hyperlink{class_no_coin_state_a9fe8f36082705e6f5833244890093adc}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+void \hyperlink{class_no_coin_state_af0194851310c6df176770713341a8b80}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_no_coin_state_ab1e920e22b90f9d36954e75ea49c3f9b}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_no_coin_state}{No\+Coin\+State} Class This class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This game state activates when the game is first launches and also when the player chooses not to continue. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_no_coin_state_a3c0129051f00eb142a2055e181264549}\label{class_no_coin_state_a3c0129051f00eb142a2055e181264549}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!No\+Coin\+State@{No\+Coin\+State}}
+\index{No\+Coin\+State@{No\+Coin\+State}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{No\+Coin\+State()}{NoCoinState()}}
+{\footnotesize\ttfamily No\+Coin\+State\+::\+No\+Coin\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game }\end{DoxyParamCaption})}
+
+A \hyperlink{class_no_coin_state}{No\+Coin\+State} Constructor Intiates the game logo, font, and the texts to be rendered on the screen 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+game} & the current game instance \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_no_coin_state_ab1e920e22b90f9d36954e75ea49c3f9b}\label{class_no_coin_state_ab1e920e22b90f9d36954e75ea49c3f9b}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!draw@{draw}}
+\index{draw@{draw}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void No\+Coin\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function renders game logo and renders the text only if m\+\_\+display\+Text is true which gives the blinking effect
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
+
+\mbox{\Hypertarget{class_no_coin_state_a417209eadad2f71284cf09d369bc389e}\label{class_no_coin_state_a417209eadad2f71284cf09d369bc389e}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily void No\+Coin\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function changes the current game\textquotesingle{}s state to the get ready state \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+\mbox{\Hypertarget{class_no_coin_state_a9fe8f36082705e6f5833244890093adc}\label{class_no_coin_state_a9fe8f36082705e6f5833244890093adc}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily void No\+Coin\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
+
+\mbox{\Hypertarget{class_no_coin_state_a47dd2924ce9601b45ee11e0d9b8452f7}\label{class_no_coin_state_a47dd2924ce9601b45ee11e0d9b8452f7}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily void No\+Coin\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+\mbox{\Hypertarget{class_no_coin_state_af0194851310c6df176770713341a8b80}\label{class_no_coin_state_af0194851310c6df176770713341a8b80}} 
+\index{No\+Coin\+State@{No\+Coin\+State}!update@{update}}
+\index{update@{update}!No\+Coin\+State@{No\+Coin\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void No\+Coin\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function updates the window which renders the game logo and the blinking \char`\"{}insert coin\char`\"{} text
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

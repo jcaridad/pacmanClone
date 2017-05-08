@@ -1,0 +1,185 @@
+\hypertarget{class_game_state}{}\section{Game\+State Class Reference}
+\label{class_game_state}\index{Game\+State@{Game\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for Game\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_state}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{State} \{ \newline
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157ad554378cedc28c806c2abc5da3091455}{no\+Coin}, 
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157a1b334dd547fee485fccb33f336e64922}{get\+Ready}, 
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157a0c7c919903ffb50f3d56b0ef11fb5532}{Playing}, 
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157aec55aaf1858ada4e8896fcad78f574a8}{Won}, 
+\newline
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157a4f2379bcd5431f1a2fd56f96c9b8ebfb}{Lost}, 
+\hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157a9d9e2cb82e9bb0c70fa650a2642c5271}{Count}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_state_a294ebc243ce5cf5f845b8548aba8e723}{Game\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game)
+\item 
+\hyperlink{class_game}{Game} $\ast$ \hyperlink{class_game_state_a7f1afbce585f48311006ddb00c26e32f}{get\+Game} () const
+\item 
+virtual void \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{insert\+Coin} ()=0
+\item 
+virtual void \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{press\+Button} ()=0
+\item 
+virtual void \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)=0
+\item 
+virtual void \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{update} (sf\+::\+Time delta)=0
+\item 
+virtual void \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_game_state}{Game\+State} Class Parent class to \hyperlink{class_no_coin_state}{No\+Coin\+State}, \hyperlink{class_get_ready_state}{Get\+Ready\+State}, \hyperlink{class_lost_state}{Lost\+State}, \hyperlink{class_won_state}{Won\+State}, and Playing State. This is where the \hyperlink{class_game_state}{Game\+State} loops circulates. Every \hyperlink{class_game_state}{Game\+State} renders its own window and calls the next appropriate game state. This is also know as a Finite State Machine Pattern. 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157}\label{class_game_state_a81618e0403319d48e9f25347111f8157}} 
+\index{Game\+State@{Game\+State}!State@{State}}
+\index{State@{State}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \hyperlink{class_game_state_a81618e0403319d48e9f25347111f8157}{Game\+State\+::\+State}}
+
+An enum type The different game states \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Coin@{no\+Coin}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!no\+Coin@{no\+Coin}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157ad554378cedc28c806c2abc5da3091455}\label{class_game_state_a81618e0403319d48e9f25347111f8157ad554378cedc28c806c2abc5da3091455}} 
+no\+Coin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{get\+Ready@{get\+Ready}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!get\+Ready@{get\+Ready}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157a1b334dd547fee485fccb33f336e64922}\label{class_game_state_a81618e0403319d48e9f25347111f8157a1b334dd547fee485fccb33f336e64922}} 
+get\+Ready&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Playing@{Playing}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!Playing@{Playing}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157a0c7c919903ffb50f3d56b0ef11fb5532}\label{class_game_state_a81618e0403319d48e9f25347111f8157a0c7c919903ffb50f3d56b0ef11fb5532}} 
+Playing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Won@{Won}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!Won@{Won}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157aec55aaf1858ada4e8896fcad78f574a8}\label{class_game_state_a81618e0403319d48e9f25347111f8157aec55aaf1858ada4e8896fcad78f574a8}} 
+Won&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lost@{Lost}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!Lost@{Lost}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157a4f2379bcd5431f1a2fd56f96c9b8ebfb}\label{class_game_state_a81618e0403319d48e9f25347111f8157a4f2379bcd5431f1a2fd56f96c9b8ebfb}} 
+Lost&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Count@{Count}!Game\+State@{Game\+State}}\index{Game\+State@{Game\+State}!Count@{Count}}}\mbox{\Hypertarget{class_game_state_a81618e0403319d48e9f25347111f8157a9d9e2cb82e9bb0c70fa650a2642c5271}\label{class_game_state_a81618e0403319d48e9f25347111f8157a9d9e2cb82e9bb0c70fa650a2642c5271}} 
+Count&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_state_a294ebc243ce5cf5f845b8548aba8e723}\label{class_game_state_a294ebc243ce5cf5f845b8548aba8e723}} 
+\index{Game\+State@{Game\+State}!Game\+State@{Game\+State}}
+\index{Game\+State@{Game\+State}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{Game\+State()}{GameState()}}
+{\footnotesize\ttfamily Game\+State\+::\+Game\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game }\end{DoxyParamCaption})}
+
+A \hyperlink{class_game_state}{Game\+State} Constructor Initiates an instance of the game, and the same game instance will be used for the five different game states 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+game} & the current game instance \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}\label{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}} 
+\index{Game\+State@{Game\+State}!draw@{draw}}
+\index{draw@{draw}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void Game\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual function
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_lost_state_acfdefa77d7ed756a1052d39ed2de8786}{Lost\+State}, \hyperlink{class_won_state_a88bcef07ae234fe7ba672d1c6628d2c0}{Won\+State}, \hyperlink{class_playing_state_aa6c7033a5c734ba1ae4aae0905554d61}{Playing\+State}, \hyperlink{class_get_ready_state_a5526ece0f8f8becab78b78fbc7919045}{Get\+Ready\+State}, and \hyperlink{class_no_coin_state_ab1e920e22b90f9d36954e75ea49c3f9b}{No\+Coin\+State}.
+
+\mbox{\Hypertarget{class_game_state_a7f1afbce585f48311006ddb00c26e32f}\label{class_game_state_a7f1afbce585f48311006ddb00c26e32f}} 
+\index{Game\+State@{Game\+State}!get\+Game@{get\+Game}}
+\index{get\+Game@{get\+Game}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{get\+Game()}{getGame()}}
+{\footnotesize\ttfamily \hyperlink{class_game}{Game} $\ast$ Game\+State\+::get\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for m\+\_\+game
+
+\begin{DoxyReturn}{Returns}
+returns the current game instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}\label{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}} 
+\index{Game\+State@{Game\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily virtual void Game\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual function 
+
+Implemented in \hyperlink{class_lost_state_aa35179942033d9ab54fbcd7122f40497}{Lost\+State}, \hyperlink{class_won_state_aeaab03fa1a39188c19107047417c65b6}{Won\+State}, \hyperlink{class_playing_state_a936d41a2041ace2ccb67a9b779d113a7}{Playing\+State}, \hyperlink{class_get_ready_state_afac1da927d38cf32960f2370856ec9f6}{Get\+Ready\+State}, and \hyperlink{class_no_coin_state_a417209eadad2f71284cf09d369bc389e}{No\+Coin\+State}.
+
+\mbox{\Hypertarget{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}\label{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}} 
+\index{Game\+State@{Game\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily virtual void Game\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual function
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_lost_state_abc978a14604451eee5e0373b4ad374c8}{Lost\+State}, \hyperlink{class_won_state_a56b272d25511e6a302136d308648464b}{Won\+State}, \hyperlink{class_playing_state_af205fbb130a2c83b260d80359de914e8}{Playing\+State}, \hyperlink{class_get_ready_state_a0a7f1548b4c58e8bd5634ceb59ba7b9b}{Get\+Ready\+State}, and \hyperlink{class_no_coin_state_a9fe8f36082705e6f5833244890093adc}{No\+Coin\+State}.
+
+\mbox{\Hypertarget{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}\label{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}} 
+\index{Game\+State@{Game\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily virtual void Game\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual function 
+
+Implemented in \hyperlink{class_lost_state_ab0ec749961cfe909dc61289d14444a71}{Lost\+State}, \hyperlink{class_won_state_ab17f101d9ab90e60259e28b8775a76ec}{Won\+State}, \hyperlink{class_playing_state_ae59ff244a6cd4a3c6f6fcaef41f4d8c5}{Playing\+State}, \hyperlink{class_get_ready_state_a414a505ec783b1bf577b1b859abaee46}{Get\+Ready\+State}, and \hyperlink{class_no_coin_state_a47dd2924ce9601b45ee11e0d9b8452f7}{No\+Coin\+State}.
+
+\mbox{\Hypertarget{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}\label{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}} 
+\index{Game\+State@{Game\+State}!update@{update}}
+\index{update@{update}!Game\+State@{Game\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Game\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual function
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_lost_state_a16d5e12284d03f8dd6b25a897b25839b}{Lost\+State}, \hyperlink{class_won_state_a0ea91513e3df2eafbe8ef7b9810eaff1}{Won\+State}, \hyperlink{class_playing_state_a62b3904b8a971fed2f8fab4eb73bd9e5}{Playing\+State}, \hyperlink{class_get_ready_state_a6e5a1035b4ee7a52aa28027a0b99dd8a}{Get\+Ready\+State}, and \hyperlink{class_no_coin_state_af0194851310c6df176770713341a8b80}{No\+Coin\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}

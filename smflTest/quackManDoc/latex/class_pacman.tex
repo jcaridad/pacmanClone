@@ -1,0 +1,117 @@
+\hypertarget{class_pacman}{}\section{Pacman Class Reference}
+\label{class_pacman}\index{Pacman@{Pacman}}
+
+
+{\ttfamily \#include $<$pacman.\+hpp$>$}
+
+Inheritance diagram for Pacman\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_pacman}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pacman_a7be693fb4bf4dc49ede1f022e79022e0}{Pacman} (sf\+::\+Texture \&a\+\_\+texture)
+\item 
+void \hyperlink{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}{die} ()
+\item 
+bool \hyperlink{class_pacman_afefb1eac50a96a7449ee8e910688614e}{is\+Dying} () const
+\item 
+bool \hyperlink{class_pacman_a5f0f0398fc20f7c06c5f05a20ad2c1ed}{is\+Dead} () const
+\item 
+void \hyperlink{class_pacman_a6badb47a28223991a1eb540f9d970e77}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_pacman_a6b190109b2d9400c4eb7c52913ffd0c6}{reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_pacman}{Pacman} Class This Class Inherits from the \hyperlink{class_character}{Character} Class. It focuses on all of Pac-\/\+Man/\+Quack\+Man\textquotesingle{}s attributes and behavior such as, Animation Sprites, Running and Dying Animation, and Death. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_character}{Character} Class 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pacman_a7be693fb4bf4dc49ede1f022e79022e0}\label{class_pacman_a7be693fb4bf4dc49ede1f022e79022e0}} 
+\index{Pacman@{Pacman}!Pacman@{Pacman}}
+\index{Pacman@{Pacman}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{Pacman()}{Pacman()}}
+{\footnotesize\ttfamily Pacman\+::\+Pacman (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{a\+\_\+texture }\end{DoxyParamCaption})}
+
+A \hyperlink{class_pacman}{Pacman} Constructor Initiates the following member variables
+\begin{DoxyItemize}
+\item m\+\_\+visual
+\item m\+\_\+is\+Dead
+\item m\+\_\+is\+Dying Also uploads animation frames data into the animation sprites
+\item m\+\_\+run\+Animator
+\item m\+\_\+die\+Animator
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+texture} & the texture sheet \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}\label{class_pacman_a880f3f899b2f2d1ee9969fa049f7289d}} 
+\index{Pacman@{Pacman}!die@{die}}
+\index{die@{die}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Pacman\+::die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function ensure that the Pac-\/\+Man/\+Quack\+Man death animation plays and indicate that Player is dead \mbox{\Hypertarget{class_pacman_a5f0f0398fc20f7c06c5f05a20ad2c1ed}\label{class_pacman_a5f0f0398fc20f7c06c5f05a20ad2c1ed}} 
+\index{Pacman@{Pacman}!is\+Dead@{is\+Dead}}
+\index{is\+Dead@{is\+Dead}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{is\+Dead()}{isDead()}}
+{\footnotesize\ttfamily bool Pacman\+::is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for m\+\_\+is\+Dead
+
+\begin{DoxyReturn}{Returns}
+returns whether the player is dead or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pacman_afefb1eac50a96a7449ee8e910688614e}\label{class_pacman_afefb1eac50a96a7449ee8e910688614e}} 
+\index{Pacman@{Pacman}!is\+Dying@{is\+Dying}}
+\index{is\+Dying@{is\+Dying}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{is\+Dying()}{isDying()}}
+{\footnotesize\ttfamily bool Pacman\+::is\+Dying (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This function is a get function for m\+\_\+is\+Dying
+
+\begin{DoxyReturn}{Returns}
+returns true dying animation is currently playing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pacman_a6b190109b2d9400c4eb7c52913ffd0c6}\label{class_pacman_a6b190109b2d9400c4eb7c52913ffd0c6}} 
+\index{Pacman@{Pacman}!reset@{reset}}
+\index{reset@{reset}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Pacman\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function restarts Pac-\/\+Man/\+Quack\+Man\textquotesingle{}s Animation back to it\textquotesingle{}s running state \mbox{\Hypertarget{class_pacman_a6badb47a28223991a1eb540f9d970e77}\label{class_pacman_a6badb47a28223991a1eb540f9d970e77}} 
+\index{Pacman@{Pacman}!update@{update}}
+\index{update@{update}!Pacman@{Pacman}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Pacman\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function checks the Player\textquotesingle{}s current status in game (Dead or Alive) and plays the animation according to it\textquotesingle{}s current state
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_character_a89b72b507971ba8648909980d045ed06}{Character}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pacman_8hpp}{pacman.\+hpp}\item 
+\hyperlink{pacman_8cpp}{pacman.\+cpp}\end{DoxyCompactItemize}

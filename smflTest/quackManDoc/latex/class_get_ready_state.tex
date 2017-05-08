@@ -1,0 +1,130 @@
+\hypertarget{class_get_ready_state}{}\section{Get\+Ready\+State Class Reference}
+\label{class_get_ready_state}\index{Get\+Ready\+State@{Get\+Ready\+State}}
+
+
+{\ttfamily \#include $<$game\+State.\+hpp$>$}
+
+Inheritance diagram for Get\+Ready\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_get_ready_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_get_ready_state_a227e45622dad03369a88024b54df0e92}{Get\+Ready\+State} (\hyperlink{class_game}{Game} $\ast$a\+\_\+game)
+\item 
+void \hyperlink{class_get_ready_state_afac1da927d38cf32960f2370856ec9f6}{insert\+Coin} ()
+\item 
+void \hyperlink{class_get_ready_state_a414a505ec783b1bf577b1b859abaee46}{press\+Button} ()
+\item 
+void \hyperlink{class_get_ready_state_a0a7f1548b4c58e8bd5634ceb59ba7b9b}{move\+Stick} (sf\+::\+Vector2i a\+\_\+direction)
+\item 
+void \hyperlink{class_get_ready_state_a6e5a1035b4ee7a52aa28027a0b99dd8a}{update} (sf\+::\+Time a\+\_\+delta)
+\item 
+void \hyperlink{class_get_ready_state_a5526ece0f8f8becab78b78fbc7919045}{draw} (sf\+::\+Render\+Window \&a\+\_\+window)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_get_ready_state}{Get\+Ready\+State} This class inherits from the \hyperlink{class_game_state}{Game\+State} Class. This game state is launched right before the game is played. During the state it waits for an input(\char`\"{}\+S\char`\"{}) to ensure that the player is ready to play. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_get_ready_state_a227e45622dad03369a88024b54df0e92}\label{class_get_ready_state_a227e45622dad03369a88024b54df0e92}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!Get\+Ready\+State@{Get\+Ready\+State}}
+\index{Get\+Ready\+State@{Get\+Ready\+State}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{Get\+Ready\+State()}{GetReadyState()}}
+{\footnotesize\ttfamily Get\+Ready\+State\+::\+Get\+Ready\+State (\begin{DoxyParamCaption}\item[{\hyperlink{class_game}{Game} $\ast$}]{a\+\_\+game }\end{DoxyParamCaption})}
+
+A \hyperlink{class_get_ready_state}{Get\+Ready\+State} Consturctor Initiates the \char`\"{}\+Press S to Start\char`\"{} text to be rendered to the screen 
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+game} & the current game instance \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_get_ready_state_a5526ece0f8f8becab78b78fbc7919045}\label{class_get_ready_state_a5526ece0f8f8becab78b78fbc7919045}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!draw@{draw}}
+\index{draw@{draw}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Get\+Ready\+State\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{a\+\_\+window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function renders the text on the window
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+window} & the window where the game is rendered \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_a5ffd5ce9acb7499ddef613e8836d1ef8}{Game\+State}.
+
+\mbox{\Hypertarget{class_get_ready_state_afac1da927d38cf32960f2370856ec9f6}\label{class_get_ready_state_afac1da927d38cf32960f2370856ec9f6}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!insert\+Coin@{insert\+Coin}}
+\index{insert\+Coin@{insert\+Coin}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{insert\+Coin()}{insertCoin()}}
+{\footnotesize\ttfamily void Get\+Ready\+State\+::insert\+Coin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_game_state_a4cd6f5b4ad23fc08dca287df26d94b94}{Game\+State}.
+
+\mbox{\Hypertarget{class_get_ready_state_a0a7f1548b4c58e8bd5634ceb59ba7b9b}\label{class_get_ready_state_a0a7f1548b4c58e8bd5634ceb59ba7b9b}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!move\+Stick@{move\+Stick}}
+\index{move\+Stick@{move\+Stick}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{move\+Stick()}{moveStick()}}
+{\footnotesize\ttfamily void Get\+Ready\+State\+::move\+Stick (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{a\+\_\+direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+direction} & the desired direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_aaae8c1b3ae6969eb2dd81bfc12fbf43f}{Game\+State}.
+
+\mbox{\Hypertarget{class_get_ready_state_a414a505ec783b1bf577b1b859abaee46}\label{class_get_ready_state_a414a505ec783b1bf577b1b859abaee46}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!press\+Button@{press\+Button}}
+\index{press\+Button@{press\+Button}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{press\+Button()}{pressButton()}}
+{\footnotesize\ttfamily void Get\+Ready\+State\+::press\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function waits for the \char`\"{}\+S\char`\"{} input and switches the game state to the playing state 
+
+Implements \hyperlink{class_game_state_aa14eeaf244bcf19b7013af75cb722dde}{Game\+State}.
+
+\mbox{\Hypertarget{class_get_ready_state_a6e5a1035b4ee7a52aa28027a0b99dd8a}\label{class_get_ready_state_a6e5a1035b4ee7a52aa28027a0b99dd8a}} 
+\index{Get\+Ready\+State@{Get\+Ready\+State}!update@{update}}
+\index{update@{update}!Get\+Ready\+State@{Get\+Ready\+State}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Get\+Ready\+State\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{a\+\_\+delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This is an empty function to override it\textquotesingle{}s virtual counter part \begin{DoxySeeAlso}{See also}
+\hyperlink{class_game_state}{Game\+State} Class 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+delta} & the current time \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_game_state_ab1fe4312f7ce88e7dc11f9935dee67d1}{Game\+State}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{game_state_8hpp}{game\+State.\+hpp}\item 
+\hyperlink{game_state_8cpp}{game\+State.\+cpp}\end{DoxyCompactItemize}
